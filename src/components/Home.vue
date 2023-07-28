@@ -1,5 +1,3 @@
 <template>
-    <div>
-        <h1>this is the Home page</h1>
-    </div>
+    <div class="container w-full items-center mx-auto bg-lgreen"></div>
 </template>

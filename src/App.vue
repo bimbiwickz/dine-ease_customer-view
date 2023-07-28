@@ -12,9 +12,8 @@ import Home from './components/Home.vue';
  
 export default defineComponent({
   components: {
-    // SignUp,
     Home,
-    NavBar
+    NavBar,
   }
 });
 </script>
