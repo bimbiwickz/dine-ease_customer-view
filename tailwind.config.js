@@ -11,6 +11,7 @@ export default {
       colors:{
         'white': '#FFFFFF',
         'green': '#007400',
+        'hover-green': '#006600',
         'yellow': '#FFC700',
         'lgreen': '#ECF8F8',
         'txt-gray': '#4F5052',

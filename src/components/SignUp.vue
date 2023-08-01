@@ -20,7 +20,7 @@
             <input type="password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
             <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Confirm Password</label><br>
             <input type="password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <input type="button" value="Register" class="w-full bg-green text-white font-semibold py-2 px-4 cursor-pointer rounded-md my-4 hover:bg-lgreen  hover:text-green">
+            <input type="button" value="Register" class="w-full  font-semibold py-2 px-4 cursor-pointer rounded-md my-4   bg-green pb-2 pt-2.5 text-normal leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green  focus:bg-green active:bg-green">
             <p class="text-black font-light flex justify-center text-sm ">Already have an account? <a href="#" class="text-green">Login</a></p>
             <div class="or flex items-center my-4">
               <hr class="flex-grow border-gray-400">
