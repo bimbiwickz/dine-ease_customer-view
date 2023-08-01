@@ -1,7 +1,7 @@
 <template>
     <!-- Main navigation container -->
     <nav
-    class="relative flex w-full flex-wrap items-center justify-between bg-[#00000056] py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-black-500 lg:py-4"
+    class="relative flex w-full flex-wrap items-center justify-between bg-[#FBFBFB] py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4"
     data-te-navbar-ref>
     <div class="flex w-full flex-wrap items-center justify-between px-3">
         <div>
@@ -48,14 +48,14 @@
         data-te-collapse-item>
         <!-- Left links -->
         <ul
-            class="list-style-none mr-4 ml-auto flex flex-col pl-0 lg:mt-1 lg:flex-row"
+            class="list-style-none mr-auto flex flex-col ml-[850px] lg:mt-1 lg:flex-row"
             data-te-navbar-nav-ref>
             <!-- Home link -->
             <li
             class="my-4 pl-2 lg:my-0 lg:pl-2 lg:pr-1"
             data-te-nav-item-ref>
             <a
-            class="text-white hover:text-green focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                class="text-white hover:text-green focus:text-neutral-700 disabled:text-black/30  lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
                 aria-current="page"
                 href="/"
                 data-te-nav-link-ref
@@ -67,7 +67,7 @@
             class="my-4 pl-2 lg:my-0 lg:pl-2 lg:pr-1"
             data-te-nav-item-ref>
             <a
-                class="text-white hover:text-green focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                class="text-white hover:text-green focus:text-neutral-700 disabled:text-black/30  lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
                 aria-current="page"
                 href="/about"
                 data-te-nav-link-ref
@@ -79,7 +79,7 @@
             class="my-4 pl-2 lg:my-0 lg:pl-2 lg:pr-1"
             data-te-nav-item-ref>
             <a
-                class="text-white hover:text-green focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                class="text-white hover:text-green focus:text-neutral-700 disabled:text-black/30 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
                 aria-current="page"
                 href="/contact"
                 data-te-nav-link-ref
@@ -94,7 +94,7 @@
                 type="button"
                 data-te-ripple-init
                 data-te-ripple-color="light"
-                class="mr-3 inline-block px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-green transition duration-150 ease-in-out bg-white rounded-full hover:text-new">
+                class="mr-3 inline-block px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-green transition duration-150 ease-in-out bg-white rounded-full hover:text-txt-gray">
                 Login 
                 </button>
             </a>
@@ -103,8 +103,7 @@
                 type="button"
                 data-te-ripple-init
                 data-te-ripple-color="light"
-                class="inline-block rounded-full bg-green px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-green-400 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-green-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]
-                hover:bg-lgreen hover:text-green">
+                class="inline-block rounded-full bg-green px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green  focus:bg-green active:bg-green">
                 Get Started
                 </button>
             </a>
@@ -115,7 +114,7 @@
 </template>
 
 <script lang="ts">
-    import { Collapse, initTE } from "tw-elements";
+    import { Collapse, initTE, Ripple } from "tw-elements";
 
-initTE({ Collapse });
+initTE({ Collapse, Ripple });
 </script>
