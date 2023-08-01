@@ -11,7 +11,7 @@
             <img
             class="mr-2"
             src="../assets/dine ease logo white.png"
-            style="height: 60px"
+            style="height: 40px"
             alt="TE Logo"
             loading="lazy" />
         </a>
