@@ -8,7 +8,7 @@
   font-weight: normal;
 }
 
-a,
+/* a,
 .green {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
@@ -27,9 +27,14 @@ a,
     place-items: center;
   }
 
+<<<<<<< Updated upstream
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
 }
+=======
+  
+} */
+>>>>>>> Stashed changes
