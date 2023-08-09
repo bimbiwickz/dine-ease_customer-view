@@ -9,6 +9,9 @@ import { createRouter, createWebHistory} from 'vue-router';
 import App from './App.vue'
 import Home from './components/Home.vue' 
 import SignUp from './components/SignUp.vue'
+import ManagerHome from './components/Manager/ManagerHome.vue'
+import AcceptOrder from './components/Manager/acceptOrder.vue'
+import OrderDetails from './components/Manager/OrderDetails.vue'
 
 const routes = [
     {
@@ -18,7 +21,21 @@ const routes = [
     {
         path: '/signup',
         component: SignUp, 
-    }
+    },
+    {
+        path:'/managerhome',
+        component: ManagerHome
+    },
+    {
+        path: '/accept-order',
+        component: AcceptOrder
+    },
+    {
+        path: '/accept-order/:orderId',
+        name: 'order-details',
+        component: OrderDetails,
+        props: true,
+    },
 ];
 
 const router = createRouter({

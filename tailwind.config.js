@@ -16,6 +16,10 @@ export default {
         'lgreen': '#ECF8F8',
         'txt-gray': '#4F5052',
         'lgray': '#898585',
+        'primary':'#007400',
+        'second': '#19AB4F',
+        'red':'#C50000',
+        'lyellow':'#FAFFC2'
       },
       fontFamily: {
         'sans': ['Inter', 'sans-serif'],
