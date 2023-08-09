@@ -3,7 +3,7 @@
 </style>
 
 <template>
-    <div class="grid grid-cols-3 gap-4 p-4">
+    <div v-if="userRole === 'user'" class="grid grid-cols-3 gap-4 p-4">
         <div class="shadow p-4 rounded-lg">
         <div class="grid grid-cols-1 p-4 shadow rounded-lg bg-white">
             <div class="flex flex-col items-center justify-center">
@@ -88,6 +88,11 @@ import { defineComponent } from 'vue';
                 ],
             };
         },
+        computed: {
+            userRole() {
+            return localStorage.getItem('userRole');
+            },
+        },
         created() {
             this.getCurrentDateTime();
             setInterval(this.getCurrentDateTime, 1000); // Update every 1 second (1000 ms)
@@ -126,6 +131,11 @@ import { defineComponent } from 'vue';
                 //     this.buttonText = "Not Arrived";
                 // }
 
+            },
+            logout() {
+                localStorage.removeItem('loggedIn');
+                localStorage.removeItem('userRole');
+                this.$router.push('../login'); // Redirect to login page
             },
         }
     });
