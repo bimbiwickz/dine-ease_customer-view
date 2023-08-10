@@ -1,10 +1,6 @@
 <template>
   <div class="flex flex-col min-h-screen font-sans">
-    if(role==0){
-      <NavBar />
-    }else if(role==1){
-      <MgNavBar />
-    }
+    <MgNavBar />
     <router-view></router-view> 
   </div>
 </template>
@@ -16,8 +12,7 @@ import MgNavBar from './components/MgNavBar.vue';
 import Home from './components/Home.vue';
 import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder from './components/Manager/acceptOrder.vue'
-import OrderDetails from './components/Manager/OrderDetails.vue'
-import login from "./components/"
+//import OrderDetails from './components/Manager/OrderDetails.vue'
  
 export default defineComponent({
   components: {
@@ -26,8 +21,7 @@ export default defineComponent({
     MgNavBar,
     ManagerHome,
     AcceptOrder,
-    OrderDetails,
-    login
+    //OrderDetails
   }
 });
 </script>

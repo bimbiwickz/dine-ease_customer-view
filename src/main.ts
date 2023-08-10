@@ -11,8 +11,7 @@ import Home from './components/Home.vue'
 import SignUp from './components/SignUp.vue'
 import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder from './components/Manager/acceptOrder.vue'
-import OrderDetails from './components/Manager/OrderDetails.vue'
-import login from './components/login.vue'
+//import OrderDetails from './components/Manager/OrderDetails.vue'
 
 const routes = [
     {
@@ -28,19 +27,10 @@ const routes = [
         component: ManagerHome
     },
     {
-        path: '/accept-order',
-        component: AcceptOrder
-    },
-    {
-        path: '/accept-order/:orderId',
-        name: 'order-details',
-        component: OrderDetails,
-        props: true,
-    },
-    { 
-        path: '/login', 
-        component: login
-    },
+        path: '/accept-order/', // Dynamic parameter ':orderNo'
+        name: 'Orders',
+        component: AcceptOrder,
+      },
 ];
 
 const router = createRouter({

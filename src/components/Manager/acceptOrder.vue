@@ -14,9 +14,7 @@
                     Orders Queue
                     <ul class="overflow-y-scroll h-3/5 pr-4">
                         <li v-for="(reserve, index) in reserves" :key="reserve.id">
-                            <router-link
-                            :to="{ name: 'order-details', params: { orderId: reserve.id } }"
-                            >
+                            
                             <div class="flex flex-row shadow px-4 py-4 mb-2 rounded-md bg-white ease-in-out hover:bg-lyellow cursor-pointer" 
                             :class="{ 'bg-lyellow': reserve.isActive }"
                             @click="toggleActive(index)"
@@ -27,7 +25,6 @@
                                     <div class="p-0">Chicken Rice & Curry, Sprite (Regular), Ice Cream 1 scp... see more</div>
                                 </div>
                             </div>
-                            </router-link>
                         </li>
                     </ul>
                 </div>
@@ -74,13 +71,13 @@
 
 import { defineComponent } from 'vue';
 
-import OrderDetails from './OrderDetails.vue'
+//import OrderDetails from './OrderDetails.vue'
 
 
     export default defineComponent({
         name: 'ManagerHome',
         components: {
-            OrderDetails,
+            //OrderDetails,
         },
         data() {
             return {
@@ -152,10 +149,7 @@ import OrderDetails from './OrderDetails.vue'
                     }
                 });
             },
-            showDetails(orderId) {
-            // Fetch order details based on orderId and assign to selectedOrderDetails
-            this.selectedOrderDetails = fetchOrderDetails(orderId);
-            },
+            
         }
     });
 import { Carousel, initTE } from "tw-elements";
