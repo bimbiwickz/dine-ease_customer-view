@@ -98,7 +98,7 @@
 import { defineComponent } from 'vue';
 
     export default defineComponent({
-        name: 'ManagerHome',
+        /* name: 'ManagerHome', */
         data() {
             return {
                 //title: 'Dashboard | Manager',

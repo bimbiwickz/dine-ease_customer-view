@@ -12,13 +12,14 @@ import MgNavBar from './components/MgNavBar.vue';
 import Home from './components/Home.vue';
 import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder from './components/Manager/acceptOrder.vue'
-//import OrderDetails from './components/Manager/OrderDetails.vue'
+import Login from './components/login.vue'
  
 export default defineComponent({
   components: {
     Home,
     NavBar,
     MgNavBar,
+    Login,
     ManagerHome,
     AcceptOrder,
     //OrderDetails

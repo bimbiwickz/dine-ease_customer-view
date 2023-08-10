@@ -8,30 +8,30 @@
           <div class="logo pr-48">
             <img class="w-32 h-32" src="../assets/dine ease logo color.png" alt="">
           </div>
-          <div class="sign-up-form w-2/3 ">
-            <h1 class="font-sans text-3xl text-center font-semibold pb-4 ">Register</h1>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Name</label><br>
-            <input type="text" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Email</label><br>
-            <input type="text" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Mobile</label><br>
-            <input type="text" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Password</label><br>
-            <input type="password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Confirm Password</label><br>
-            <input type="password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <input type="button" value="Register" class="w-full  font-semibold py-2 px-4 cursor-pointer rounded-md my-4   bg-green pb-2 pt-2.5 text-normal leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green  focus:bg-green active:bg-green">
-            <p class="text-black font-light flex justify-center text-sm ">Already have an account? <a href="#" class="text-green">Login</a></p>
+          <div class="sign-up-form w-2/3">
+            <h1 class="font-sans text-3xl text-center font-semibold pb-4">Register</h1>
+            <label for="name" class="text-gray-700 pt-3 font-medium text-sm">Name</label><br>
+            <input v-model="formData.name" type="text" id="name" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <label for="email" class="text-gray-700 pt-3 font-medium text-sm">Email</label><br>
+            <input v-model="formData.email" type="text" id="email" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <label for="mobile" class="text-gray-700 pt-3 font-medium text-sm">Mobile</label><br>
+            <input v-model="formData.mobile" type="text" id="mobile" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <label for="password" class="text-gray-700 pt-3 font-medium text-sm">Password</label><br>
+            <input v-model="formData.password" type="password" id="password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <label for="confirm-password" class="text-gray-700 pt-3 font-medium text-sm">Confirm Password</label><br>
+            <input v-model="formData.confirmPassword" type="password" id="confirm-password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <input type="button" value="Register" @click="submitForm" class="w-full font-semibold py-2 px-4 cursor-pointer rounded-md my-4 bg-green pb-2 pt-2.5 text-normal leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green focus:bg-green active:bg-green">
+            <p class="text-black font-light flex justify-center text-sm">Already have an account? <a href="#" class="text-green">Login</a></p>
             <div class="or flex items-center my-4">
-              <hr class="flex-grow border-gray-400">
-              <p class="mx-4 text-gray-700 text-sm">OR</p>
-              <hr class="flex-grow border-gray-400">
+                <hr class="flex-grow border-gray-400">
+                <p class="mx-4 text-gray-700 text-sm">OR</p>
+                <hr class="flex-grow border-gray-400">
             </div>
-            <button class="flex justify-center border-2 border-green p-2 rounded ">
-              <img class="w-1/12 " src="../assets/google.png" alt="">
-              <p class="ml-2 text-sm">Continue with Google</p>
+            <button class="flex justify-center border-2 border-green p-2 rounded">
+                <img class="w-1/12" src="../assets/google.png" alt="">
+                <p class="ml-2 text-sm">Continue with Google</p>
             </button>
-          </div>
+        </div>
         </div>
         <div class="sign-up-right w-1/2" >
           <!-- Add content for the right side if needed -->
@@ -98,14 +98,27 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-    export default defineComponent({
-        name: 'SignUp',
-        data() {
-            return {
-                title: 'Sign Up Page'
-            };
-        }
-    });
+export default defineComponent({
+    name: 'SignUp',
+    data() {
+        return {
+            title: 'Sign Up Page',
+            formData: {
+                name: '',
+                email: '',
+                mobile: '',
+                password: '',
+                confirmPassword: '',
+            },
+        };
+    },
+    methods: {
+        submitForm() {
+            // Here you can access the form data from this.formData
+            // Call your backend API to submit the form data
+        },
+    },
+});
 import { Carousel, initTE } from "tw-elements";
 
 initTE({ Carousel });
