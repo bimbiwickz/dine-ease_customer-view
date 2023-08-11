@@ -155,7 +155,6 @@ export default defineComponent({
 
         if (response.status == 202) {
           console.log("Login successful, handle accordingly")
-          // this.navigateToHome();
         } else {
           console.log("Login failed, handle error")
         }
