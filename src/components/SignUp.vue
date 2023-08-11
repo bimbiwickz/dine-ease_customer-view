@@ -2,7 +2,7 @@
     @import '@/assets/main.css';
 </style>
 <template>
-    <div class="container items-center mx-auto bg-green-500 pl-72 pt-12 pb-12">
+    <div class="container items-center mx-auto bg-green-500 pl-72 pt-24 pb-12">
       <div class="container w-3/4 max-h-max bg-white content-center py-8 px-8 rounded-3xl flex flex-row ">
         <div class="sign-up-left w-1/2 flex flex-col items-center">
           <div class="logo pr-48">
@@ -21,7 +21,7 @@
             <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Confirm Password</label><br>
             <input type="password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
             <input type="button" value="Register" class="w-full  font-semibold py-2 px-4 cursor-pointer rounded-md my-4   bg-green pb-2 pt-2.5 text-normal leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green  focus:bg-green active:bg-green">
-            <p class="text-black font-light flex justify-center text-sm ">Already have an account? <a href="#" class="text-green">Login</a></p>
+            <p class="text-black font-light flex justify-center text-sm ">Already have an account? &nbsp; <a href="#" class="text-green">Login</a></p>
             <div class="or flex items-center my-4">
               <hr class="flex-grow border-gray-400">
               <p class="mx-4 text-gray-700 text-sm">OR</p>
