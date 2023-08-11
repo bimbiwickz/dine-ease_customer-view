@@ -126,6 +126,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+// import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'LogIn',
@@ -140,7 +141,7 @@ export default defineComponent({
     async loginUser() {
       console.log(this.email,this.password)
       try {
-        const response = await fetch('https://localhost:7251/api/auth', {
+        const response = await fetch('https://dineease-api.azurewebsites.net/api/auth', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -154,12 +155,16 @@ export default defineComponent({
 
         if (response.status == 202) {
           console.log("Login successful, handle accordingly")
+          // this.navigateToHome();
         } else {
           console.log("Login failed, handle error")
         }
       } catch (error) {
         console.log("Handle error (e.g., display error message")
       }
+    },
+    navigateToHome() {
+      window.location.href = '/Home'; // Change the URL to match your home.vue route
     }
   }
 })

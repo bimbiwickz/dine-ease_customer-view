@@ -11,16 +11,40 @@
           <div class="sign-up-form w-2/3">
             <h1 class="font-sans text-3xl text-center font-semibold pb-4">Register</h1>
             <label for="name" class="text-gray-700 pt-3 font-medium text-sm">Name</label><br>
-            <input v-model="formData.name" type="text" id="name" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <input 
+                v-model="formData.name" 
+                type="text"     
+                id="name" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
             <label for="email" class="text-gray-700 pt-3 font-medium text-sm">Email</label><br>
-            <input v-model="formData.email" type="text" id="email" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <input 
+                v-model="formData.email" 
+                type="text" 
+                id="email" 
+                class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
             <label for="mobile" class="text-gray-700 pt-3 font-medium text-sm">Mobile</label><br>
-            <input v-model="formData.mobile" type="text" id="mobile" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <input 
+                v-model="formData.mobile" 
+                type="text" 
+                id="mobile" 
+                class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
             <label for="password" class="text-gray-700 pt-3 font-medium text-sm">Password</label><br>
-            <input v-model="formData.password" type="password" id="password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <input 
+                v-model="formData.password" 
+                type="password" 
+                id="password" 
+                class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
             <label for="confirm-password" class="text-gray-700 pt-3 font-medium text-sm">Confirm Password</label><br>
-            <input v-model="formData.confirmPassword" type="password" id="confirm-password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <input type="button" value="Register" @click="submitForm" class="w-full font-semibold py-2 px-4 cursor-pointer rounded-md my-4 bg-green pb-2 pt-2.5 text-normal leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green focus:bg-green active:bg-green">
+            <input 
+                v-model="formData.confirmPassword" 
+                type="password" 
+                id="confirm-password" 
+                class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
+            <button 
+                type="button" 
+                value="Register" 
+                @click="signupUser()" 
+                class="w-full font-semibold py-2 px-4 cursor-pointer rounded-md my-4 bg-green pb-2 pt-2.5 text-normal leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green focus:bg-green active:bg-green">
+                Register</button>
             <p class="text-black font-light flex justify-center text-sm">Already have an account? <a href="#" class="text-green">Login</a></p>
             <div class="or flex items-center my-4">
                 <hr class="flex-grow border-gray-400">
@@ -113,10 +137,40 @@ export default defineComponent({
         };
     },
     methods: {
-        submitForm() {
-            // Here you can access the form data from this.formData
-            // Call your backend API to submit the form data
-        },
+    async signupUser() {
+    console.log(this.formData.email,this.formData.password)
+    try {
+        const response = await fetch('https://dineease-api.azurewebsites.net/api/user', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: this.formData.name,
+            name: this.formData.name,
+            address: this.formData.email,
+            phone: this.formData.mobile,
+            email: this.formData.email,
+            authentication: {
+              password: this.formData.password
+            }
+          })
+        })
+
+        if (response.status == 201) {
+          console.log("Signup successful, handle accordingly")
+          this.navigateToHome();
+        } else {
+          console.log("Login failed, handle error")
+        }
+      } catch (error) {
+        console.log("Handle error (e.g., display error message")
+      }
+    },
+    navigateToHome() {
+      window.location.href = '/Home'; // Change the URL to match your home.vue route
+    }
     },
 });
 import { Carousel, initTE } from "tw-elements";
