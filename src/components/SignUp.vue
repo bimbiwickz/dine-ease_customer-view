@@ -147,9 +147,9 @@ export default defineComponent({
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            username: this.formData.name,
+            username: 'username',
             name: this.formData.name,
-            address: this.formData.email,
+            address: 'address',
             phone: this.formData.mobile,
             email: this.formData.email,
             authentication: {
