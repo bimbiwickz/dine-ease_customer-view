@@ -3,7 +3,11 @@
 </style>
 
 <template>
-    <div class="grid grid-cols-3 gap-4 p-4">
+    <div>
+        <navbar/>
+    </div>
+    
+    <div class="grid grid-cols-3 gap-4 p-4 mt-20">
         <div class="shadow p-4 rounded-lg">
         <div class="grid grid-cols-1 p-4 shadow rounded-lg bg-white">
             <div class="flex flex-col items-center justify-center">
@@ -66,15 +70,14 @@
                 <div class="py-4 text-black font-bold">Orders Queue</div>
             </div>
                 <ul class="overflow-y-scroll h-3/5 pr-4">
-                    <li v-for="(order, index) in ordersWithPrice" :key="order.id">
+                    <li v-for="(pending, index) in pendings" :key="pending.id">
                         <div class="flex flex-row shadow px-4 py-4 mb-2 rounded-md bg-white">
-                            <div class="w-20 h-20 py-5 bg-primary items-center align-middle text-white font-bold rounded-md text-center text-4xl">{{order.tableNo}}</div>
+                            <div class="w-20 h-20 py-5 bg-primary items-center align-middle text-white font-bold rounded-md text-center text-4xl">{{pending.tableNo}}</div>
                             <div class="flex flex-col pl-3 text-sm gap-0.5">
-                                <div class="flex flex-row"><div class="p-0 font-bold">Order ID:</div> <div class="pl-2">{{order.id}}</div></div>
-                                <div class="">{{order.custName}}</div>
-                                <div class="flex flex-row"><div class="p-0 font-bold">FInal Price:</div> <div class="font-bold">{{order.price.toFixed(2)}}</div></div>
-                                <button :class="{ 'w-40 bg-white text-primary border border-1 border-primary rounded-md py-2 font-bold': !order.isClicked, 'w-40 bg-second text-white rounded-md py-2 font-bold': order.isClicked }" @click="toggleColor2(index)">
-                                    {{ order.buttonText }}
+                                <div class="flex flex-row"><div class="p-0 font-bold">Order ID:</div> <div class="pl-2">{{pending.id}}</div></div>
+                                <div class="">{{pending.custName}}</div>
+                                <button :class="{ 'w-40 bg-white text-primary border border-1 border-primary rounded-md py-2 font-bold': !pending.isClicked, 'w-40 bg-second text-white rounded-md py-2 font-bold': pending.isClicked }" @click="toggleColor2(index)">
+                                    {{ pending.buttonText }}
                                 </button>
                             </div>
                         </div>
@@ -94,11 +97,12 @@
 
 
 <script lang="ts">
-
+import navbar from '../NavBar/MgNavBar.vue';
 import { defineComponent } from 'vue';
 
     export default defineComponent({
         /* name: 'ManagerHome', */
+        components: {navbar},
         data() {
             return {
                 //title: 'Dashboard | Manager',
@@ -127,7 +131,21 @@ import { defineComponent } from 'vue';
                     { id: 12, tableNo: '14', custName: 'Henry Brown', total: '$70', discount: '8%', isClicked: false, buttonText: 'Not Served' },
                     { id: 13, tableNo: '15', custName: 'Isabel Lee', total: '$85', discount: '12%', isClicked: false, buttonText: 'Not Served' },
                     { id: 14, tableNo: '16', custName: 'Jack Davis', total: '$55', discount: '7%', isClicked: false, buttonText: 'Not Served' }
-                ]
+                ],
+
+                pendings: [
+                    { id: 5, tableNo: '03', custName: 'Alice Johnson', total: '$75', discount: '12%', isClicked: false, buttonText: 'Not Accepted' },
+                    { id: 6, tableNo: '11', custName: 'Bob Smith', total: '$55', discount: '7%', isClicked: false, buttonText: 'Not Accepted' },
+                    { id: 7, tableNo: '08', custName: 'Charlie Brown', total: '$90', discount: '20%', isClicked: false, buttonText: 'Not Accepted' },
+                    { id: 8, tableNo: '02', custName: 'David Lee', total: '$70', discount: '10%', isClicked: false, buttonText: 'Not Accepted' },
+                    { id: 9, tableNo: '07', custName: 'Ella Davis', total: '$45', discount: '6%', isClicked: false, buttonText: 'Not Accepted' },
+                    { id: 10, tableNo: '05', custName: 'Frank Johnson', total: '$60', discount: '15%', isClicked: false, buttonText: 'Not Accepted' },
+                    { id: 11, tableNo: '12', custName: 'Grace Smith', total: '$40', discount: '5%', isClicked: false, buttonText: 'Not Accepted' },
+                    { id: 12, tableNo: '14', custName: 'Henry Brown', total: '$70', discount: '8%', isClicked: false, buttonText: 'Not Accepted' },
+                    { id: 13, tableNo: '15', custName: 'Isabel Lee', total: '$85', discount: '12%', isClicked: false, buttonText: 'Not Accepted' },
+                    { id: 14, tableNo: '16', custName: 'Jack Davis', total: '$55', discount: '7%', isClicked: false, buttonText: 'Not Accepted' }
+                ],
+
 
             };
         },
@@ -183,8 +201,8 @@ import { defineComponent } from 'vue';
                 this.orders[index].buttonText = this.orders[index].isClicked ? 'Served' : 'Not Served';
             },
             toggleColor2(index: number) {
-                this.orders[index].isClicked = !this.orders[index].isClicked;
-                this.orders[index].buttonText = this.orders[index].isClicked ? 'Accepted' : 'Not Accepted';
+                this.pendings[index].isClicked = !this.pendings[index].isClicked;
+                this.pendings[index].buttonText = this.pendings[index].isClicked ? 'Accepted' : 'Not Accepted';
             },
 
             calculatePrice(total:any, discount:any) {
@@ -195,7 +213,7 @@ import { defineComponent } from 'vue';
             // You can use the Vue Router or window.location.href
             },
             goToOrderPage() {
-                window.location.href = '/accept-order';
+                window.location.href = '/accept/order-1';
             // Add your logic to redirect to the full page here
             // You can use the Vue Router or window.location.href
             },
