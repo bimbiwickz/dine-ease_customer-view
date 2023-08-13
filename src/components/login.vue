@@ -13,24 +13,47 @@
         <div class="sign-up-form w-2/3">
           <h1 class="font-sans text-3xl text-center font-semibold pb-4">Log In</h1>
           <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Email</label><br />
-          <input
+          <!-- <input
             type="text"
             v-model="email"
             class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
+          /><br /> -->
+          <input
+          type="text"
+          v-model="email"
+          :class="{
+            'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
+            'border-red': showError
+          }"
           /><br />
+<!-- ... Same for the password input -->
           <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Password</label
           ><br />
-          <input 
+          <input
+          type="password"
+          v-model="password"
+          :class="{
+            'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
+            'border-red': showError
+          }"
+          /><br />
+
+          <!-- Display error message if showError is true -->
+          <p v-if="showError" class="text-red font-medium text-md pb-2">
+            {{ errorMessage }}
+          </p>
+          
+          <!-- <input 
             type="password"
             v-model="password" 
             class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
-          /><br />
+          /><br /> -->
           <button type="button"
             class="w-full bg-green text-white font-semibold py-2 px-4 cursor-pointer rounded-md my-4 hover:bg-lgreen hover:text-green" @click="loginUser()"> 
             Login
           </button>
           <p class="text-black font-light flex justify-center text-sm">
-            Have not registered yet? <a href="#" class="text-green"> &nbsp;Signup</a>
+            Have not registered yet? <a href="/SignUp" class="text-green"> &nbsp;Signup</a>
           </p>
           <div class="or flex items-center my-4">
             <hr class="flex-grow border-gray-400" />
@@ -134,34 +157,48 @@ export default defineComponent({
     return {
       title: 'Log In Page',
       email: '',
-      password: ''
+      password: '',
+      showError: false, // Track if error should be shown
+      errorMessage: '' // Store the error message
     }
   },
   methods: {
     async loginUser() {
-      console.log(this.email,this.password)
-      try {
-        const response = await fetch('https://dineease-api.azurewebsites.net/api/auth', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password
-          })
+  console.log(this.email, this.password);
+  try {
+    const response = await fetch(
+      'https://dineease-api.azurewebsites.net/api/auth',
+      {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password
         })
-
-        if (response.status == 202) {
-          console.log("Login successful, handle accordingly")
-        } else {
-          console.log("Login failed, handle error")
-        }
-      } catch (error) {
-        console.log("Handle error (e.g., display error message")
       }
-    },
+    );
+
+    if (response.status === 202) {
+      console.log('Login successful, handle accordingly');
+      // Reset error state and clear error message
+      this.showError = false;
+      this.errorMessage = '';
+      this.$router.push('/managerhome'); 
+    } else if (response.status === 401) {
+      // Display error message and turn input boxes red
+      this.showError = true;
+      this.errorMessage = 'Email or password is incorrect';
+    } else {
+      console.log('Login failed, handle error', response.status);
+    }
+  } catch (error) {
+    console.log('Handle error (e.g., display error message)', error);
+  }
+},
+
     navigateToHome() {
       window.location.href = '/Home'; // Change the URL to match your home.vue route
     }
