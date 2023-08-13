@@ -11,8 +11,10 @@ import Home from './components/Home.vue'
 import SignUp from './components/SignUp.vue'
 import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder from './components/Manager/acceptOrder.vue'
-import Login from './components/login.vue'
+import Login from './components/LogIn.vue'
 import MgNavBar from './components/NavBar/MgNavBar.vue'
+import UserProfile from './components/Customer/UserProfileDashboard.vue'
+import Reservations from './components/Customer/Reservations.vue'
 
 
 const routes = [
@@ -38,7 +40,15 @@ const routes = [
         path: '/accept-order/', // Dynamic parameter ':orderNo'
         name: 'Orders',
         component: AcceptOrder,
-      },
+    },
+    {
+        path: '/user-profile',
+        component: UserProfile, 
+    },
+    {
+        path: '/reservations',
+        component: Reservations, 
+    }
 ];
 
 const router = createRouter({
