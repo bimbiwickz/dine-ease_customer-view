@@ -10,7 +10,8 @@ import App from './App.vue'
 import Home from './components/Home.vue' 
 import SignUp from './components/SignUp.vue'
 import ManagerHome from './components/Manager/ManagerHome.vue'
-import AcceptOrder from './components/Manager/acceptOrder.vue'
+import AcceptOrder1 from './components/Manager/orders/acceptOrder1.vue'
+import AcceptOrder2 from './components/Manager/orders/acceptOrder2.vue'
 import Login from './components/login.vue'
 import MgNavBar from './components/NavBar/MgNavBar.vue'
 
@@ -35,10 +36,15 @@ const routes = [
         }
     },
     {
-        path: '/accept-order/', // Dynamic parameter ':orderNo'
-        name: 'Orders',
-        component: AcceptOrder,
-      },
+        path: '/accept/order-1', // Dynamic parameter ':orderNo'
+        name: 'order1',
+        component: AcceptOrder1,
+    },
+    {
+        path: '/accept/order-2', // Dynamic parameter ':orderNo'
+        name: 'order2',
+        component: AcceptOrder2,
+    },
 ];
 
 const router = createRouter({
