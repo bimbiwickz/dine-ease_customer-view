@@ -19,8 +19,7 @@
                         <li v-for="(reserve, index) in reserves" :key="reserve.id">
                             
                             <div class="flex flex-row shadow px-4 py-4 mb-2 rounded-md bg-white ease-in-out hover:bg-lyellow cursor-pointer" 
-                            :class="{ 'bg-lyellow': reserve.isActive }"
-                            @click="toggleActive(index)"
+                            @click="toggleActive()"
                             >
                                 <div class="w-20 h-15 py-5 bg-primary items-center align-middle text-white font-bold rounded-md text-center text-2xl">{{reserve.tableNo}}</div>
                                 <div class="flex flex-col pl-3 text-sm gap-0.5">
@@ -146,9 +145,6 @@ import { defineComponent } from 'vue';
             toggleColor() {
                 this.isClicked = !this.isClicked;
                 this.buttonText = this.isClicked ? 'Accepted' : 'Accept';
-
-                
-
             },
             toggleActive() {
                 if (this.isClicked) {
