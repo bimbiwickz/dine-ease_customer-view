@@ -44,7 +44,7 @@ initTE({ Carousel });
   <dish_card food_image="https://img.delicious.com.au/uCIIsWC_/del/2021/06/aglio-e-olio-spaghetti-154257-2.jpg" type="veg" price="$15.99" dish_name="Spaghetti aglio e olio" description="Spaghetti tossed in garlic-infused olive oil, simplicity elevated."/>
   <dish_card food_image="https://www.italymagazine.com/sites/default/files/styles/800xauto/public/recipe/pizza-margherita-cottura_0.jpg?itok=2Jj0BXDI" type="veg" price="$15.99" dish_name="Pizza margherita" description="Tomato, mozzarella, basil; wood-fired Italian essence embraced."/>
   <dish_card food_image="https://www.cucchiaio.it/content/dam/cucchiaio/it/ricette/2009/11/ricetta-panna-cotta/panna%20cotta-1.jpg" type="veg" price="$15.99" dish_name="Panna cotta" description="Velvety dessert masterpiece with luscious creamy elegance."/>
-  <dish_card food_image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCCuXEGygYqTsGUhbQJszevL4-6frKxYWpA&usqp=CAU" type="Non veg" price="$15.99" dish_name="Tortellini" description="Elegant pasta pockets filled with rich, savory delights. Simply irresistible."/>
+  <!-- <dish_card food_image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCCuXEGygYqTsGUhbQJszevL4-6frKxYWpA&usqp=CAU" type="Non veg" price="$15.99" dish_name="Tortellini" description="Elegant pasta pockets filled with rich, savory delights. Simply irresistible."/> -->
 </div>
 
 </div>

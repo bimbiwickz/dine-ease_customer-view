@@ -14,7 +14,9 @@ import AcceptOrder1 from './components/Manager/orders/acceptOrder1.vue'
 import AcceptOrder2 from './components/Manager/orders/acceptOrder2.vue'
 import Login from './components/login.vue'
 import MgNavBar from './components/NavBar/MgNavBar.vue'
-
+import Menu from './components/Customer/MenuView.vue'
+import Cart from './components/Customer/CartView.vue'
+import Checkout from  './components/Customer/CheckoutView.vue'
 
 const routes = [
     {
@@ -45,6 +47,26 @@ const routes = [
         name: 'order2',
         component: AcceptOrder2,
     },
+    ,
+    {
+        path: '/customer/MenuView',
+        name: 'menu',
+        component: Menu,
+        props: true,
+    },
+    {
+        path: '/Customer/CartView',
+        name: 'cart',
+        component: Cart,
+        props: true,
+    },
+    {
+        path: '/Customer/CheckoutView',
+        name: 'checkout',
+        component: Checkout,
+        props: true,
+    },
+
 ];
 
 const router = createRouter({
