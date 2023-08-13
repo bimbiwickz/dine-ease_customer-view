@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col min-h-screen font-sans">
-    <StatNavBar/>
+    <navbar/>
     <router-view></router-view> 
   </div>
 </template>
@@ -14,7 +14,8 @@ import Home from './components/Home.vue';
 import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder from './components/Manager/acceptOrder.vue'
 import Login from './components/login.vue'
- 
+
+
 export default defineComponent({
   components: {
     Home,

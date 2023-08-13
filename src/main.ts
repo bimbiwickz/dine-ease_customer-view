@@ -12,6 +12,8 @@ import SignUp from './components/SignUp.vue'
 import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder from './components/Manager/acceptOrder.vue'
 import Login from './components/login.vue'
+import MgNavBar from './components/NavBar/MgNavBar.vue'
+
 
 const routes = [
     {
@@ -28,7 +30,9 @@ const routes = [
     },
     {
         path:'/managerhome',
-        component: ManagerHome
+        components: {
+          default: ManagerHome
+        }
     },
     {
         path: '/accept-order/', // Dynamic parameter ':orderNo'

@@ -3,6 +3,10 @@
 </style>
 
 <template>
+    <div>
+        <navbar/>
+    </div>
+    
     <div class="grid grid-cols-3 gap-4 p-4">
         <div class="shadow p-4 rounded-lg">
         <div class="grid grid-cols-1 p-4 shadow rounded-lg bg-white">
@@ -87,6 +91,10 @@
         </div>
 
     </div>
+    <div class="flex flex-row">
+        <div class="basis-1/4 shadow">01</div>
+        <div class="basis-3/4 shadow">02</div>
+    </div>
 </template>
   
   
@@ -94,11 +102,12 @@
 
 
 <script lang="ts">
-
+import navbar from '../NavBar/StaticNavBar.vue';
 import { defineComponent } from 'vue';
 
     export default defineComponent({
         /* name: 'ManagerHome', */
+        components: {navbar},
         data() {
             return {
                 //title: 'Dashboard | Manager',
