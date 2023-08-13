@@ -19,7 +19,7 @@
         <div class="flex p">
             <div class="py-4 text-black font-bold">Reservation Shedule</div>
         </div>
-            <ul class="overflow-y-scroll h-2/5 pr-4">
+            <ul class="min-h-screen h-2/10 pr-4">
                 <li v-for="(reserve, index) in reserves" :key="reserve.id">
                     <div class="flex flex-row shadow px-4 py-4 mb-2 rounded-md bg-white">
                         <div class="w-20 h-20 py-5 bg-primary items-center align-middle text-white font-bold rounded-md text-center text-4xl">{{reserve.tableNo}}</div>

@@ -154,7 +154,8 @@ export default defineComponent({
         })
 
         if (response.status == 202) {
-          console.log("Login successful, handle accordingly")
+          console.log("Login successful, handle accordingly");
+          this.$router.push('/managerhome'); 
         } else {
           console.log("Login failed, handle error")
         }
