@@ -76,7 +76,7 @@
                 @click="signupUser()" 
                 class="w-full font-semibold py-2 px-4 cursor-pointer rounded-md my-4 bg-green pb-2 pt-2.5 text-normal leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green focus:bg-green active:bg-green">
                 Register</button>
-            <p class="text-black font-light flex justify-center text-sm">Already have an account? <a href="#" class="text-green">Login</a></p>
+            <p class="text-black font-light flex justify-center text-sm">Already have an account? <a href="/login" class="text-green">Login</a></p>
             <div class="or flex items-center my-4">
                 <hr class="flex-grow border-gray-400">
                 <p class="mx-4 text-gray-700 text-sm">OR</p>
@@ -147,6 +147,17 @@
             </div>
         </div>
       </div>
+      <!-- Loding screen start -->
+      <div
+          v-if="loading"
+          class="fixed inset-0 flex flex-col items-center justify-center z-[9999] bg-black bg-opacity-75 text-white"
+        >
+          <p class="text-lg">Please Wait...</p>
+          <div class="mt-4">
+            <div class="animate-spin rounded-full h-10 w-10 border-t-4 border-blue"></div> <!-- Loading spinner -->
+          </div>
+        </div>
+        <!-- Loding screen end -->
     </div>
   </template>
 
@@ -172,6 +183,7 @@ export default defineComponent({
             password: '',
             confirmPassword: '',
             }as Record<string, string>, // Explicitly type the properties,
+            loading: false
         };
     },
     methods: {
@@ -185,6 +197,9 @@ export default defineComponent({
 
         console.log(this.formData.email, this.formData.password);
         try {
+            // Set loading to true
+            this.loading = true;
+
             const response = await fetch('https://dineease-api.azurewebsites.net/api/user', {
             method: 'POST',
             headers: {
@@ -202,6 +217,9 @@ export default defineComponent({
                 },
             }),
             });
+
+            // Reset loading state
+            this.loading = false;
 
             if (response.status === 201) {
                 console.log('Signup successful, handle accordingly');
