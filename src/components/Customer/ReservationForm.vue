@@ -43,12 +43,14 @@
       const submitForm = () => {
         // Implement form submission logic using the reservation object
         console.log('Reservation:', reservation.value);
+        window.location.reload();
         // ...
       };
   
       const closeForm = () => {
         showForm.value = false;
-        props.onClose();
+        //props.onClose();
+        window.location.reload();
       };
   
       return {
