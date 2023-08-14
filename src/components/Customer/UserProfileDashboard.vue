@@ -41,15 +41,15 @@
                     <div class="grid grid-cols-3 gap-4 gap-x-2">
                         
                         <div class="bg-gray-200 h-48 w-40 p-3 rounded-md shadow">
-                        <!-- Box content -->
+                        
                         Meal 1
                         </div>
                         <div class="bg-gray-200 h-48 w-40 p-4 rounded-md shadow">
-                        <!-- Box content -->
+                        
                         Meal 2
                         </div>
                         <div class="bg-gray-200 h-48 w-40 p-4 rounded-md shadow">
-                        <!-- Box content -->
+                        
                         Meal 3
                         </div>
                         
