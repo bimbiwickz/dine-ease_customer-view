@@ -44,7 +44,7 @@
       </a>
       <!-- Left navigation links -->
       <ul
-      class="list-style-none flex flex-col justify-center lg:flex-row"
+      class="list-style-none flex flex-col justify-center justify-between lg:flex-row"
           data-te-navbar-nav-ref>
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
           <!-- Dashboard link -->
@@ -73,7 +73,14 @@
               >Orders</a
           >
           </li>
+          
       </ul>
+      <div class="ml-50 w-100 bg-primary text-white rounded-2xl py-2 px-5" 
+      href="/analytics"
+      data-te-nav-link-ref
+      >
+        View Sales Analytics
+    </div>
       </div>
       <!-- Second dropdown container -->
       <div class="relative" data-te-dropdown-ref>
