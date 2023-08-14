@@ -30,7 +30,8 @@
             this.currentWordIndex++;
           }
         }, 200); // Adjust the interval as needed
-      }
+      },
+    
     }
   };
   </script>
