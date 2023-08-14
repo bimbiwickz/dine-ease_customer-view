@@ -1,4 +1,8 @@
+<script setup lang="ts">
+import nav_bar from "../NavBar/StaticNavBar.vue"
+</script>
 <template>
+	<nav_bar></nav_bar>
     <div class="h-screen bg-gray-300">
 	<div class="py-12">
 		
