@@ -10,15 +10,37 @@
         
         <div class="flex flex-row justify-around">
             <div class="grid grid-cols-3 gap-x-4 gap-y-8 mb-4">
-                <a href="" class="tooltip-link" ><img class="w-full h-38 object-cover " src="src/assets/images/table1.png" /></a>
-                <a href="" class="tooltip-link"><img class="w-full h-38 object-cover" src="src/assets/images/table1.png" /></a>
-                <a href="" class="tooltip-link"><img class="w-full h-38 object-cover" src="src/assets/images/table1.png" /></a>
-                <a href="" class="tooltip-link"><img class="w-full h-38 object-cover" src="src/assets/images/table1.png" /></a>
-                <a href="" class="tooltip-link"><img class="w-full h-38 object-cover" src="src/assets/images/table1.png" /></a>
-                <a href="" class="tooltip-link"><img class="w-full h-38 object-cover" src="src/assets/images/table1.png" /></a>
+                <a @click="showReservationForm(1)" class="tooltip-link">
+                    <img class="w-full h-38 object-cover " src="src/assets/images/table1.png" />
+                    <span class="absolute top-2 left-2 bg-white text-green-600 p-1 rounded">1</span>
+                </a>
+                <a @click="showReservationForm(2)" class="tooltip-link">
+                    <img class="w-full h-38 object-cover " src="src/assets/images/table1.png" />
+                    <span class="absolute top-2 left-2 bg-white text-green-600 p-1 rounded">2</span>
+                </a>
+                <a @click="showReservationForm(3)" class="tooltip-link">
+                    <img class="w-full h-38 object-cover " src="src/assets/images/table1.png" />
+                    <span class="absolute top-2 left-2 bg-white text-green-600 p-1 rounded">3</span>
+                </a>
+                <a @click="showReservationForm(4)" class="tooltip-link">
+                    <img class="w-full h-38 object-cover " src="src/assets/images/table1.png" />
+                    <span class="absolute top-2 left-2 bg-white text-green-600 p-1 rounded">4</span>
+                </a>
+                <a @click="showReservationForm(5)" class="tooltip-link">
+                    <img class="w-full h-38 object-cover " src="src/assets/images/table1.png" />
+                    <span class="absolute top-2 left-2 bg-white text-green-600 p-1 rounded">5</span>
+                </a>
+                <a @click="showReservationForm(6)" class="tooltip-link">
+                    <img class="w-full h-38 object-cover " src="src/assets/images/table1.png" />
+                    <span class="absolute top-2 left-2 bg-white text-green-600 p-1 rounded">6</span>
+                </a>
             </div>
             <div class="">
-                <a href="" class="tooltip-link"><img class="w-50 h-38 object-cover" src="src/assets/images/table4.png" /></a>
+                <a @click="showReservationForm(7)" class="tooltip-link">
+                    <img class="w-full h-38 object-cover " src="src/assets/images/table4.png" />
+                    <span class="absolute top-2 left-2 bg-white text-green-600 p-1 rounded">7</span>
+                </a>
+                
             </div>
         </div>
         <div class="flex flex-row mt-8 justify-around ">
@@ -38,7 +60,7 @@
 </div>
 
    
-    
+<ReservationForm v-if="showForm" :tableNumber="selectedTable" @closeForm="closeForm" />
    
    </template>
    <script lang="ts">
@@ -46,17 +68,29 @@
        import StaticNavbar from '../NavBar/StaticNavbar.vue';
        import ReservationForm from './ReservationForm.vue';
        //import {useModal} from "jenesius-vue-modal";
-       import WidgeTestModal from "./test.vue";
+       //import WidgeTestModal from "./test.vue";
 
-
-      
-       
-       
        export default defineComponent({
            components: {
        StaticNavbar,
        ReservationForm
-    },
+        },
+        data() {
+        return {
+            selectedTable: null,
+            showForm: false,
+        };
+        },
+        methods: {
+            showReservationForm(tableNumber) {
+            this.selectedTable = tableNumber;
+            this.showForm = true;
+            },
+            closeForm() {
+            this.selectedTable = null;
+            this.showForm = false;
+            },
+        },
 //     setup() {
 //     const { openModal } = useModal();
 //     openModal(WidgeTestModal, {

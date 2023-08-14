@@ -1,87 +1,103 @@
 <template>
-    <div v-if="showPopup" class="popup-overlay">
-      <div class="popup-content">
-        <!-- Your form elements go here -->
-        
-            <h2 class="text-xl font-semibold mb-4">Make a Reservation</h2>
-      <form @submit.prevent="submitForm">
-        <div class="mb-3">
-          <label class="block text-sm font-medium text-gray-700">Date</label>
-          <input v-model="reservation.date" type="date" class="mt-1 p-2 border rounded w-full" required />
-        </div>
-        <div class="mb-3">
-          <label class="block text-sm font-medium text-gray-700">Time</label>
-          <input v-model="reservation.time" type="time" class="mt-1 p-2 border rounded w-full" required />
-        </div>
-        <div class="mb-3">
-          <label class="block text-sm font-medium text-gray-700">Number of People</label>
-          <input v-model.number="reservation.numPeople" type="number" class="mt-1 p-2 border rounded w-full" required />
-        </div>
-        <div class="flex justify-end">
-          <button type="button" @click="closePopup" class="mr-2 px-4 py-2 border rounded text-gray-600">Cancel</button>
-          <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">Confirm</button>
-        </div>
+    <div v-if="showForm" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div class="bg-white p-6 rounded shadow-md w-80">
+        <h2 class="text-lg font-semibold mb-4">Reserve Table {{ tableNumber }}</h2>
+        <form @submit.prevent="submitForm">
+          <div class="mb-4">
+            <label for="date" class="block font-medium text-gray-700">Date</label>
+            <input type="date" id="date" v-model="reservation.date" class="mt-1 p-2 border rounded w-full" required />
+          </div>
+          <div class="mb-4">
+            <label for="time" class="block font-medium text-gray-700">Time</label>
+            <input type="time" id="time" v-model="reservation.time" class="mt-1 p-2 border rounded w-full" required />
+          </div>
+          <div class="mb-4">
+            <label for="people" class="block font-medium text-gray-700">Number of People</label>
+            <input type="number" id="people" v-model="reservation.people" class="mt-1 p-2 border rounded w-full" required />
+          </div>
+          <div class="mt-4 flex justify-end">
+            <button @click="closeForm" class="bg-red text-white py-2 px-4 rounded mr-2">Cancel</button>
+            <button type="submit" class="bg-green text-white py-2 px-4 rounded">Reserve</button>
+          </div>
         </form>
-        <button class="close-button" @click="closePopup">Close</button>
       </div>
     </div>
   </template>
   
   <script lang="ts">
-  import { defineComponent } from 'vue';
-
-export default defineComponent({
-  props: {
-    showPopup: Boolean,
-  },
-  data() {
-    return {
-      reservation: {
+  import { defineComponent, Prop, ref } from 'vue';
+  
+  export default defineComponent({
+    props: {
+      tableNumber: Number,
+      onClose: Function,
+    },
+    setup(props) {
+      const showForm = ref(true);
+      const reservation = ref({
         date: '',
         time: '',
-        numPeople: 1,
-      },
-    };
-  },
-  methods: {
-    submitForm() {
-      // You can perform actions like sending the reservation details to a server here
-      // After that, close the popup
-      this.closePopup();
+        people: 1,
+      });
+  
+      const submitForm = () => {
+        // Implement form submission logic using the reservation object
+        console.log('Reservation:', reservation.value);
+        // ...
+      };
+  
+      const closeForm = () => {
+        showForm.value = false;
+        props.onClose();
+      };
+  
+      return {
+        showForm,
+        reservation,
+        submitForm,
+        closeForm,
+      };
     },
-    closePopup() {
-      // Emit an event to the parent component to close the popup
-      this.$emit('close');
-    },
-  },
-});
+  });
   </script>
   
-  <style scoped>
-  .popup-overlay {
-    /* Position the popup in the center of the screen */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  <!-- <style scoped>
+  input[type="date"], input[type="time"], input[type="number"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
   }
   
-  .popup-content {
-    /* Style the popup content */
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
   }
   
-  .close-button {
-    /* Style the close button */
-    margin-top: 10px;
+  .bg-red-500 {
+    background-color: #f56565;
   }
-  </style>
+  
+  .bg-green-500 {
+    background-color: #48bb78;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  </style> -->
   
