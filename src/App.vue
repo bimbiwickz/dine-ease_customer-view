@@ -13,11 +13,6 @@ import MgNavBar from './components/NavBar/MgNavBar.vue';
 import StatNavBar from './components/NavBar/StaticNavBar.vue';
 import logNavBar from './components/NavBar/logNavBar.vue';
 import Home from './components/Home.vue';
-import { defineComponent } from 'vue'
-import NavBar from './components/NavBar/NavBar.vue'
-import MgNavBar from './components/NavBar/MgNavBar.vue'
-import StatNavBar from './components/NavBar/StaticNavBar.vue'
-import Home from './components/Home.vue'
 import LogIn from './components/LogIn.vue'
 import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder1 from './components/Manager/orders/acceptOrder1.vue'

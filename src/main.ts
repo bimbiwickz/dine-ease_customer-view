@@ -13,8 +13,6 @@ import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder1 from './components/Manager/orders/acceptOrder1.vue'
 import AcceptOrder2 from './components/Manager/orders/acceptOrder2.vue'
 import Login from './components/login.vue'
-import AcceptOrder from './components/Manager/acceptOrder.vue'
-import Login from './components/LogIn.vue'
 import MgNavBar from './components/NavBar/MgNavBar.vue'
 import Menu from './components/Customer/MenuView.vue'
 import Cart from './components/Customer/CartView.vue'
@@ -82,12 +80,6 @@ const routes = [
         name: 'checkout',
         component: Checkout,
         props: true,
-    },
-    
-
-        path: '/accept-order/', // Dynamic parameter ':orderNo'
-        name: 'Orders',
-        component: AcceptOrder,
     },
     {
         path: '/user-profile',
