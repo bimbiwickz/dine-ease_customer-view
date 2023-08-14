@@ -33,7 +33,7 @@
                     </div>
                 </li>
             </ul>
-            <button class="mt-4 w-full bg-primary text-white rounded-lg py-2" @click="goToFullPage">
+            <button class="mt-4 w-full bg-primary text-white rounded-lg py-2" @click="goToResPage">
                 View All Reservations
             </button>
         </div>
@@ -209,6 +209,7 @@ import { defineComponent } from 'vue';
                 return total - total * discount;
             },
             goToFullPage() {
+                window.location.href = '/reservation/res-1';
             // Add your logic to redirect to the full page here
             // You can use the Vue Router or window.location.href
             },

@@ -17,6 +17,8 @@ import MgNavBar from './components/NavBar/MgNavBar.vue'
 import Menu from './components/Customer/MenuView.vue'
 import Cart from './components/Customer/CartView.vue'
 import Checkout from  './components/Customer/CheckoutView.vue'
+import Reservation1 from './components/Manager/reservations/reservation1.vue'
+import Reservation2 from './components/Manager/reservations/reservation2.vue'
 
 const routes = [
     {
@@ -38,14 +40,25 @@ const routes = [
         }
     },
     {
+        path:'/Home',
+        components: {
+          default: ManagerHome
+        }
+    },
+    {
         path: '/accept/order-1', // Dynamic parameter ':orderNo'
-        name: 'order1',
+        //name: 'order1',
         component: AcceptOrder1,
     },
     {
         path: '/accept/order-2', // Dynamic parameter ':orderNo'
-        name: 'order2',
+        //name: 'order2',
         component: AcceptOrder2,
+    },
+    {
+        path: '/reservation/res-1', // Dynamic parameter ':orderNo'
+        name: 'order1',
+        component: AcceptOrder1,
     },
     ,
     {

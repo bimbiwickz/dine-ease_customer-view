@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { defineComponent } from 'vue';
+import navbar from '../components/NavBar/logNavBar.vue';
 import box from './landing_page_components/landing_page_box.vue';
 import title_image from "./landing_page_components/page_title_image.vue";
 import page_footer from "./landing_page_components/footer.vue";
 import dish_card from "./landing_page_components/foodcards.vue";
-import title_2 from "./landing_page_components/second_main_title.vue"
+import title_2 from "./landing_page_components/second_main_title.vue";
+
 // Initialization for ES Users
 import {
   Carousel,
@@ -33,6 +36,11 @@ initTE({ Carousel });
     </div>
   </div>
 
+  <div class="flex flex-row justify-center">
+    <button class="mt-4 w-1000 bg-primary text-white rounded-lg py-2" @click="goToFullPage()">
+        Let's get started!
+    </button>
+  </div>
   <!-- Using utilities: -->
 <div class="bg-gray-100 py-8">
   <div class="container mx-auto">

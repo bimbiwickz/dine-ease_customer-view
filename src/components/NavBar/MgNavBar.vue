@@ -59,7 +59,7 @@
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
           <a
           class="text-green transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-              href="/Reservations"
+              href="/Reservation/res-1"
               data-te-nav-link-ref
               >Reservations</a
           >
