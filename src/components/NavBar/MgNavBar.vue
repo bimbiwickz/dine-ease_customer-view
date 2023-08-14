@@ -37,20 +37,20 @@
           class=" ml-2 mr-5 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
           href="/">
           <img
-          src="src/assets/only-logo.png"
+          src="../../assets/only-logo.png"
           style="height: 40px" 
           alt="TE Logo"
           loading="lazy" />
       </a>
       <!-- Left navigation links -->
       <ul
-      class="list-style-none flex flex-col ml-[1100px] lg:flex-row"
+      class="list-style-none flex flex-col justify-center justify-between lg:flex-row"
           data-te-navbar-nav-ref>
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
           <!-- Dashboard link -->
           <a
               class="text-green transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-              href="/"
+              href="/ManagerHome"
               data-te-nav-link-ref
               >Home</a
           >
@@ -59,21 +59,29 @@
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
           <a
           class="text-green transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-              href="/about"
+              href="/Reservation/res-1"
               data-te-nav-link-ref
-              >About</a
+              >Reservations</a
           >
           </li>
           <!-- Projects link -->
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
           <a
           class="text-green transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-              href="/contact"
+              href="/accept/order-1"
               data-te-nav-link-ref
-              >Contact</a
+              >Orders</a
           >
           </li>
+          
       </ul>
+      <a
+        class="text-white bg-primary rounded-2xl py-2 transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-8 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+            href="/analytics-dashboard"
+            data-te-nav-link-ref
+            >View Sales Analytics</a
+        >
+    
       </div>
       <!-- Second dropdown container -->
       <div class="relative" data-te-dropdown-ref>

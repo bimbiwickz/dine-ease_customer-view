@@ -13,24 +13,54 @@
         <div class="sign-up-form w-2/3">
           <h1 class="font-sans text-3xl text-center font-semibold pb-4">Log In</h1>
           <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Email</label><br />
-          <input
+          <!-- <input
             type="text"
             v-model="email"
             class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
+          /><br /> -->
+          <input
+          type="text"
+          v-model="email"
+          :class="{
+            'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
+            'border-red': showError && !email
+          }"
           /><br />
+          <p v-if="showError && !email" class="text-red font-medium text-md pb-2">
+          Email is required
+        </p>
+<!-- ... Same for the password input -->
           <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Password</label
           ><br />
-          <input 
+          <input
+          type="password"
+          v-model="password"
+          :class="{
+            'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
+            'border-red': showError && !password
+          }"
+          /><br />
+          <p v-if="showError && !password" class="text-red font-medium text-md pb-2">
+          Password is required
+          </p>
+          <!-- Display error message if showError is true -->
+          <p v-if="showError" class="text-red font-medium text-md">
+            {{ errorMessage }}
+          </p>
+          
+          <!-- <input 
             type="password"
             v-model="password" 
             class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
-          /><br />
-          <button type="button"
-            class="w-full bg-green text-white font-semibold py-2 px-4 cursor-pointer rounded-md my-4 hover:bg-lgreen hover:text-green" @click="loginUser()"> 
+          /><br /> -->
+          <button 
+            type="button"
+            class="w-full bg-green text-white font-semibold py-2 px-4 cursor-pointer rounded-md my-4 hover:bg-lgreen hover:text-green" 
+            @click="loginUser()"> 
             Login
           </button>
           <p class="text-black font-light flex justify-center text-sm">
-            Have not registered yet? <a href="#" class="text-green"> &nbsp;Signup</a>
+            Have not registered yet? <a href="/SignUp" class="text-green"> &nbsp;Signup</a>
           </p>
           <div class="or flex items-center my-4">
             <hr class="flex-grow border-gray-400" />
@@ -42,6 +72,17 @@
             <p class="ml-2 text-sm">Continue with Google</p>
           </button>
         </div>
+        <!-- Loding screen start -->
+        <div
+          v-if="loading"
+          class="fixed inset-0 flex flex-col items-center justify-center z-[9999] bg-black bg-opacity-75 text-white"
+        >
+          <p class="text-lg">Please Wait...</p>
+          <div class="mt-4">
+            <div class="animate-spin rounded-full h-10 w-10 border-t-4 border-blue"></div> <!-- Loading spinner -->
+          </div>
+        </div>
+        <!-- Loding screen end -->
       </div>
       <div class="sign-up-right w-1/2">
         <!-- Add content for the right side if needed -->
@@ -134,34 +175,65 @@ export default defineComponent({
     return {
       title: 'Log In Page',
       email: '',
-      password: ''
+      password: '',
+      showError: false, // Track if error should be shown
+      errorMessage: '', // Store the error message
+      loading: false
     }
   },
   methods: {
     async loginUser() {
-      console.log(this.email,this.password)
+      console.log(this.email, this.password);
       try {
-        const response = await fetch('https://dineease-api.azurewebsites.net/api/auth', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password
-          })
-        })
+        if (!this.email || !this.password) {
+          // Display error messages for empty fields
+          this.showError = true;
+          // this.errorMessage = '';
+          return; // Stop further execution
+        }
 
-        if (response.status == 202) {
-          console.log("Login successful, handle accordingly")
+        // Reset error state and clear error message
+        this.showError = false;
+        this.errorMessage = '';
+
+        // Set loading to true
+        this.loading = true;
+
+        const response = await fetch(
+          'https://dineease-api.azurewebsites.net/api/auth',
+          {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email: this.email,
+              password: this.password
+            })
+          }
+        );
+        // Reset loading state
+        this.loading = false;
+
+        if (response.status === 202) {
+          console.log('Login successful, handle accordingly');
+          // Reset error state and clear error message
+          this.showError = false;
+          this.errorMessage = '';
+          this.$router.push('/managerhome'); 
+        } else if (response.status === 401) {
+          // Display error message and turn input boxes red
+          this.showError = true;
+          this.errorMessage = 'Email or password is incorrect';
         } else {
-          console.log("Login failed, handle error")
+          console.log('Login failed, handle error', response.status);
         }
       } catch (error) {
-        console.log("Handle error (e.g., display error message")
+        console.log('Handle error (e.g., display error message)', error);
       }
-    },
+},
+
     navigateToHome() {
       window.location.href = '/Home'; // Change the URL to match your home.vue route
     }
