@@ -12,8 +12,16 @@
         <a
             class="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
             data-te-sidenav-link-ref>
-            <span></span>
+            <span><HomeIcon class="h-6 w-6" /></span>
             <span>Dashboard</span>
+        </a>
+        </li>
+        <li class="relative">
+        <a
+            class="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+            data-te-sidenav-link-ref>
+            <span></span>
+            <span>My Reservations</span>
         </a>
         </li>
         <li class="relative">
@@ -55,7 +63,7 @@
 
     <div class="p-5 !pl-[288px] text-center" id="content">
     <!-- Toggler -->
-    <button
+    <!-- <button
         class="mt-10 inline-block rounded bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
         data-te-sidenav-toggle-ref
         data-te-target="#sidenav-2"
@@ -73,15 +81,15 @@
             clip-rule="evenodd" />
         </svg>
         </span>
-    </button>
+    </button> -->
     <!-- Toggler -->
-    <div class="my-5 flex text-start">
+    <!-- <div class="my-5 flex text-start">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc magna
         massa, ornare quis interdum a, cursus in quam. Quisque risus libero,
         cursus eget eros vitae, aliquam placerat velit. Vivamus luctus eros id
         sagittis luctus. Pellentesque felis nulla, rhoncus viverra nunc vitae,
         viverra aliquam ante. Ut feugiat mattis tempor.
-    </div>
+    </div> -->
     </div>
 
 </template>
@@ -91,6 +99,7 @@
     Sidenav,
     initTE,
     } from "tw-elements";
+    import { HomeIcon, MailIcon, BellIcon } from '@heroicons/vue/outline';
 
     initTE({ Sidenav });
 
