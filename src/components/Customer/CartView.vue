@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import title_2 from "../landing_page_components/second_main_title.vue"
+import title_2 from "../landing_page_components/second_main_title.vue";
 import page_footer from "../landing_page_components/footer.vue";
+import nav_bar from "../NavBar/StaticNavBar.vue"
 const components = {
   title_2,
   page_footer
 };
 </script>
 <template>
+    <nav_bar></nav_bar>
     <title_2 title_2="Meal Cart"/>
 
     <div class="h-screen bg-gray-300">

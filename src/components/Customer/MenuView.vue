@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import title_2 from "../landing_page_components/second_main_title.vue"
 import page_footer from "../landing_page_components/footer.vue";
+import nav_bar from "../NavBar/StaticNavBar.vue";
 const components = {
   title_2,
   page_footer
 };
 </script>
 <template>
-    <div>
+  <nav_bar/>
+    <div class="pt-[15vh]">
         <title_2 title_2="Our Menu"/>
       <div class="flex justify-end p-4 rounded-lg items-center">
         <a href="/customer/CartView"><button class="bg-[#007400] hover:bg-gray-500 text-white py-2 px-4 rounded-lg">Go to the cart</button></a>

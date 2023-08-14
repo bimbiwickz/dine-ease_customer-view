@@ -6,6 +6,7 @@ import title_image from "./landing_page_components/page_title_image.vue";
 import page_footer from "./landing_page_components/footer.vue";
 import dish_card from "./landing_page_components/foodcards.vue";
 import title_2 from "./landing_page_components/second_main_title.vue";
+import nav_bar from "../components/landing_page_components/Nav_bar.vue"
 
 // Initialization for ES Users
 import {
@@ -29,6 +30,10 @@ initTE({ Carousel });
 </script>
 
 <template>
+
+<nav_bar/>
+
+
   <div class="relative">
     <title_image image="src\assets\images\pexels-rachel-claire-5490897.jpg"/>
     <div class="md:flex md:justify-center"> <!-- Add flex layout for centering on medium screens and larger -->
