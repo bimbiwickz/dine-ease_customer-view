@@ -79,6 +79,7 @@ const routes = [
         component: Checkout,
         props: true,
     },
+    
 
 ];
 

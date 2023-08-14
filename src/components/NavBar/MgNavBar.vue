@@ -75,12 +75,13 @@
           </li>
           
       </ul>
-      <div class="ml-50 w-100 bg-primary text-white rounded-2xl py-2 px-5" 
-      href="/analytics"
-      data-te-nav-link-ref
-      >
-        View Sales Analytics
-    </div>
+      <a
+        class="text-white bg-primary rounded-2xl py-2 transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-8 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+            href="/analytics-dashboard"
+            data-te-nav-link-ref
+            >View Sales Analytics</a
+        >
+    
       </div>
       <!-- Second dropdown container -->
       <div class="relative" data-te-dropdown-ref>
