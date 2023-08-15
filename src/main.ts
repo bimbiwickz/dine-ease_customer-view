@@ -8,6 +8,7 @@ import { createRouter, createWebHistory} from 'vue-router';
 
 import App from './App.vue'
 import Home from './components/Home.vue' 
+import UserHome from './components/UserHome.vue' 
 import SignUp from './components/SignUp.vue'
 import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder1 from './components/Manager/orders/acceptOrder1.vue'
@@ -26,7 +27,12 @@ const routes = [
     {
         path: '/',
         component: Home,
-        meta: { requiresAuth: true },
+        //meta: { requiresAuth: true },
+    },
+    {
+        path: '/Home',
+        component: UserHome,
+        //meta: { requiresAuth: true },
     },
     {
         path: '/signup',

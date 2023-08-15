@@ -13,6 +13,7 @@ import MgNavBar from './components/NavBar/MgNavBar.vue';
 import StatNavBar from './components/NavBar/StaticNavBar.vue';
 import logNavBar from './components/NavBar/logNavBar.vue';
 import Home from './components/Home.vue';
+import UserHome from './components/UserHome.vue';
 import LogIn from './components/login.vue'
 import ManagerHome from './components/Manager/ManagerHome.vue'
 import AcceptOrder1 from './components/Manager/orders/acceptOrder1.vue'
@@ -43,7 +44,7 @@ export default defineComponent({
     Reservations,
     UserProfile,
     WidgetContainerModal: container,
-    
+    UserHome,
     AcceptOrder1,
     AcceptOrder2,
     Menu,

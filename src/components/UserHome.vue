@@ -6,7 +6,7 @@ import title_image from "./landing_page_components/page_title_image.vue";
 import page_footer from "./landing_page_components/footer.vue";
 import dish_card from "./landing_page_components/foodcards.vue";
 import title_2 from "./landing_page_components/second_main_title.vue";
-import nav_bar from "../components/landing_page_components/Nav_bar.vue"
+import nav_bar from "../components/NavBar/StaticNavBar.vue";
 
 // Initialization for ES Users
 import {
@@ -17,6 +17,7 @@ import {
 initTE({ Carousel });
 // Register all components
 const components = {
+
   box,
   title_image,
   page_footer
@@ -31,7 +32,7 @@ initTE({ Carousel });
 
 <template>
 
-  <nav_bar/>
+<nav_bar/>
 
 
   <div class="relative">
@@ -41,12 +42,12 @@ initTE({ Carousel });
     </div>
   </div>
 
-  <div class="flex flex-row justify-center">
+  <!-- <div class="flex flex-row justify-center">
     <button class="mt-4 w-1000 bg-primary text-white rounded-lg py-2" @click="goToFullPage()">
         Let's get started!
     </button>
   </div>
-  <!-- Using utilities: -->
+  Using utilities: -->
 <div class="bg-gray-100 py-8">
   <div class="container mx-auto">
     <title_2 title_2="Our popular meals"/>

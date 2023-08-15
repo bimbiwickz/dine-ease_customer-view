@@ -35,7 +35,7 @@
         <!-- Logo -->
         <a
             class=" ml-2 mr-5 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
-            href="/">
+            href="/home">
             <img
             src="../../assets/only-logo.png"
             style="height: 40px" 
@@ -44,26 +44,28 @@
         </a>
         <!-- Left navigation links -->
         <ul
-        class="list-style-none flex flex-col ml-[1100px] lg:flex-row"
+        class="list-style-none flex flex-col ml-[1000px] lg:flex-row"
             data-te-navbar-nav-ref>
+            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+            <a
+            class="text-white bg-primary rounded-xl py-3 px-8 transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+                href="/reservations"
+                data-te-nav-link-ref
+                >Reserve a booking</a
+            >
+            </li>
+            
             <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
             <!-- Dashboard link -->
             <a
                 class="text-green transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-                href="/"
+                href="/home"
                 data-te-nav-link-ref
                 >Home</a
             >
             </li>
             <!-- Team link -->
-            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-            <a
-            class="text-green transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-                href="/about"
-                data-te-nav-link-ref
-                >About</a
-            >
-            </li>
+            
             <!-- Projects link -->
             <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
             <a

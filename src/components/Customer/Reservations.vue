@@ -46,9 +46,14 @@
         <div class="flex flex-row mt-8 justify-around ">
             <div class="">
                 <img class="w-50 h-38 object-cover" src="src/assets/images/table3.png" />
+                <span class="absolute top-2 left-2 bg-white text-green-600 p-1 rounded">4</span>
             </div>
+            
             <div class="gap-10 columns-4 rows-1 mr-8">
-                <img class="" src="src/assets/images/table2.png" />
+                <div class="">
+                  <img class="" src="src/assets/images/table2.png" />
+                  <span class="absolute top-2 left-2 bg-white text-green-600 p-1 rounded">8</span>
+                </div>
                 <img class="" src="src/assets/images/table2.png" />
                 <img class="" src="src/assets/images/table2.png" />
                 <img class="" src="src/assets/images/table2.png" />
