@@ -54,9 +54,9 @@ initTE({ Carousel });
 
   <div class="flex flex-wrap justify-center mt-8 gap-4">
   <dish_card food_image="https://th.bing.com/th/id/R.686eea5b785d964e9c6f5aa622ec8db6?rik=I2e8p9gFjfaHeg&riu=http%3a%2f%2frecipedose.com%2fwp-content%2fuploads%2f2013%2f03%2fChicken-momos.jpg&ehk=P8WqN4eTADZLNRHw%2f58ok2K00IOoMqab1qmn9DrSLIw%3d&risl=1&pid=ImgRaw&r=0" type="Non veg" price="$15.99" dish_name="Chicken momo" description="Savory parcels, tender filling; an irresistible Asian delight." />
-  <dish_card food_image="https://img.delicious.com.au/uCIIsWC_/del/2021/06/aglio-e-olio-spaghetti-154257-2.jpg" type="veg" price="$15.99" dish_name="Spaghetti aglio e olio" description="Spaghetti tossed in garlic-infused olive oil, simplicity elevated."/>
-  <dish_card food_image="https://www.italymagazine.com/sites/default/files/styles/800xauto/public/recipe/pizza-margherita-cottura_0.jpg?itok=2Jj0BXDI" type="veg" price="$15.99" dish_name="Pizza margherita" description="Tomato, mozzarella, basil; wood-fired Italian essence embraced."/>
-  <dish_card food_image="https://www.cucchiaio.it/content/dam/cucchiaio/it/ricette/2009/11/ricetta-panna-cotta/panna%20cotta-1.jpg" type="veg" price="$15.99" dish_name="Panna cotta" description="Velvety dessert masterpiece with luscious creamy elegance."/>
+  <dish_card food_image="https://img.delicious.com.au/uCIIsWC_/del/2021/06/aglio-e-olio-spaghetti-154257-2.jpg" type="veg" price="LKR1599.99" dish_name="Spaghetti aglio e olio" description="Spaghetti tossed in garlic-infused olive oil, simplicity elevated."/>
+  <dish_card food_image="https://www.italymagazine.com/sites/default/files/styles/800xauto/public/recipe/pizza-margherita-cottura_0.jpg?itok=2Jj0BXDI" type="veg" price="LKR3540.00" dish_name="Pizza margherita" description="Tomato, mozzarella, basil; wood-fired Italian essence embraced."/>
+  <dish_card food_image="https://www.cucchiaio.it/content/dam/cucchiaio/it/ricette/2009/11/ricetta-panna-cotta/panna%20cotta-1.jpg" type="veg" price="LKR1900.00" dish_name="Panna cotta" description="Velvety dessert masterpiece with luscious creamy elegance."/>
   <!-- <dish_card food_image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCCuXEGygYqTsGUhbQJszevL4-6frKxYWpA&usqp=CAU" type="Non veg" price="$15.99" dish_name="Tortellini" description="Elegant pasta pockets filled with rich, savory delights. Simply irresistible."/> -->
 </div>
 
