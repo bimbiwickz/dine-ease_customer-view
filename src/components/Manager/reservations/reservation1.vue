@@ -34,15 +34,15 @@
             <div class="basis-3/5 ml-4 pr-80">
                 <div class="flex flex-row">
                     <div class="basis-2/3">
-                        <div class="flex flex-row text-4xl p-2"><div class="">Order No:</div><div class="pl-4 font-bold">1907</div></div>
-                        <div class="flex flex-row text-l pl-2"><div class="">Ordered at</div><div class="pl-4 font-bold">09:07PM</div></div>
-                        <div class="flex flex-row text-l pl-2"><div class="">Order by:</div><div class="pl-4 font-bold">{{reserves[1].custName}}</div></div>
+                        <div class="flex flex-row text-4xl p-2"><div class="">Reservation No:</div><div class="pl-4 font-bold">1907</div></div>
+                        <div class="flex flex-row text-l pl-2"><div class="">Reserved at</div><div class="pl-4 font-bold">09:07PM</div></div>
+                        <div class="flex flex-row text-l pl-2"><div class="">Reserved by:</div><div class="pl-4 font-bold">{{reserves[1].custName}}</div></div>
                     </div>
                     <div class="basis-1/3">
                         <div class="bg-green m-2 h-20 w-20 rounded-lg p-5 text-3xl font-bold text-white">02</div>
                     </div>
                 </div>
-                <div class="pl-2 pt-10 pb-5 font-bold ">Items Ordered:</div>
+                <!-- <div class="pl-2 pt-10 pb-5 font-bold ">Items Ordered:</div>
                 <div class="flex flex-row">
                     <div class="basis-2/3">
                         <ul class="list-disc pl-6">
@@ -62,10 +62,10 @@
                             <li class="mb-2">x1</li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
                 <div class="pl-2 pt-10 pb-5 font-bold ">Notes:</div>
                 <ul class="list-disc pl-6">
-                    <li class="mb-2">Please add some more Spices and toothpicks with the food.</li>
+                    <li class="mb-2">Please arrange some extra chairs with that.</li>
                 </ul>
 
                 <div class="mt-10 px-15">

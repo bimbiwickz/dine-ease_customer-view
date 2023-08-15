@@ -67,7 +67,7 @@ const routes = [
     {
         path: '/reservation/res-1', // Dynamic parameter ':orderNo'
         name: 'order1',
-        component: AcceptOrder1,
+        component: Reservation1,
     },
     ,
     {
