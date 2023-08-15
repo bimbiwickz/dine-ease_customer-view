@@ -42,12 +42,15 @@ initTE({ Carousel });
     </div>
   </div>
 
-  <!-- <div class="flex flex-row justify-center">
-    <button class="mt-4 w-1000 bg-primary text-white rounded-lg py-2" @click="goToFullPage()">
-        Let's get started!
-    </button>
+  <div class="flex flex-row justify-center">
+    <a
+    class="text-white bg-primary rounded-xl mt-4 py-3 px-8 transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+        href="/customer/menuview"
+        data-te-nav-link-ref
+        >Let's Get Started!</a
+    >
   </div>
-  Using utilities: -->
+  <!-- Using utilities: -->
 <div class="bg-gray-100 py-8">
   <div class="container mx-auto">
     <title_2 title_2="Our popular meals"/>
