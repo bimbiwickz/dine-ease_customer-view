@@ -26,6 +26,7 @@ const routes = [
     {
         path: '/',
         component: Home,
+        meta: { requiresAuth: true },
     },
     {
         path: '/signup',
@@ -95,6 +96,17 @@ const router = createRouter({
     history: createWebHistory(),
     routes: routes,
 })
+
+// Navigation guard to check authentication status
+router.beforeEach((to, from, next) => {
+    if (to.meta.requiresAuth && !loggedIn) {
+      next('/login'); // Redirect to login page if not logged in and requires authentication
+    } else {
+      next();
+    }
+});
+
+
 
 const app = createApp(App)
 app.use(router);

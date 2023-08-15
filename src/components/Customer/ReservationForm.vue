@@ -26,7 +26,9 @@
   
   <script lang="ts">
   import { defineComponent, Prop, ref } from 'vue';
-  
+  import axios from 'axios';
+  import loginUser from '../login.vue';
+
   export default defineComponent({
     props: {
       tableNumber: Number,
@@ -35,17 +37,40 @@
     setup(props) {
       const showForm = ref(true);
       const reservation = ref({
+        userID: loginUser.userID,
         date: '',
         time: '',
+        reservationDatetime: '',
         people: 1,
+        tableNo: props.tableNumber, // Initialize with the passed tableNo
       });
-  
-      const submitForm = () => {
-        // Implement form submission logic using the reservation object
-        console.log('Reservation:', reservation.value);
-        window.location.reload();
-        // ...
+
+      const submitForm = async () => {
+        try {
+          // Combine date and time into a single datetime value
+          const reservationDatetime = new Date(
+            `${reservation.value.date} ${reservation.value.time}`
+          );
+
+          // Send the combined datetime value to the backend
+          const response = await fetch('https://dineease-api.azurewebsites.net/api/reservation', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              reservationDatetime: reservationDatetime,
+              people: reservation.value.people,
+              tableNo: reservation.value.tableNo,
+            }),
+          });
+          window.location.reload();
+          // Handle response as before
+        } catch (error) {
+          console.error('Error creating reservation:', error);
+        }
       };
+
   
       const closeForm = () => {
         showForm.value = false;

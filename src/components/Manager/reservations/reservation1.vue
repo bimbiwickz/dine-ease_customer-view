@@ -23,8 +23,8 @@
                             >
                                 <div class="w-20 h-15 py-5 bg-primary items-center align-middle text-white font-bold rounded-md text-center text-2xl">{{reserve.tableNo}}</div>
                                 <div class="flex flex-col pl-3 text-sm gap-0.5">
-                                    <div class="p-0 font-bold">Order No: {{reserve.orderNo}}</div>
-                                    <div class="p-0">Chicken Rice & Curry, Sprite (Regular), Ice Cream 1 scp... see more</div>
+                                    <div class="p-0 font-bold">Reservation No: 0010</div>
+                                    <div class="p-0">Akila Dharmadasa, Booked at 9.00PM... see more</div>
                                 </div>
                             </div>
                         </li>

@@ -37,8 +37,8 @@
             class=" ml-2 mr-5 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
             href="/">
             <img
-            src="./logo.png"
-            style="height: 80px" 
+            src="../../assets/only-logo.png"
+            style="height: 40px" 
             alt="TE Logo"
             loading="lazy" />
         </a>
@@ -80,7 +80,7 @@
             <!-- Second dropdown trigger -->
             <a
             class="hidden-arrow flex items-center whitespace-nowrap transition ease-in-out motion-reduce:transition-none"
-            href="/profile"
+            href="/user-profile"
             id="dropdownMenuButton2"
             role="button"
             data-te-dropdown-toggle-ref

@@ -178,7 +178,8 @@ export default defineComponent({
       password: '',
       showError: false, // Track if error should be shown
       errorMessage: '', // Store the error message
-      loading: false
+      loading: false,
+      userID: null, // Initialize userID as null
     }
   },
   methods: {
@@ -221,6 +222,8 @@ export default defineComponent({
           // Reset error state and clear error message
           this.showError = false;
           this.errorMessage = '';
+          const responseData = await response.json();
+          this.userID = responseData.userID; // Modify this line
           this.$router.push('/managerhome'); 
         } else if (response.status === 401) {
           // Display error message and turn input boxes red
