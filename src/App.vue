@@ -1,13 +1,13 @@
 <template>
   <div class="flex flex-col min-h-screen font-sans">
-    <!-- <navbar/> -->
+    <component :is="navbarComponent" />
     <router-view></router-view> 
     <widget-container-modal />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import NavBar from './components/NavBar/NavBar.vue';
 import MgNavBar from './components/NavBar/MgNavBar.vue';
 import StatNavBar from './components/NavBar/StaticNavBar.vue';
@@ -24,7 +24,7 @@ import Cart from './components/Customer/CartView.vue'
 import Checkout from  './components/Customer/CheckoutView.vue'
 import Reservation1 from './components/Manager/reservations/reservation1.vue'
 import Reservation2 from './components/Manager/reservations/reservation2.vue'
-import AcceptOrder from './components/Manager/acceptOrder.vue'
+//import AcceptOrder from './components/Manager/acceptOrder.vue'
 import Reservations from './components/Customer/Reservations.vue'
 import ProfileSideNav from './components/Customer/ProfileSideNav.vue'
 import UserNavBar from './components/NavBar/UserNavbar.vue'
@@ -38,7 +38,12 @@ export default defineComponent({
     NavBar,
     MgNavBar,
     StatNavBar,
-    LogIn,
+    logNavBar,
+    Menu,
+    Cart,
+    Checkout,
+    Reservation1,
+    Login,
     ManagerHome,
     ProfileSideNav,
     Reservations,
@@ -51,8 +56,29 @@ export default defineComponent({
     Cart,
     Checkout,
     Reservation1,
-    Reservation2
-  }
+    Reservation2,
+
+    //baseInput
+  },
+  data() {
+    return {
+      userRole: '', // Replace with actual user role logic
+    };
+  },
+  computed: {
+    navbarComponent() {
+      switch (this.userRole) {
+        case 'guest':
+          return 'NavBar';
+        case 'manager':
+          return 'MgNavBar';
+        case 'user':
+          return 'StatNavbar';
+        default:
+          return ''; // Default to user navbar if role is unknown
+      }
+    },
+  },
 });
 </script>
 

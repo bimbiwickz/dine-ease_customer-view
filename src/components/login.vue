@@ -1,45 +1,40 @@
 <style>
 @import '@/assets/main.css';
+
+
 </style>
 <template>
-  <div class="container items-center mx-auto bg-green-500 pl-72 pt-12 pb-12">
+  <div class="container items-center mx-auto bg-green-500 pt-12 pb-12 flex justify-center">
     <div
-      class="container w-3/4 max-h-max bg-white content-center py-8 px-8 rounded-3xl flex flex-row"
+      class="container xl:w-3/4 lg:w-full md:w-full m-0 max-h-max bg-white content-center py-8 xl:px-8 lg:px-0 rounded-3xl flex flex-row justify-center"
     >
-      <div class="sign-up-left w-1/2 flex flex-col items-center">
+      <div class="sign-up-left w-1/2 xl:full lg:w-2/3 md:w-full flex flex-col items-center">
         <div class="logo pr-48">
           <img class="w-32 h-32" src="../assets/dine ease logo color.png" alt="" />
         </div>
-        <div class="sign-up-form w-2/3">
+        <div class="sign-up-form w-2/3 lg:w-full">
           <h1 class="font-sans text-3xl text-center font-semibold pb-4">Log In</h1>
-          <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Email</label><br />
-          <!-- <input
-            type="text"
+          <BaseInput
+            id="email"
             v-model="email"
-            class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
-          /><br /> -->
-          <input
-          type="text"
-          v-model="email"
-          :class="{
-            'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
-            'border-red': showError && !email
-          }"
-          /><br />
+            type="text"
+            label="Email Address"
+            label-for="email"
+            required
+        ></BaseInput>
           <p v-if="showError && !email" class="text-red font-medium text-md pb-2">
           Email is required
         </p>
 <!-- ... Same for the password input -->
-          <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Password</label
-          ><br />
-          <input
-          type="password"
-          v-model="password"
-          :class="{
-            'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
-            'border-red': showError && !password
-          }"
-          /><br />
+        <BaseInput
+            id="password"
+            v-model="password"
+            label="Password"
+            label-for="password"
+            type="password"
+            required
+          ></BaseInput>
+          
           <p v-if="showError && !password" class="text-red font-medium text-md pb-2">
           Password is required
           </p>
@@ -84,7 +79,7 @@
         </div>
         <!-- Loding screen end -->
       </div>
-      <div class="sign-up-right w-1/2">
+      <div class="sign-up-right w-1/2 hidden xl:block">
         <!-- Add content for the right side if needed -->
         <div
           id="carouselExampleIndicators"
@@ -166,8 +161,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent , ref} from 'vue'
+import BaseInput from './utils/baseInput.vue'
+
 // import { useRouter } from 'vue-router'
+const isPasswordVisible = ref(false);
+const email = ref("");
+const password = ref("");
+const loading = ref(false);
 
 export default defineComponent({
   name: 'LogIn',
@@ -180,8 +181,18 @@ export default defineComponent({
       errorMessage: '', // Store the error message
       loading: false,
       userID: null, // Initialize userID as null
+      //isMobile: false,
+      isPasswordVisible
     }
   },
+  components:{
+      BaseInput
+  },
+  // computed: {
+  //   isMobile() {
+  //     return this.isMobile;
+  //   }
+  // },
   methods: {
     async loginUser() {
       console.log(this.email, this.password);
@@ -201,7 +212,7 @@ export default defineComponent({
         this.loading = true;
 
         const response = await fetch(
-          'https://dineease-api.azurewebsites.net/api/auth',
+          '`https://dineease-api.azurewebsites.net/api/auth`',
           {
             method: 'POST',
             headers: {
