@@ -27,6 +27,16 @@ export default {
         'sans': ['Inter', 'sans-serif'],
         'serif': ['Playfair Display', 'serif'],
       },
+      screens: {
+        'tablet': '640px',
+        // => @media (min-width: 640px) { ... }
+  
+        'laptop': '1024px',
+        // => @media (min-width: 1024px) { ... }
+  
+        'desktop': '1280px',
+        // => @media (min-width: 1280px) { ... }
+      },
     },
   },
   plugins: [require("tw-elements/dist/plugin.cjs"),addDynamicIconSelectors()],

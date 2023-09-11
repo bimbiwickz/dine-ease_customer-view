@@ -1,16 +1,18 @@
 <style>
 @import '@/assets/main.css';
+
+
 </style>
 <template>
-  <div class="container items-center mx-auto bg-green-500 pl-72 pt-12 pb-12">
+  <div class="container items-center mx-auto bg-green-500 pt-12 pb-12 flex justify-center">
     <div
-      class="container w-3/4 max-h-max bg-white content-center py-8 px-8 rounded-3xl flex flex-row"
+      class="container xl:w-3/4 lg:w-full md:w-full m-0 max-h-max bg-white content-center py-8 xl:px-8 lg:px-0 rounded-3xl flex flex-row justify-center"
     >
-      <div class="sign-up-left w-1/2 flex flex-col items-center">
+      <div class="sign-up-left w-1/2 xl:full lg:w-2/3 md:w-full flex flex-col items-center">
         <div class="logo pr-48">
           <img class="w-32 h-32" src="../assets/dine ease logo color.png" alt="" />
         </div>
-        <div class="sign-up-form w-2/3">
+        <div class="sign-up-form w-2/3 lg:w-full">
           <h1 class="font-sans text-3xl text-center font-semibold pb-4">Log In</h1>
           <BaseInput
             id="email"
@@ -77,7 +79,7 @@
         </div>
         <!-- Loding screen end -->
       </div>
-      <div class="sign-up-right w-1/2">
+      <div class="sign-up-right w-1/2 hidden xl:block">
         <!-- Add content for the right side if needed -->
         <div
           id="carouselExampleIndicators"
