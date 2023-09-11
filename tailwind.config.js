@@ -1,3 +1,4 @@
+const { addDynamicIconSelectors } = require('@iconify/tailwind');
 export default {
   content: [
     "./index.html",
@@ -5,6 +6,7 @@ export default {
     "./node_modules/tw-elements/dist/js/**/*.js",
 
   ],
+  
   theme: {
     
     extend: {
@@ -27,5 +29,6 @@ export default {
       },
     },
   },
-  plugins: [require("tw-elements/dist/plugin.cjs")],
+  plugins: [require("tw-elements/dist/plugin.cjs"),addDynamicIconSelectors()],
+  
 }

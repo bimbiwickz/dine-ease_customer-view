@@ -4,7 +4,10 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import { createRouter, createWebHistory} from 'vue-router';
+//import Router, { NavigationGuardNext, Route } from 'vue-router';
+import { getProfile } from './components/ProfileService';
 
+//Vue.use(Router);
 
 import App from './App.vue'
 import Home from './components/Home.vue' 
@@ -23,7 +26,13 @@ import Reservation2 from './components/Manager/reservations/reservation2.vue'
 import UserProfile from './components/Customer/UserProfileDashboard.vue'
 import Reservations from './components/Customer/Reservations.vue'
 
+
 const routes = [
+    // {
+    //     path: '/baseInput',
+    //     component: baseInput,
+    //     //meta: { requiresAuth: true },
+    // },
     {
         path: '/',
         component: Home,
@@ -104,13 +113,24 @@ const router = createRouter({
 })
 
 // Navigation guard to check authentication status
-router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth && !loggedIn) {
-      next('/login'); // Redirect to login page if not logged in and requires authentication
+router.beforeEach(async (to: Route, from: Route, next: NavigationGuardNext) => {
+    if (to.matched.some((route) => route.meta.requiresAuth)) {
+      const profile = await getProfile();
+      if (profile) {
+        // User is authenticated, allow access
+        next();
+      } else {
+        // User is not authenticated, redirect to login
+        next('/login');
+      }
     } else {
+      // Public route, allow access
       next();
     }
-});
+  });
+  
+export default router;
+  
 
 
 
