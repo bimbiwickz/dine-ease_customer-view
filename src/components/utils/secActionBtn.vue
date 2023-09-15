@@ -10,7 +10,7 @@ const props = defineProps<{
 
 <template>
   <button
-    class="w-full bg-green text-white font-semibold py-2 px-4 cursor-pointer rounded-md my-4 hover:bg-lgreen hover:text-green"
+    class="flex justify-center border-2 border-green p-2 rounded"
     :class="[
       props.outline ? 'outlined' : '',
       props.danger ? 'danger' : '',

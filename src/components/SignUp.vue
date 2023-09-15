@@ -2,107 +2,87 @@
     @import '@/assets/main.css';
 </style>
 <template>
-    <div class="container items-center mx-auto bg-green-500 pl-72 pt-24 pb-12">
-      <div class="container w-3/4 max-h-max bg-white content-center py-8 px-8 rounded-3xl flex flex-row ">
-        <div class="sign-up-left w-1/2 flex flex-col items-center">
-          <div class="logo pr-48">
-            <img class="w-32 h-32" src="../assets/dine ease logo color.png" alt="">
+    <div class="container items-center mx-auto bg-green-500 pt-12 pb-12 flex justify-center">
+      <div class="container xl:w-3/4 lg:w-full md:w-full sm:w-full m-0 max-h-max bg-white content-center py-8 xl:px-8 lg:px-8 md:px-8 sm:px-8 p-8 rounded-3xl flex flex-col md:flex-row justify-center">
+        <div class="sign-up-left w-full md:w-2/3 flex flex-col items-center">
+          <div class="logo pr-48 md:pr-0 w-20 h-auto shrink:0">
+            <img class="xl:w-32 h-auto md:w-20" src="../assets/dine ease logo color.png" alt="">
           </div>
-          <div class="sign-up-form w-2/3 ">
-            <h1 class="font-sans text-3xl text-center font-semibold pb-4 ">Register</h1>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Name</label><br>
-            <input type="text" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Email</label><br>
-            <input type="text" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Mobile</label><br>
-            <input type="text" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Password</label><br>
-            <input type="password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <label for="reg-form" class="text-gray-700 pt-3 font-medium text-sm">Confirm Password</label><br>
-            <input type="password" class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"><br>
-            <input type="button" value="Register" class="w-full  font-semibold py-2 px-4 cursor-pointer rounded-md my-4   bg-green pb-2 pt-2.5 text-normal leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green  focus:bg-green active:bg-green">
-            <p class="text-black font-light flex justify-center text-sm ">Already have an account? &nbsp; <a href="#" class="text-green">Login</a></p>
-          <div class="sign-up-form w-2/3">
+          <div class="sign-up-form w-full md:w-2/3">
             <h1 class="font-sans text-3xl text-center font-semibold pb-4">Register</h1>
-            <label for="name" class="text-gray-700 pt-3 font-medium text-sm">Name</label><br>
-            <input 
-                v-model="formData.name" 
-                type="text"     
-                id="name" 
-                :class="{
-                'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
-                'border-red': errors.name
-                }"><br>
-                <p v-if="errors.name" class="text-red font-medium text-sm pb-2">
+            
+            <BaseInput
+                v-model="formData.name"
+                label="Name"
+                labelFor="name"
+                :class="{'border-red': errors.name}"
+            />
+            <p v-if="errors.name" class="text-red font-medium text-sm pb-2">
                 {{ errors.name }}
-                </p>
-            <label for="email" class="text-gray-700 pt-3 font-medium text-sm">Email</label><br>
-            <input 
-                v-model="formData.email" 
-                type="text" 
-                id="email" 
-                :class="{
-                'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
-                'border-red': errors.email
-                }"><br>
-                <p v-if="errors.email" class="text-red font-medium text-sm pb-2">
+            </p>
+
+            <BaseInput
+                v-model="formData.email"
+                label="Email"
+                labelFor="email"
+                :class="{'border-red': errors.email}"
+            />
+            <p v-if="errors.email" class="text-red font-medium text-sm pb-2">
                 {{ errors.email }}
-                </p>
-            <label for="mobile" class="text-gray-700 pt-3 font-medium text-sm">Mobile</label><br>
-            <input 
-                v-model="formData.mobile" 
-                type="text" 
-                id="mobile" 
-                :class="{
-                'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
-                'border-red': errors.mobile
-                }"><br>
-                <p v-if="errors.mobile" class="text-red font-medium text-sm pb-2">
+            </p>
+
+            <BaseInput
+                v-model="formData.mobile"
+                label="Mobile"
+                labelFor="mobile"
+                :class="{'border-red': errors.mobile}"
+            />
+            <p v-if="errors.mobile" class="text-red font-medium text-sm pb-2">
                 {{ errors.mobile }}
-                </p>
-            <label for="password" class="text-gray-700 pt-3 font-medium text-sm">Password</label><br>
-            <input 
-                v-model="formData.password" 
-                type="password" 
-                id="password" 
-                :class="{
-                'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
-                'border-red': errors.password
-                }"><br>
-                <p v-if="errors.password" class="text-red font-medium text-sm pb-2">
+            </p>
+
+            <BaseInput
+                v-model="formData.password"
+                label="Password"
+                labelFor="password"
+                type="password"
+                :class="{'border-red': errors.password}"
+            />
+            <p v-if="errors.password" class="text-red font-medium text-sm pb-2">
                 {{ errors.password }}
-                </p>
-            <label for="confirm-password" class="text-gray-700 pt-3 font-medium text-sm">Confirm Password</label><br>
-            <input 
-                v-model="formData.confirmPassword" 
-                type="password" 
-                id="confirm-password" 
-                :class="{
-                'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
-                'border-red': errors.confirmPassword
-                }"><br>
-                <p v-if="errors.confirmPassword" class="text-red font-medium text-sm pb-2">
+            </p>
+
+            <BaseInput
+                v-model="formData.confirmPassword"
+                label="Confirm Password"
+                labelFor="confirm-password"
+                type="password"
+                :class="{'border-red': errors.confirmPassword}"
+            />
+            <p v-if="errors.confirmPassword" class="text-red font-medium text-sm pb-2">
                 {{ errors.confirmPassword }}
-                </p>
-            <button 
-                type="button" 
-                value="Register" 
-                @click="signupUser()" 
-                class="w-full font-semibold py-2 px-4 cursor-pointer rounded-md my-4 bg-green pb-2 pt-2.5 text-normal leading-normal text-white hover:text-lgreen transition duration-150 ease-in-out hover:bg-hover-green focus:bg-green active:bg-green">
-                Register</button>
+            </p>
+
+            <BaseActionBtn @click="signupUser()">
+                Register
+            </BaseActionBtn>
+
             <p class="text-black font-light flex justify-center text-sm">Already have an account? <a href="/login" class="text-green">Login</a></p>
+            
             <div class="or flex items-center my-4">
                 <hr class="flex-grow border-gray-400">
                 <p class="mx-4 text-gray-700 text-sm">OR</p>
                 <hr class="flex-grow border-gray-400">
             </div>
-            <button class="flex justify-center border-2 border-green p-2 rounded">
-                <img class="w-1/12" src="../assets/google.png" alt="">
+
+            <SecActionBtn>
+                <img class="w-1/12" src="../assets/google.png" alt="" />
                 <p class="ml-2 text-sm">Continue with Google</p>
-            </button>
+            </SecActionBtn>
         </div>
+
         </div>
-        <div class="sign-up-right w-1/2" >
+        <div class="sign-up-right w-full md:w-1/2 hidden xl:block" >
           <!-- Add content for the right side if needed -->
           <div id="carouselExampleIndicators" class="relative" data-te-carousel-init data-te-carousel-slide>
                 <!--Carousel indicators-->
@@ -177,6 +157,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import BaseInput from './utils/baseInput.vue'
+import BaseActionBtn from './utils/baseActionBtn.vue'
+import SecActionBtn from './utils/secActionBtn.vue'
 
 export default defineComponent({
     name: 'SignUp',
@@ -199,6 +182,11 @@ export default defineComponent({
             }as Record<string, string>, // Explicitly type the properties,
             loading: false
         };
+    },
+    components:{
+        BaseInput,
+        BaseActionBtn,
+        SecActionBtn
     },
     methods: {
         async signupUser() {
