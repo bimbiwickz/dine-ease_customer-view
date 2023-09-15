@@ -2,11 +2,11 @@
     @import '@/assets/main.css';
 </style>
 <template>
-    <div class="container items-center mx-auto bg-green-500 pl-72 pt-12 pb-12">
-      <div class="container w-3/4 max-h-max bg-white content-center py-8 px-8 rounded-3xl flex flex-row ">
-        <div class="sign-up-left w-1/2 flex flex-col items-center">
-          <div class="logo pr-48">
-            <img class="w-32 h-32" src="../assets/dine ease logo color.png" alt="">
+    <div class="container items-center mx-auto bg-green-500 pt-12 pb-12 flex justify-center">
+      <div class="container xl:w-3/4 lg:w-full md:w-full sm:w-full m-0 max-h-max bg-white content-center py-8 xl:px-8 lg:px-8 md:px-8 sm:px-8 p-8 rounded-3xl flex flex-col md:flex-row justify-center">
+        <div class="sign-up-left w-full md:w-2/3 flex flex-col items-center">
+          <div class="logo pr-48 md:pr-0 w-20 h-auto shrink:0">
+            <img class="xl:w-32 h-auto md:w-20" src="../assets/dine ease logo color.png" alt="">
           </div>
           <div class="sign-up-form w-2/3">
             <h1 class="font-sans text-3xl text-center font-semibold pb-4">Register</h1>
@@ -88,7 +88,7 @@
             </button>
         </div>
         </div>
-        <div class="sign-up-right w-1/2" >
+        <div class="sign-up-right w-full md:w-1/2 hidden xl:block" >
           <!-- Add content for the right side if needed -->
           <div id="carouselExampleIndicators" class="relative" data-te-carousel-init data-te-carousel-slide>
                 <!--Carousel indicators-->

@@ -6,13 +6,13 @@
 <template>
   <div class="container items-center mx-auto bg-green-500 pt-12 pb-12 flex justify-center">
     <div
-      class="container xl:w-3/4 lg:w-full md:w-full m-0 max-h-max bg-white content-center py-8 xl:px-8 lg:px-0 rounded-3xl flex flex-row justify-center"
+      class="container xl:w-3/4 lg:w-full md:w-full sm:w-full m-0 max-h-max bg-white content-center py-8 xl:px-8 lg:px-8 md:px-8 sm:px-8 p-8 rounded-3xl flex flex-col md:flex-row gap-10 justify-center"
     >
-      <div class="sign-up-left w-1/2 xl:full lg:w-2/3 md:w-full flex flex-col items-center">
-        <div class="logo pr-48">
-          <img class="w-32 h-32" src="../assets/dine ease logo color.png" alt="" />
+      <div class="sign-up-left w-full md:w-2/3 flex flex-col items-center">
+        <div class="logo pr-48 md:pr-0 w-20 h-auto shrink:0">
+          <img class="xl:w-32 h-auto md:w-20" src="../assets/dine ease logo color.png" alt=""  shrink:0/>
         </div>
-        <div class="sign-up-form w-2/3 lg:w-full">
+        <div class="sign-up-form w-full md:w-2/3">
           <h1 class="font-sans text-3xl text-center font-semibold pb-4">Log In</h1>
           <BaseInput
             id="email"
@@ -48,12 +48,10 @@
             v-model="password" 
             class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
           /><br /> -->
-          <button 
-            type="button"
-            class="w-full bg-green text-white font-semibold py-2 px-4 cursor-pointer rounded-md my-4 hover:bg-lgreen hover:text-green" 
-            @click="loginUser()"> 
-            Login
-          </button>
+          
+          <BaseActionBtn type="submit" style="width: 100%" :loading="loading" @click="loginUser()">
+          {{ loading ? "Login in" : "LogIn" }}
+          </BaseActionBtn>
           <p class="text-black font-light flex justify-center text-sm">
             Have not registered yet? <a href="/SignUp" class="text-green"> &nbsp;Signup</a>
           </p>
@@ -79,7 +77,7 @@
         </div>
         <!-- Loding screen end -->
       </div>
-      <div class="sign-up-right w-1/2 hidden xl:block">
+      <div class="sign-up-right w-full md:w-1/2 hidden xl:block">
         <!-- Add content for the right side if needed -->
         <div
           id="carouselExampleIndicators"
@@ -163,6 +161,7 @@
 <script lang="ts">
 import { defineComponent , ref} from 'vue'
 import BaseInput from './utils/baseInput.vue'
+import BaseActionBtn from './utils/baseActionBtn.vue'
 
 // import { useRouter } from 'vue-router'
 const isPasswordVisible = ref(false);
@@ -186,7 +185,8 @@ export default defineComponent({
     }
   },
   components:{
-      BaseInput
+      BaseInput,
+      BaseActionBtn
   },
   // computed: {
   //   isMobile() {
