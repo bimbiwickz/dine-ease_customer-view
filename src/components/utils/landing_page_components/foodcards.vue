@@ -1,16 +1,16 @@
 <script setup lang="ts">
 const { food_image,type,price,dish_name,description } = defineProps<{
-food_image: string,
-type: string,
-price: string,
-dish_name: string,
-description:string
+  food_image: string,
+  type: string,
+  price: string,
+  dish_name: string,
+  description:string
 }>();
 </script>
 
 <template>
     <!-- Card -->
-    <div class="bg-gray-100 shadow-md rounded-lg w-full md:w-64 overflow-hidden transform hover:scale-105 transition-transform text-black">
+    <div class="bg-gray-100 shadow-md rounded-lg w-20 h-80 overflow-hidden transform hover:scale-105 transition-transform text-black m-4">
       <div class="relative">
         <div class="w-full h-40 md:h-40 flex items-center justify-center overflow-hidden">
           <img :src="food_image" alt="Dish" class="w-auto h-full object-cover">
