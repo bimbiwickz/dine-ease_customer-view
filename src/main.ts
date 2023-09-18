@@ -25,6 +25,7 @@ import Reservation1 from './components/Manager/reservations/reservation1.vue'
 import Reservation2 from './components/Manager/reservations/reservation2.vue'
 import UserProfile from './components/Customer/UserProfileDashboard.vue'
 import Reservations from './components/Customer/Reservations.vue'
+import addFood from './components/Manager/addFood.vue'
 
 
 const routes = [
@@ -104,6 +105,10 @@ const routes = [
     {
         path: '/reservations',
         component: Reservations, 
+    },
+    {
+        path: '/add-food',
+        component: addFood, 
     }
 ];
 

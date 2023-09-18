@@ -26,13 +26,6 @@ import {toRefs, ref } from 'vue';
 </script>
 
 <template>
-  <!-- <div
-    :class="[
-      'base-input',
-      modelValue !== '' || fixedLabel ? 'focused' : ''
-    ]"
-    class="px-4 py-2 border border-gray-300 rounded-md"
-  > -->
   <label
       :for="labelFor"
       :class="['text-red-500', 'font-bold']"

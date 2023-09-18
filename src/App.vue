@@ -29,6 +29,7 @@ import Reservations from './components/Customer/Reservations.vue'
 import ProfileSideNav from './components/Customer/ProfileSideNav.vue'
 import UserNavBar from './components/NavBar/UserNavbar.vue'
 import UserProfile from './components/Customer/UserProfileDashboard.vue'
+import addFood from './components/Manager/addFood.vue'
 import { container } from 'jenesius-vue-modal';
 
 
@@ -57,6 +58,7 @@ export default defineComponent({
     Checkout,
     Reservation1,
     Reservation2,
+    addFood,
 
     //baseInput
   },
