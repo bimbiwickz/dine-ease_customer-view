@@ -152,7 +152,7 @@
           </div>
         </div>
         <!-- Loding screen end -->
-    </div>
+       </div> 
   </template>
 
 <script lang="ts">
