@@ -25,8 +25,7 @@
   </template>
   
   <script lang="ts">
-  import { defineComponent, Prop, ref } from 'vue';
-  import axios from 'axios';
+  import { defineComponent, ref } from 'vue';
   import loginUser from '../login.vue';
 
   export default defineComponent({

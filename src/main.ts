@@ -3,7 +3,7 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
-import { createRouter, createWebHistory} from 'vue-router';
+import { createRouter, createWebHistory, type NavigationGuardNext} from 'vue-router';
 //import Router, { NavigationGuardNext, Route } from 'vue-router';
 import { getProfile } from './components/ProfileService';
 
@@ -26,7 +26,6 @@ import Reservation2 from './components/Manager/reservations/reservation2.vue'
 import UserProfile from './components/Customer/UserProfileDashboard.vue'
 import Reservations from './components/Customer/Reservations.vue'
 import addFood from './components/Manager/addFood.vue'
-
 
 const routes = [
     // {
@@ -118,8 +117,8 @@ const router = createRouter({
 })
 
 // Navigation guard to check authentication status
-router.beforeEach(async (to: Route, from: Route, next: NavigationGuardNext) => {
-    if (to.matched.some((route) => route.meta.requiresAuth)) {
+router.beforeEach(async (to: Routs, from: Route, next: NavigationGuardNext) => {
+    if (to.matched.some((route: { meta: { requiresAuth: any; }; }) => route.meta.requiresAuth)) {
       const profile = await getProfile();
       if (profile) {
         // User is authenticated, allow access
