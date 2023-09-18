@@ -3,8 +3,9 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
-import { createRouter, createWebHistory, type NavigationGuardNext} from 'vue-router';
 import { createRouter, createWebHistory } from 'vue-router'
+//import type { NavigationGuardNext, RouteLocationNormalized, RouteLocationNormalizedLoaded, RouteRecordName } from 'vue-router';
+
 import { getProfile } from './components/ProfileService'
 
 //Vue.use(Router);
@@ -112,6 +113,7 @@ const routes = [
     {
         path: '/add-food',
         component: addFood, 
+    },
   // {
   //     path: '/baseInput',
   //     component: baseInput,
@@ -195,26 +197,23 @@ const router = createRouter({
   history: createWebHistory(),
   routes: routes
 })
-// Navigation guard to check authentication status
-router.beforeEach(async (to: Routs, from: Route, next: NavigationGuardNext) => {
-    if (to.matched.some((route: { meta: { requiresAuth: any; }; }) => route.meta.requiresAuth)) {
-      const profile = await getProfile();
-      if (profile) {
-        // User is authenticated, allow access
-        next();
-      } else {
-        // User is not authenticated, redirect to login
-        next('/login');
-      }
-    } else {
-      // Public route, allow access
-      next();
-    }
-  });
-  
-export default router;
-  
 
+// // Navigation guard to check authentication status
+// router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
+//   if (to.matched.some((route: RouteRecordRaw) => route.meta.requiresAuth)) {
+//     const profile = await getProfile();
+//     if (profile) {
+//       // User is authenticated, allow access
+//       next();
+//     } else {
+//       // User is not authenticated, redirect to login
+//       next('/login');
+//     }
+//   } else {
+//     // Public route, allow access
+//     next();
+//   }
+// });
 
 export default router
 
