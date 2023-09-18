@@ -15,11 +15,12 @@ export default {
         yellow: '#FFC700',
         lgreen: '#ECF8F8',
         'txt-gray': '#4F5052',
-        lgray: '#898585',
-        primary: '#007400',
-        second: '#19AB4F',
-        red: '#C50000',
-        lyellow: '#FAFFC2'
+        'lgray': '#898585',
+        'primary':'#007400',
+        'second': '#19AB4F',
+        'red':'#C50000',
+        'lyellow':'#FAFFC2',
+        'red2':'#FE483C'
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

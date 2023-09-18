@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { defineComponent} from 'vue';
 import navbar from '../components/NavBar/logNavBar.vue';
-import box from './utils/landing_page_components/landing_page_box.vue';
-import title_image from "./utils/landing_page_components/page_title_image.vue";
-import page_footer from "./utils/landing_page_components/footer.vue";
-import dish_card from "./utils/landing_page_components/foodcards.vue";
-import title_2 from "./utils/landing_page_components/second_main_title.vue";
-//import nav_bar from "./utils/landing_page_components/Nav_bar.vue"
+
+import box from './landing_page_components/landing_page_box.vue';
+import title_image from "./landing_page_components/page_title_image.vue";
+import page_footer from "./landing_page_components/footer.vue";
+import dish_card from "./landing_page_components/foodcards.vue";
+import title_2 from "./landing_page_components/second_main_title.vue";
+import nav_bar from "../components/NavBar/StaticNavBar.vue";
+import reservation_button from "./Customer/ReservationInput.vue";
 
 // Initialization for ES Users
 import {
@@ -20,7 +22,8 @@ const components = {
 
   box,
   title_image,
-  page_footer
+  page_footer,
+  reservation_button
 };
 
 
@@ -50,6 +53,7 @@ initTE({ Carousel });
         >Let's Get Started!</a
     >
   </div>
+  <reservation_button/>
   <!-- Using utilities: -->
 <div class="bg-gray-100 py-8">
   <div class="container mx-auto">
@@ -170,7 +174,7 @@ initTE({ Carousel });
 
 
 .title_home, *{
-  font-family: 'Lato', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 </style>
 

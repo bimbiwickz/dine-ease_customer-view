@@ -59,7 +59,6 @@ export default defineComponent({
     Reservation1,
     Reservation2,
     addFood,
-
     //baseInput
   },
   data() {
