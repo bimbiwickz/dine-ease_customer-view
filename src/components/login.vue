@@ -4,13 +4,13 @@
 
 </style>
 <template>
-  <div class="container items-center mx-auto bg-green-500 pt-12 pb-12 flex justify-center">
+  <div class="container items-center mx-auto bg-green-500 pt-12 pb-12 flex flex-row justify-center">
     <div
-      class="container xl:w-3/4 lg:w-full md:w-full sm:w-full m-0 max-h-max bg-white content-center py-8 xl:px-8 lg:px-8 md:px-8 sm:px-8 p-8 rounded-3xl flex flex-col md:flex-row gap-10 justify-center"
+      class="container xl:w-3/4 lg:w-full md:w-full sm:w-full m-0 max-h-max bg-white content-bottom py-8 xl:px-8 lg:px-8 md:px-8 sm:px-8 p-8 rounded-3xl flex flex-col md:flex-row gap-10 justify-center"
     >
       <div class="sign-up-left w-full md:w-2/3 flex flex-col items-center">
-        <div class="logo pr-48 md:pr-0 w-20 h-auto shrink:0">
-          <img class="xl:w-32 h-auto md:w-20" src="../assets/dine ease logo color.png" alt=""  shrink:0/>
+        <div class="logo pr-48 md:pr-0 w-auto h-auto shrink:0">
+          <img class="xl:h-10 md:h-10 sm:h-5 w-auto mb-4" src="../assets/logo-orig.png" alt=""  shrink:0/>
         </div>
         <div class="sign-up-form w-full md:w-2/3">
           <h1 class="font-sans text-3xl text-center font-semibold pb-4">Log In</h1>
@@ -49,7 +49,7 @@
             class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
           /><br /> -->
           
-          <BaseActionBtn type="submit" style="width: 100%" :loading="loading" @click="loginUser()">
+          <BaseActionBtn type="submit" style="width: 100%" :loading="loading" @click="loginUser()" buttonText="Your Button Text Here">
           {{ loading ? "Login in" : "LogIn" }}
           </BaseActionBtn>
           <p class="text-black font-light flex justify-center text-sm">

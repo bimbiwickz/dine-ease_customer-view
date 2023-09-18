@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import title_2 from "../landing_page_components/second_main_title.vue";
-import page_footer from "../landing_page_components/footer.vue";
+import title_2 from "../utils/landing_page_components/second_main_title.vue";
+import page_footer from "../utils/landing_page_components/footer.vue";
 import nav_bar from "../NavBar/StaticNavBar.vue"
 const components = {
   title_2,

@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { defineComponent} from 'vue';
 import navbar from '../components/NavBar/logNavBar.vue';
-
-import box from './landing_page_components/landing_page_box.vue';
-import title_image from "./landing_page_components/page_title_image.vue";
-import page_footer from "./landing_page_components/footer.vue";
-import dish_card from "./landing_page_components/foodcards.vue";
-import title_2 from "./landing_page_components/second_main_title.vue";
-import nav_bar from "../components/NavBar/StaticNavBar.vue";
-import reservation_button from "./Customer/ReservationInput.vue";
+import box from './utils/landing_page_components/landing_page_box.vue';
+import title_image from "./utils/landing_page_components/page_title_image.vue";
+import page_footer from "./utils/landing_page_components/footer.vue";
+import dish_card from "./utils/landing_page_components/foodcards.vue";
+import title_2 from "./utils/landing_page_components/second_main_title.vue";
+//import nav_bar from "./utils/landing_page_components/Nav_bar.vue"
 
 // Initialization for ES Users
 import {
@@ -19,11 +17,9 @@ import {
 initTE({ Carousel });
 // Register all components
 const components = {
-
   box,
   title_image,
-  page_footer,
-  reservation_button
+  page_footer
 };
 
 
@@ -35,7 +31,7 @@ initTE({ Carousel });
 
 <template>
 
-<nav_bar/>
+  <nav_bar/>
 
 
   <div class="relative">
@@ -46,14 +42,10 @@ initTE({ Carousel });
   </div>
 
   <div class="flex flex-row justify-center">
-    <a
-    class="text-white bg-primary rounded-xl mt-4 py-3 px-8 transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-        href="/customer/menuview"
-        data-te-nav-link-ref
-        >Let's Get Started!</a
-    >
+    <button class="mt-4 w-1000 bg-primary text-white rounded-lg py-2" @click="goToFullPage()">
+        Let's get started!
+    </button>
   </div>
-  <reservation_button/>
   <!-- Using utilities: -->
 <div class="bg-gray-100 py-8">
   <div class="container mx-auto">
@@ -61,10 +53,10 @@ initTE({ Carousel });
 
 
   <div class="flex flex-wrap justify-center mt-8 gap-4">
-  <dish_card food_image="https://th.bing.com/th/id/R.686eea5b785d964e9c6f5aa622ec8db6?rik=I2e8p9gFjfaHeg&riu=http%3a%2f%2frecipedose.com%2fwp-content%2fuploads%2f2013%2f03%2fChicken-momos.jpg&ehk=P8WqN4eTADZLNRHw%2f58ok2K00IOoMqab1qmn9DrSLIw%3d&risl=1&pid=ImgRaw&r=0" type="Non veg" price="LKR1850.00" dish_name="Chicken momo" description="Savory parcels, tender filling; an irresistible Asian delight." />
-  <dish_card food_image="https://img.delicious.com.au/uCIIsWC_/del/2021/06/aglio-e-olio-spaghetti-154257-2.jpg" type="veg" price="LKR2999.00" dish_name="Spaghetti aglio e olio" description="Spaghetti tossed in garlic-infused olive oil, simplicity elevated."/>
-  <dish_card food_image="https://www.italymagazine.com/sites/default/files/styles/800xauto/public/recipe/pizza-margherita-cottura_0.jpg?itok=2Jj0BXDI" type="veg" price="LKR5000.00" dish_name="Pizza margherita" description="Tomato, mozzarella, basil; wood-fired Italian essence embraced."/>
-  <dish_card food_image="https://www.cucchiaio.it/content/dam/cucchiaio/it/ricette/2009/11/ricetta-panna-cotta/panna%20cotta-1.jpg" type="veg" price="LKR1700.00" dish_name="Panna cotta" description="Velvety dessert masterpiece with luscious creamy elegance."/>
+  <dish_card food_image="https://th.bing.com/th/id/R.686eea5b785d964e9c6f5aa622ec8db6?rik=I2e8p9gFjfaHeg&riu=http%3a%2f%2frecipedose.com%2fwp-content%2fuploads%2f2013%2f03%2fChicken-momos.jpg&ehk=P8WqN4eTADZLNRHw%2f58ok2K00IOoMqab1qmn9DrSLIw%3d&risl=1&pid=ImgRaw&r=0" type="Non veg" price="$15.99" dish_name="Chicken momo" description="Savory parcels, tender filling; an irresistible Asian delight." />
+  <dish_card food_image="https://img.delicious.com.au/uCIIsWC_/del/2021/06/aglio-e-olio-spaghetti-154257-2.jpg" type="veg" price="LKR1599.99" dish_name="Spaghetti aglio e olio" description="Spaghetti tossed in garlic-infused olive oil, simplicity elevated."/>
+  <dish_card food_image="https://www.italymagazine.com/sites/default/files/styles/800xauto/public/recipe/pizza-margherita-cottura_0.jpg?itok=2Jj0BXDI" type="veg" price="LKR3540.00" dish_name="Pizza margherita" description="Tomato, mozzarella, basil; wood-fired Italian essence embraced."/>
+  <dish_card food_image="https://www.cucchiaio.it/content/dam/cucchiaio/it/ricette/2009/11/ricetta-panna-cotta/panna%20cotta-1.jpg" type="veg" price="LKR1900.00" dish_name="Panna cotta" description="Velvety dessert masterpiece with luscious creamy elegance."/>
   <!-- <dish_card food_image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCCuXEGygYqTsGUhbQJszevL4-6frKxYWpA&usqp=CAU" type="Non veg" price="$15.99" dish_name="Tortellini" description="Elegant pasta pockets filled with rich, savory delights. Simply irresistible."/> -->
 </div>
 
@@ -174,7 +166,7 @@ initTE({ Carousel });
 
 
 .title_home, *{
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 </style>
 
