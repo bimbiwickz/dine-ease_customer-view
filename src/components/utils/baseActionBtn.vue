@@ -1,6 +1,6 @@
 <template>
   <button
-    class="bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded" @click="toggleButtonText">
+    :class="buttonClasses" @click="toggleButtonText">
     {{ buttonText }}
   </button>
 </template>
@@ -32,5 +32,13 @@ export default {
       }
     },
   },
+  computed: {
+       buttonClasses() {
+         return {
+           'bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded': this.buttonText === this.initialText,
+           'bg-white hover:bg-white-600 text-green font-semibold py-2 px-4 rounded border-2 border-green': this.buttonText === this.clickedText,
+         };
+       },
+     },
 };
 </script>

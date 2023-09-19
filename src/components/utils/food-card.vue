@@ -21,9 +21,8 @@
     <div class="flex justify-between mt-4">
       
       <div class="flex justify-center items-center">
-        <BaseActionBtn :buttonText="'Add to plate'" @click="addToPlate">
-          <!-- <span class="flex justify-center">Add to Plate</span> -->
-        </BaseActionBtn>
+        <BaseActionBtn initialText="Add to plate" clickedText="Added to plate">
+          </BaseActionBtn>
       </div>
     </div>
     <div class="mt-4">
