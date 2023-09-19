@@ -4,7 +4,6 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import { createRouter, createWebHistory, type NavigationGuardNext} from 'vue-router';
-import { createRouter, createWebHistory } from 'vue-router'
 import { getProfile } from './components/ProfileService'
 
 //Vue.use(Router);
@@ -213,9 +212,6 @@ router.beforeEach(async (to: Routs, from: Route, next: NavigationGuardNext) => {
     }
   });
   
-export default router;
-  
-
 
 export default router
 

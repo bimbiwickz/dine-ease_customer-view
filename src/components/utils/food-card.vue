@@ -21,9 +21,9 @@
     <div class="flex justify-between mt-4">
       
       <div class="flex justify-center items-center">
-        <button class="bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded" :buttonText="isAddedToPlate ? 'Added to Plate' : 'Add to Plate'" @click="addToPlate">
-          <span class="flex justify-center">Add to Plate</span>
-        </button>
+        <BaseActionBtn :buttonText="'Add to plate'" @click="addToPlate">
+          <!-- <span class="flex justify-center">Add to Plate</span> -->
+        </BaseActionBtn>
       </div>
     </div>
     <div class="mt-4">
@@ -33,6 +33,8 @@
 </template>
 
 <script lang="ts">
+import BaseActionBtn from './baseActionBtn.vue'
+
 export default {
   props: {
     title: {
@@ -64,6 +66,9 @@ export default {
       // Add your logic for adding to plate here
     },
   },
+  components:{
+    BaseActionBtn
+  }
 };
 </script>
 

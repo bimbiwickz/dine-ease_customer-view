@@ -49,9 +49,9 @@
             class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
           /><br /> -->
           
-          <BaseActionBtn type="submit" style="width: 100%" :loading="loading" @click="loginUser()" buttonText="Your Button Text Here">
-          {{ loading ? "Login in" : "LogIn" }}
+          <BaseActionBtn initialText="Login" clickedText="Loggin In">
           </BaseActionBtn>
+
           <p class="text-black font-light flex justify-center text-sm">
             Have not registered yet? <a href="/SignUp" class="text-green"> &nbsp;Signup</a>
           </p>

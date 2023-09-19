@@ -2,11 +2,11 @@
 import { defineComponent} from 'vue';
 import navbar from '../components/NavBar/logNavBar.vue';
 
-import box from './landing_page_components/landing_page_box.vue';
-import title_image from "./landing_page_components/page_title_image.vue";
-import page_footer from "./landing_page_components/footer.vue";
-import dish_card from "./landing_page_components/foodcards.vue";
-import title_2 from "./landing_page_components/second_main_title.vue";
+import box from './utils/landing_page_components/landing_page_box.vue';
+import title_image from "./utils/landing_page_components/page_title_image.vue";
+import page_footer from "./utils/landing_page_components/footer.vue";
+import dish_card from "./utils/landing_page_components/foodcards.vue";
+import title_2 from "./utils/landing_page_components/second_main_title.vue";
 import nav_bar from "../components/NavBar/StaticNavBar.vue";
 import reservation_button from "./Customer/ReservationInput.vue";
 
