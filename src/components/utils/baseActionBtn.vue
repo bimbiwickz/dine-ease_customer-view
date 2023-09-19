@@ -1,39 +1,36 @@
-<script lang="ts" setup>
-import { ref, defineProps } from 'vue';
-
-const props = defineProps<{
-  loading?: boolean;
-  outline?: boolean;
-  danger?: boolean;
-  warning?: boolean;
-  flat?: boolean;
-  buttonText?: string; // Add this line
-}>();
-
-const isClicked = ref(false);
-const buttonText = ref(props.buttonText || "Click me");
-
-const handleClick = () => {
-  isClicked.value = !isClicked.value;
-  buttonText.value = isClicked.value ? "Clicked!" : props.buttonText;
-};
-</script>
-
 <template>
   <button
-    @click="handleClick"
-    class="w-full font-semibold py-2 px-4 cursor-pointer rounded-md my-4 border-2 border-green-500"
-    :class="[
-      isClicked ? 'bg-white text-green' : 'bg-green text-white',
-      props.outline ? 'outlined' : '',
-      props.danger ? 'danger' : '',
-      props.warning ? 'warning' : '',
-      props.flat ? 'flat' : '',
-    ]"
+    class="bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
+    :loading="isLoading"
+    :outline="false"
+    :danger="false"
+    :warning="false"
+    :flat="false"
+    @click="addToPlate"
   >
-    <i-eos-icons-loading v-if="props.loading" />
-    <span>
-      {{ buttonText }}
-    </span>
+    <span class="flex justify-center">{{ buttonText }}</span>
   </button>
 </template>
+
+<script lang="ts">
+//import BaseActionBtn from '@/components/baseActionBtn.vue';
+
+export default {
+  // components: {
+  //   BaseActionBtn,
+  // },
+  data() {
+    return {
+      isLoading: false,
+      isAddedToPlate: false,
+      buttonText: 'Add to Plate',
+    };
+  },
+  methods: {
+    addToPlate() {
+      this.isAddedToPlate = !this.isAddedToPlate;
+      this.buttonText = this.isAddedToPlate ? 'Added to Plate' : 'Add to Plate';
+    },
+  },
+};
+</script>

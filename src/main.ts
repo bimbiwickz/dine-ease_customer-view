@@ -111,7 +111,8 @@ const routes = [
     },
     {
         path: '/add-food',
-        component: addFood, 
+        component: addFood,
+    }, 
   // {
   //     path: '/baseInput',
   //     component: baseInput,
