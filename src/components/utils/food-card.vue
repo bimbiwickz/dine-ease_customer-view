@@ -4,7 +4,10 @@
   >
     <div class="flex flex-col">
       <div class="lg:w-56 lg:h-32 xs:w-42 xs:h-24 overflow-hidden rounded-md m-2">
-        <img :src="image" alt="Food" class="w-full h-full object-cover">
+        <div class="relative">
+          <img :src="image" alt="Food" class="w-full h-full object-cover">
+          <div class="absolute top-2 left-0 bg-white text-sm font-bold shadow-lg rounded-tr-lg rounded-br-lg backdrop-blur-md bg-opacity-80 text-green px-2 py-1">{{ type }}</div>
+        </div>
       </div>
 
       <div class="flex flex-col justify-start mx-2">
@@ -12,15 +15,14 @@
           <h3 class="text-xl font-semibold lg:text-lg xs:text-base">{{ title }}</h3>
           <p class="text-gray-500 lg:text-lg xs:text-base">{{ price }}</p>
         </div>
-        <h3 class="lg:text-sm xs:text-xs border font-light border-green rounded-md px-2 align-center w-20 flex justify-center">{{ type }}</h3>
+        <!-- <h3 class="lg:text-sm xs:text-xs border font-light border-green rounded-md px-2 align-center w-20 flex justify-center">{{ type }}</h3> -->
       </div>
     </div>
     <div class="flex justify-between mt-4">
       
       <div class="flex justify-center items-center">
-        <button class="bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded" @click="addToPlate">
-          <span class="flex justify-center">Add to Plate</span>
-        </button>
+        <BaseActionBtn initialText="Add to plate" clickedText="Added to plate">
+          </BaseActionBtn>
       </div>
     </div>
     <div class="mt-4">
@@ -30,6 +32,8 @@
 </template>
 
 <script lang="ts">
+import BaseActionBtn from './baseActionBtn.vue'
+
 export default {
   props: {
     title: {
@@ -61,6 +65,9 @@ export default {
       // Add your logic for adding to plate here
     },
   },
+  components:{
+    BaseActionBtn
+  }
 };
 </script>
 
