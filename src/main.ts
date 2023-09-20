@@ -110,9 +110,8 @@ const routes = [
     },
     {
         path: '/add-food',
-        component: addFood,
-    }, 
-  // {
+        component: addFood, 
+    },
   //     path: '/baseInput',
   //     component: baseInput,
   //     //meta: { requiresAuth: true },
@@ -195,23 +194,26 @@ const router = createRouter({
   history: createWebHistory(),
   routes: routes
 })
-// Navigation guard to check authentication status
-router.beforeEach(async (to: Routs, from: Route, next: NavigationGuardNext) => {
-    if (to.matched.some((route: { meta: { requiresAuth: any; }; }) => route.meta.requiresAuth)) {
-      const profile = await getProfile();
-      if (profile) {
-        // User is authenticated, allow access
-        next();
-      } else {
-        // User is not authenticated, redirect to login
-        next('/login');
-      }
-    } else {
-      // Public route, allow access
-      next();
-    }
-  });
+// // Navigation guard to check authentication status
+// router.beforeEach(async (to: Routs, from: Route, next: NavigationGuardNext) => {
+//     if (to.matched.some((route: { meta: { requiresAuth: any; }; }) => route.meta.requiresAuth)) {
+//       const profile = await getProfile();
+//       if (profile) {
+//         // User is authenticated, allow access
+//         next();
+//       } else {
+//         // User is not authenticated, redirect to login
+//         next('/login');
+//       }
+//     } else {
+//       // Public route, allow access
+//       next();
+//     }
+//   });
   
+// export default router;
+  
+
 
 export default router
 

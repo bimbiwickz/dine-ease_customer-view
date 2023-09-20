@@ -11,7 +11,7 @@
           <img class="xl:w-32 h-auto md:w-20" src="../assets/dine ease logo color.png" alt=""  shrink:0/>
         </div>
         <div class="sign-up-form w-full md:w-2/3">
-          <h1 class="font-sans text-3xl text-center font-semibold pb-4">Add a food item</h1>
+          <h1 class="font-sans text-3xl text-gray-600 text-center font-semibold pb-4">Add a food item</h1>
     <form @submit.prevent="onSubmit">
       <BaseInput 
         v-model="food.name" 
@@ -47,12 +47,33 @@
         type="number" 
         required 
         />
-          <BaseActionBtn type="submit" style="width: 100%" :loading="loading" @click="onSubmit()">
-          {{ loading ? "addFood" : "Add to the Menu" }}
-          </BaseActionBtn>
-          <BaseActionBtn type="submit" style="width: 100%" :loading="loading" @click="cancel()">
+        <div class="flex justify-evenly mt-4">
+          <div class="flex justify-center items-center">
+            <BaseActionBtn 
+                initialText="Add to menu"
+                clickedText="Food item adding"
+                initialClass="bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
+                clickedClass="bg-white hover:bg-white-600 text-green font-semibold py-2 px-4 rounded border-2 border-green"
+              >
+            </BaseActionBtn>
+
+          </div>
+          <div class="flex justify-center items-center">
+            <BaseActionBtn 
+                initialText="Cancel"
+                clickedText="Ridirecting to the menu"
+                initialClass="bg-red hover:bg-red-600 text-white font-semibold py-2 px-4 rounded"
+                clickedClass="bg-white hover:bg-white-600 text-red font-semibold py-2 px-4 rounded border-2 border-red"
+              >
+            </BaseActionBtn>
+          </div>
+          
+        </div>
+          
+          
+          <!-- <BaseActionBtn type="submit" style="width: 100%" :loading="loading" @click="cancel()">
           {{ loading ? "Cancel" : "Cancel" }}
-          </BaseActionBtn>
+          </BaseActionBtn> -->
       
     </form>
 </div>
