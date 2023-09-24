@@ -3,23 +3,23 @@
         <div class="txt py-5 text-primary text-lg">
             <h2>Looking for a Reservation?</h2>
         </div>
-        <div class="inputs flex flex-row items-center">
+        <div class="inputs flex flex-row items-center justify-between">
             <div class="select-date">
-                <input type="date" class="px-4 py-2 rounded-full mt-1 w-18 focus:outline-none focus:border-blue-500" placeholder="Select Date" required/>
+                <input type="date" class="w-full rounded-md p-1 hover:border-green focus:outline-none focus:ring-1 focus:ring-green focus:border-transparent" placeholder="Select Date" required/>
             </div>
             <div class="select-time">
                 <!-- <input type="time" id="time"  class="mt-1 p-2 border rounded w-18" placeholder="Select time" required /> -->
-                <select v-model="selectedTime" class="px-4 py-2 rounded-full mt-1 w-18 focus:outline-none focus:border-blue-500">
-                    <option value="">Select time slot</option>
+                <select v-model="selectedTime" class="w-full border-2 rounded-lg p-1 hover:border-green focus:outline-none focus:ring-1 focus:ring-green focus:border-transparent">
+                    <option value="">Select time</option>
                     <option v-for="timeSlot in timeSlots" :value="timeSlot">{{ timeSlot }}</option>
                 </select>
 
             </div>
             <div class="select-people">
-                <input type="number" id="people"  class="mt-1 p-2 border rounded w-15" placeholder="No. of people" required />
+                <input type="number" id="people"  class="w-full rounded-md p-1 hover:border-green focus:outline-none focus:ring-1 focus:ring-green focus:border-transparent" placeholder="No. of people" required />
             </div>
             <div class="reserve-button">
-                <button type="submit" class="bg-green text-white py-2 px-4 rounded">Reserve</button>
+                <button type="submit" class="bg-green text-white py-2 px-4 rounded-lg">Reserve</button>
             </div>
         </div>
     </div>
