@@ -42,7 +42,7 @@ import {toRefs, ref } from 'vue';
         emit('update:modelValue', ($event.target as HTMLInputElement).value)
       "
       :class="{
-            'w-full border-lgray border-2 rounded-md p-1 hover:border-green': true,
+            'w-full border-lgray border-2 rounded-md p-1 hover:border-green focus:outline-none focus:ring-2 focus:ring-green focus:border-transparent': true,
             'border-red': false && !$attrs
           }"
 

@@ -21,6 +21,14 @@ export default {
       type: String,
       default: "Clicked me!",
     },
+    initialClass: {
+      type: String,
+      default: "bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
+    },
+    clickedClass: {
+      type: String,
+      default: "bg-white hover:bg-white-600 text-green font-semibold py-2 px-4 rounded border-2 border-green"
+    },
     
   },
   methods: {
@@ -33,12 +41,12 @@ export default {
     },
   },
   computed: {
-       buttonClasses() {
-         return {
-           'bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded': this.buttonText === this.initialText,
-           'bg-white hover:bg-white-600 text-green font-semibold py-2 px-4 rounded border-2 border-green': this.buttonText === this.clickedText,
-         };
-       },
-     },
+  buttonClasses() {
+    return {
+      [this.initialClass]: this.buttonText === this.initialText,
+      [this.clickedClass]: this.buttonText === this.clickedText,
+    };
+  },
+},
 };
 </script>
