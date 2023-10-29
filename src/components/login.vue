@@ -10,7 +10,7 @@
     >
       <div class="sign-up-left w-full md:w-2/3 flex flex-col items-center">
         <div class="logo pr-48 md:pr-0 w-auto h-auto shrink:0">
-          <img class="xl:h-10 md:h-10 sm:h-5 w-auto mb-4" src="../assets/logo-orig.png" alt=""  shrink:0/>
+          <img class="xl:h-10 md:h-10 sm:h-5 w-auto mb-4" src="../assets/Group 39556.png" alt=""  shrink:0/>
         </div>
         <div class="sign-up-form w-full md:w-2/3">
           <h1 class="font-sans text-3xl text-center font-semibold pb-4">Log In</h1>
@@ -48,8 +48,8 @@
             v-model="password" 
             class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
           /><br /> -->
-          
-          <BaseActionBtn initialText="Login" clickedText="Loggin In">
+          <br>
+          <BaseActionBtn initialText="Login" clickedText="Log in">
           </BaseActionBtn>
 
           <p class="text-black font-light flex justify-center text-sm">
@@ -212,7 +212,7 @@ export default defineComponent({
         this.loading = true;
 
         const response = await fetch(
-          '`https://dineease-api.azurewebsites.net/api/auth`',
+          '`https://localhost:7251/api/auth`',
           {
             method: 'POST',
             headers: {

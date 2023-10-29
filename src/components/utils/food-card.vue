@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['bg-white', 'rounded-lg', 'shadow-sm', isClicked ? 'shadow-2xl' : 'hover:shadow-md', 'm-2', 'lg:w-60', 'xs:w-48', 'lg:h-60', 'xs:h-48']"
+    :class="['bg-white', 'rounded-lg', 'shadow-sm', isClicked ? 'shadow-2xl' : 'hover:shadow-md', 'm-2', 'pb-2', 'lg:w-60', 'xs:w-48', 'lg:h-60', 'xs:h-48']"
   >
     <div class="flex flex-col">
       <div class="lg:w-56 lg:h-32 xs:w-42 xs:h-24 overflow-hidden rounded-md m-2">
@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col justify-start mx-2">
+      <div class="flex flex-col justify-start mx-4">
         <div class="flex flex-row justify-between">
           <h3 class="text-xl font-semibold lg:text-lg xs:text-base">{{ title }}</h3>
           <p class="text-gray-500 lg:text-lg xs:text-base">{{ price }}</p>
@@ -18,11 +18,20 @@
         <!-- <h3 class="lg:text-sm xs:text-xs border font-light border-green rounded-md px-2 align-center w-20 flex justify-center">{{ type }}</h3> -->
       </div>
     </div>
-    <div class="flex justify-between mt-4">
-      
-      <div class="flex justify-center items-center">
-        <BaseActionBtn initialText="Add to plate" clickedText="Added to plate">
-          </BaseActionBtn>
+    <div class="flex justify-between mt-4 px-4">
+      <h5 class="text-green text-sm">{{ count }} on my plate</h5>
+      <div class="flex flex-row justify-center">
+        <div class="flex items-center">
+          <button @click="decrementCount" class="px-2 py-1 bg-gray-200 rounded-l-md m-0.5 lg:text-sm xs:text-xs">
+            -
+          </button>
+          <div class="px-2 py-1 bg-green text-white rounded-md lg:text-sm xs:text-xs">
+            {{ count }}
+          </div>
+          <button @click="incrementCount" class="px-2 py-1 bg-gray-200 rounded-r-md m-0.5 lg:text-sm xs:text-xs">
+            +
+          </button>
+        </div>
       </div>
     </div>
     <div class="mt-4">
@@ -45,7 +54,7 @@ export default {
       required: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
     },
     image: {
@@ -58,16 +67,23 @@ export default {
     },
   },
   methods: {
-    addToWishlist() {
-      // Add your logic for adding to wishlist here
+    incrementCount() {
+      this.count++;
     },
-    addToPlate() {
-      // Add your logic for adding to plate here
+    decrementCount() {
+      if (this.count > 0) {
+        this.count--;
+      }
     },
   },
   components:{
     BaseActionBtn
-  }
+  },
+  data() {
+    return {
+      count: 0,
+    };
+  },
 };
 </script>
 
