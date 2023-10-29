@@ -79,7 +79,7 @@ export default {
     },
     fetchData() {
       axios
-        .get('../src/sampleData/menu.json')
+        .get('http://localhost:3000/menu')
         .then(response => {
           this.foods = response.data;
         })
