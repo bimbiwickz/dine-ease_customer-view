@@ -1,5 +1,5 @@
 <template>
-  <div v-if="count > 0"
+  <div
     :class="['bg-white', 'rounded-lg', 'shadow-sm', isClicked ? 'shadow-2xl' : 'hover:shadow-md', 'm-2', 'pb-2', 'lg:w-200', 'xs:w-100', 'lg:h-30', 'xs:h-20']"
   >
     <div class="flex flex-row items-center justify-between">
