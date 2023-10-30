@@ -1,37 +1,41 @@
 <template>
-    <div class="reserve-button flex flex-col items-center">
-        <div class="txt py-5 text-primary text-lg">
+    <div class="reserve-button flex flex-col items-left space-y-4">
+        <div class="txt py-5 text-black text-3xl font-bold">
             <h2>Looking for a Reservation?</h2>
         </div>
-        <div class="inputs flex flex-row items-center">
+        <div class="inputs flex flex-row items-center space-x-4">
             <div class="select-date">
-                <input type="date" class="px-4 py-2 rounded-full mt-1 w-18 focus:outline-none focus:border-blue-500" placeholder="Select Date" required/>
+                <input v-model="date" type="date" class="px-4 py-2 rounded mt-1 w-36 h-10 focus:outline-none focus:border-primary-500" placeholder="Select Date" required/>
             </div>
             <div class="select-time">
-                <!-- <input type="time" id="time"  class="mt-1 p-2 border rounded w-18" placeholder="Select time" required /> -->
-                <select v-model="selectedTime" class="px-4 py-2 rounded-full mt-1 w-18 focus:outline-none focus:border-blue-500">
+                <select v-model="selectedTime" class="px-4 py-2 rounded mt-1 w-36 h-10 focus:outline-none focus:border-primary-500">
                     <option value="">Select time slot</option>
                     <option v-for="timeSlot in timeSlots" :value="timeSlot">{{ timeSlot }}</option>
                 </select>
-
             </div>
             <div class="select-people">
-                <input type="number" id="people"  class="mt-1 p-2 border rounded w-15" placeholder="No. of people" required />
+                <input v-model="people" type="number" id="people"  class="mt-1 p-2 border rounded w-28 h-10" placeholder="PAX" min="1" required />
             </div>
             <div class="reserve-button">
-                <button type="submit" class="bg-green text-white py-2 px-4 rounded">Reserve</button>
+                <button :disabled="!date || !selectedTime || !people" type="submit" @click="navigateToNewPage" class="bg-green text-white w-28 h-10 py-2 px-4 rounded">Reserve</button>
             </div>
         </div>
     </div>
 </template>
 
+
 <script lang="ts">
+    import { defineComponent } from 'vue';
+    import { useRouter } from 'vue-router';
+
     export default {
         data() {
             return {
                 currentDate: new Date().toISOString().substr(0, 10),
                 timeSlots: [],
-                selectedTime: ''
+                date: '',
+                selectedTime: '',
+                people: ''
             }
         },
         created() {
@@ -48,8 +52,19 @@
                 this.timeSlots.push(time);
                 startTime.setTime(startTime.getTime() + interval * 60 * 1000); // Add interval to the start time
             }
-        }
-    };
+        },
+        setup() {
+            const router = useRouter();
+
+            const navigateToNewPage = () => {
+            router.push('/reservations');
+            };
+
+            return {
+            navigateToNewPage,
+            };
+        },
+    }
 </script>
 
 <style>
