@@ -11,7 +11,7 @@
           <img class="xl:w-32 h-auto md:w-20" src="../assets/dine ease logo color.png" alt=""  shrink:0/>
         </div>
         <div class="sign-up-form w-full md:w-2/3">
-          <h1 class="font-sans text-3xl text-gray-600 text-center font-semibold pb-4">Add a food item</h1>
+          <h1 class="font-sans text-2xl text-gray-600 text-center font-semibold pb-4">Add a food item</h1>
     <form @submit.prevent="onSubmit">
       <BaseInput 
         v-model="food.name" 

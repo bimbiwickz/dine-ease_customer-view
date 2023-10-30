@@ -1,6 +1,7 @@
 <template>
   <div>
     <NavBar></NavBar>
+    <div class="pt-16">
     <SearchBar
       :items="pageItems"
       @select="selectedFilter = $event"
@@ -9,20 +10,24 @@
     <pg-title class="py-4 flex justify-center text-xl text-green">
       Choose your favorites to have!
     </pg-title>
-    <container class="container flex flex-row flex-wrap p-4 xs:p-0 justify-center">
-      <div class="grid lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2">
-        <FoodCard
-          v-for="food in computedFilteredFoods"
-          :key="food.id"
-          :title="food.title"
-          :type="food.name"
-          :price="food.price"
-          :image="food.image"
-        />
-      </div>
-    </container>
+    
+      <container class="container flex flex-row flex-wrap p-2 xs:p-0 justify-center">
+        <div class="grid lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2">
+          <FoodCard
+            v-for="food in computedFilteredFoods"
+            :key="food.id"
+            :title="food.title"
+            :type="food.name"
+            :price="food.price"
+            :image="food.image"
+          />
+        </div>
+      </container>
+    </div>
   </div>
 </template>
+
+
 
 <script lang="ts">
 import FoodCard from '../utils/food-card.vue';
