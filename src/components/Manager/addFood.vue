@@ -14,26 +14,26 @@
           <h1 class="font-sans text-2xl text-gray-600 text-center font-semibold pb-4">Add a food item</h1>
     <form @submit.prevent="onSubmit">
       <BaseInput 
-        v-model="food.name" 
+        v-model="food.title" 
         label="Food Name" 
         labelFor="name" 
         type="text" 
         required 
         />
       <BaseSelect 
-        v-model="food.category" 
+        v-model="food.name" 
         label="Category" 
         labelFor="category" 
         :options="categories" 
         required 
         />
-      <BaseInput 
+      <!-- <BaseInput 
         v-model="food.description" 
         label="Description" 
         labelFor="description" 
         type="text" 
         required 
-        />
+        /> -->
       <BaseImageInput 
         v-model="food.image" 
         label="Image" 
@@ -102,8 +102,8 @@ const addFood = (newFoodItem) => {
 }
 
 const food = ref({
+  title: '',
   name: '',
-  category: '',
   description: '',
   image: '',
   price: 0,
@@ -116,21 +116,36 @@ const loading = ref(false);
 const router = useRouter();
 
 const onSubmit = async () => {
-    try {
-      loading.value = true;
+  try {
+    loading.value = true;
 
-      // POST request to add food item
-      const response = await axios.post('http://localhost:3000/menu', food.value);
+    // Prepare FormData for image
+    let imageFormData = new FormData();
+    imageFormData.append('image', food.value.image);
 
-      console.log('Food item added successfully:', response.data);
+    // POST request to upload image
+    const imageResponse = await axios.post('http://localhost:3000/upload-image', imageFormData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
 
-      router.push('/menu');
-    } catch (error) {
-      console.error('Error adding food item:', error);
-    } finally {
-      loading.value = false;
-    }
+    // Update image path with the path returned from server
+    food.value.image = imageResponse.data.path;
+
+    // POST request to add food item
+    const response = await axios.post('http://localhost:3000/menu', food.value);
+
+    console.log('Food item added successfully:', response.data);
+
+    router.push('/menu');
+  } catch (error) {
+    console.error('Error adding food item:', error);
+  } finally {
+    loading.value = false;
+  }
 };
+
 
 
 const cancel = () => {

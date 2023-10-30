@@ -69,6 +69,19 @@
       "name": "Chicken",
       "price": 1400,
       "image": "../src/assets/images/jason-leung-poI7DelFiVA-unsplash (1).jpg"
+    },
+    {
+      "title": "Vinoli Soup",
+      "name": "Starters",
+      "description": "",
+      "price": "1500",
+      "image":"../src/assets/images/jason-leung-poI7DelFiVA-unsplash (1).jpg",
+      "id": 11
+    }
+  ],
+  "upload-image": [
+    {
+      "id": 1
     }
   ]
 }
