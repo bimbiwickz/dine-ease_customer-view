@@ -11,7 +11,7 @@
           <img class="xl:w-32 h-auto md:w-20" src="../assets/dine ease logo color.png" alt=""  shrink:0/>
         </div>
         <div class="sign-up-form w-full md:w-2/3">
-          <h1 class="font-sans text-3xl text-gray-600 text-center font-semibold pb-4">Add a food item</h1>
+          <h1 class="font-sans text-2xl text-gray-600 text-center font-semibold pb-4">Add a food item</h1>
     <form @submit.prevent="onSubmit">
       <BaseInput 
         v-model="food.name" 
@@ -93,6 +93,7 @@ import BaseInput from '../utils/baseInput.vue';
 import BaseSelect from '../utils/baseSelect.vue';
 import BaseImageInput from '../utils/baseImageInput.vue';
 import BaseActionBtn from '../utils/baseActionBtn.vue';
+import axios from 'axios';
 
 const foodItems = ref([]);
 
@@ -115,20 +116,22 @@ const loading = ref(false);
 const router = useRouter();
 
 const onSubmit = async () => {
-  try {
-    loading.value = true;
+    try {
+      loading.value = true;
 
-    // Your submit logic here
-    addFood(food.value);
-    console.log('Food item added successfully');
+      // POST request to add food item
+      const response = await axios.post('http://localhost:3000/menu', food.value);
 
-    router.push('/menu');
-  } catch (error) {
-    console.error('Error adding food item:', error);
-  } finally {
-    loading.value = false;
-  }
+      console.log('Food item added successfully:', response.data);
+
+      router.push('/menu');
+    } catch (error) {
+      console.error('Error adding food item:', error);
+    } finally {
+      loading.value = false;
+    }
 };
+
 
 const cancel = () => {
   router.push('/menu-staff');

@@ -29,14 +29,25 @@ export default {
       type: String,
       default: "bg-white hover:bg-white-600 text-green font-semibold py-2 px-4 rounded border-2 border-green"
     },
+      onSubmit: {
+      type: Function,
+      default: () => {},
+    },
+    cancel: {
+      type: Function,
+      default: () => {},
+    },
+    
     
   },
   methods: {
     toggleButtonText() {
       if (this.buttonText === this.initialText) {
         this.buttonText = this.clickedText;
+        this.onSubmit();
       } else {
         this.buttonText = this.initialText;
+        this.cancel();
       }
     },
   },
