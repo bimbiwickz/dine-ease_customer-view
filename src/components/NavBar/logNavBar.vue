@@ -1,6 +1,6 @@
 <template>
     <!-- Main navigation container -->
-    <nav class="bg-white z-[1036] flex-no-wrap fixed flex w-full items-center justify-between py-2 shadow-md shadow-black/5 lg:flex-wrap lg:justify-start lg:py-4
+    <nav class="fixed top-0 bg-white z-[1036] flex-no-wrap fixed flex w-full items-center justify-between py-2 shadow-md shadow-black/5 lg:flex-wrap lg:justify-start lg:py-4
     data-te-navbar-ref">
     <div class="flex w-full flex-wrap items-center justify-between px-3">
         <!-- Hamburger button for mobile view -->

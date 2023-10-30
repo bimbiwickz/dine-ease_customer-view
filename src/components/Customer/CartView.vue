@@ -4,11 +4,14 @@ import CartCard from '../utils/cart-card.vue';
 import NavBar from '../utils/navBar-user.vue';
 import { computed } from 'vue';
 import menuData from '../../sampleData/menu.json';
+import TotalCard from '../utils/total-card.vue';
+
 
 export default {
   name: 'MenuView',
   components: {
     CartCard,
+    TotalCard,
     NavBar
   },
     data() {
@@ -60,16 +63,25 @@ export default {
 
 <template>
     <div>
-        <NavBar></NavBar>
-        <div class="m-4 ">
-            <CartCard
-                v-for="food in computedFilteredFoods"
-                :key="food.id"
-                :title="food.title"
-                :type="food.name"
-                :price="food.price"
-                :image="food.image"
-            ></CartCard>
+      <NavBar></NavBar>
+      <div class="flex">
+        <div class="m-4 p-16 w-2/3">
+          <CartCard
+            v-for="food in computedFilteredFoods"
+            :key="food.id"
+            :title="food.title"
+            :type="food.name"
+            :price="food.price"
+            :image="food.image"
+          ></CartCard>
         </div>
+        <div class="m-4 p-16 w-1/3 bg-gray-200">
+          <TotalCard
+            :totalPrice="totalPrice"
+            :totalItems="totalItems"
+          ></TotalCard>
+        </div>
+      </div>
     </div>
-</template>
+  </template>
+  
