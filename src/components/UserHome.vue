@@ -38,22 +38,22 @@ initTE({ Carousel });
 <nav_bar/>
 
 
-  <div class="relative">
-    <title_image image="src\assets\images\pexels-rachel-claire-5490897.jpg"/>
-    <div class="md:flex md:justify-center"> <!-- Add flex layout for centering on medium screens and larger -->
-    <box />
+  <div class="relative h-screen"> 
+    <title_image image="src\assets\images\main-bg.jpg" class="w-full h-full object-cover"/>
+    <div class="md:flex md:justify-center absolute top-72 left-12"> <!-- Add flex layout for centering on medium screens and larger -->
+    <!-- <box /> -->
+    <reservation_button/>
     </div>
   </div>
 
-  <div class="flex flex-row justify-center">
+  <!-- <div class="flex flex-row justify-center">
     <a
     class="text-white bg-primary rounded-xl mt-4 py-3 px-8 transition duration-200 hover:text-neutral-800 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
         href="/customer/menuview"
         data-te-nav-link-ref
         >Let's Get Started!</a
     >
-  </div>
-  <reservation_button/>
+  </div> -->
   <!-- Using utilities: -->
 <div class="bg-gray-100 py-8">
   <div class="container mx-auto">
@@ -61,10 +61,10 @@ initTE({ Carousel });
 
 
   <div class="flex flex-wrap justify-center mt-8 gap-4">
-  <dish_card food_image="https://th.bing.com/th/id/R.686eea5b785d964e9c6f5aa622ec8db6?rik=I2e8p9gFjfaHeg&riu=http%3a%2f%2frecipedose.com%2fwp-content%2fuploads%2f2013%2f03%2fChicken-momos.jpg&ehk=P8WqN4eTADZLNRHw%2f58ok2K00IOoMqab1qmn9DrSLIw%3d&risl=1&pid=ImgRaw&r=0" type="Non veg" price="LKR1850.00" dish_name="Chicken momo" description="Savory parcels, tender filling; an irresistible Asian delight." />
-  <dish_card food_image="https://img.delicious.com.au/uCIIsWC_/del/2021/06/aglio-e-olio-spaghetti-154257-2.jpg" type="veg" price="LKR2999.00" dish_name="Spaghetti aglio e olio" description="Spaghetti tossed in garlic-infused olive oil, simplicity elevated."/>
-  <dish_card food_image="https://www.italymagazine.com/sites/default/files/styles/800xauto/public/recipe/pizza-margherita-cottura_0.jpg?itok=2Jj0BXDI" type="veg" price="LKR5000.00" dish_name="Pizza margherita" description="Tomato, mozzarella, basil; wood-fired Italian essence embraced."/>
-  <dish_card food_image="https://www.cucchiaio.it/content/dam/cucchiaio/it/ricette/2009/11/ricetta-panna-cotta/panna%20cotta-1.jpg" type="veg" price="LKR1700.00" dish_name="Panna cotta" description="Velvety dessert masterpiece with luscious creamy elegance."/>
+  <dish_card class="w-48" food_image="https://th.bing.com/th/id/R.686eea5b785d964e9c6f5aa622ec8db6?rik=I2e8p9gFjfaHeg&riu=http%3a%2f%2frecipedose.com%2fwp-content%2fuploads%2f2013%2f03%2fChicken-momos.jpg&ehk=P8WqN4eTADZLNRHw%2f58ok2K00IOoMqab1qmn9DrSLIw%3d&risl=1&pid=ImgRaw&r=0" type="Non veg" price="LKR1850.00" dish_name="Chicken momo" description="Savory parcels, tender filling; an irresistible Asian delight." />
+  <dish_card class="w-48" food_image="https://img.delicious.com.au/uCIIsWC_/del/2021/06/aglio-e-olio-spaghetti-154257-2.jpg" type="veg" price="LKR2999.00" dish_name="Spaghetti aglio e olio" description="Spaghetti tossed in garlic-infused olive oil, simplicity elevated."/>
+  <dish_card class="w-48" food_image="https://www.italymagazine.com/sites/default/files/styles/800xauto/public/recipe/pizza-margherita-cottura_0.jpg?itok=2Jj0BXDI" type="veg" price="LKR5000.00" dish_name="Pizza margherita" description="Tomato, mozzarella, basil; wood-fired Italian essence embraced."/>
+  <dish_card class="w-48" food_image="https://www.cucchiaio.it/content/dam/cucchiaio/it/ricette/2009/11/ricetta-panna-cotta/panna%20cotta-1.jpg" type="veg" price="LKR1700.00" dish_name="Panna cotta" description="Velvety dessert masterpiece with luscious creamy elegance."/>
   <!-- <dish_card food_image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjCCuXEGygYqTsGUhbQJszevL4-6frKxYWpA&usqp=CAU" type="Non veg" price="$15.99" dish_name="Tortellini" description="Elegant pasta pockets filled with rich, savory delights. Simply irresistible."/> -->
 </div>
 
