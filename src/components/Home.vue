@@ -45,7 +45,7 @@ export default defineComponent({
 
 
   <div class="relative">
-    <title_image image="src\assets\images\pexels-rachel-claire-5490897.jpg"/>
+    <title_image image="src\assets\images\main-bg.jpg"/>
     <div class="md:flex md:justify-center"> <!-- Add flex layout for centering on medium screens and larger -->
     <box />
     </div>
