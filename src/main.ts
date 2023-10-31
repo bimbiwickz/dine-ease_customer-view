@@ -25,6 +25,8 @@ import Reservation2 from './components/Manager/reservations/reservation2.vue'
 import UserProfile from './components/Customer/UserProfileDashboard.vue'
 import Reservations from './components/Customer/Reservations.vue'
 import addFood from './components/Manager/addFood.vue'
+import addMeal from './components/Manager/addMeal.vue'
+
 // import Vue3ConfirmDialog from '@zapadale/vue3-confirm-dialog'
 
 
@@ -116,6 +118,10 @@ const routes = [
         path: '/add-food',
         component: addFood, 
     },
+    {
+      path: '/add-meal',
+      component: addMeal, 
+  },
   //     path: '/baseInput',
   //     component: baseInput,
   //     //meta: { requiresAuth: true },

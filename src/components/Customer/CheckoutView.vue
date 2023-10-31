@@ -13,7 +13,7 @@
     <div class="flex flex-col justify-start mx-4">
       <div class="flex flex-row justify-between">
         <h3 class="text-l font-semibold py-8 px-4">Payment Details</h3>
-        <p class="text-gray-500">{{ totalPrice }}</p>
+        <!-- <p class="text-gray-500">{{ totalPrice }}</p> -->
       </div>
     </div>
     <div class="flex flex-col justify-between px-8">
