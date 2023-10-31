@@ -25,6 +25,8 @@ import Reservation2 from './components/Manager/reservations/reservation2.vue'
 import UserProfile from './components/Customer/UserProfileDashboard.vue'
 import Reservations from './components/Customer/Reservations.vue'
 import addFood from './components/Manager/addFood.vue'
+// import Vue3ConfirmDialog from '@zapadale/vue3-confirm-dialog'
+
 
 export interface globalcomponents {
   BaseInput: typeof import('./components/utils/baseInput.vue')
@@ -95,7 +97,7 @@ const routes = [
         props: true,
     },
     {
-        path: '/Customer/CheckoutView',
+        path: '/customer/CheckoutView',
         name: 'checkout',
         component: Checkout,
         props: true,
@@ -191,6 +193,7 @@ const routes = [
     component: Reservations
   }
 ]
+
 
 const router = createRouter({
   history: createWebHistory(),
