@@ -106,7 +106,9 @@ const routes = [
     },
     {
         path: '/reservations',
+        name: 'reservations',
         component: Reservations, 
+        props: true,
     },
     {
         path: '/add-food',
