@@ -36,9 +36,7 @@ export default {
     cancel: {
       type: Function,
       default: () => {},
-    },
-    
-    
+    }
   },
   methods: {
     toggleButtonText() {
