@@ -14,9 +14,8 @@
       <div class="mt-4 justify-evenly p-8 px-16">
         <BaseActionBtn 
           initialText="Proceed to Checkout"
-          :class="{ 'clicked-class': isClicked }"
           initialClass="bg-green hover:bg-green-600 text-white text-xs font-semibold py-2 px-4 rounded"
-          @click="isClicked = !isClicked">
+          @click="redirectToCheckout">
         </BaseActionBtn>
       </div>
     </div>
@@ -26,6 +25,8 @@
   
   <script lang="ts">
   import BaseActionBtn from './baseActionBtn.vue';
+  import { useRouter } from 'vue-router';
+
 
   export default {
     props: {
@@ -55,6 +56,9 @@
     }
   }
   };
+  const redirectToCheckout = () => {
+  router.push('/checkoutview');
+};
   </script>
   
   <style>

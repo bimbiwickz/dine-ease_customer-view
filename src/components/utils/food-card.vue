@@ -2,22 +2,7 @@
   <div
     :class="['bg-white', 'rounded-lg', 'shadow-sm', isClicked ? 'shadow-2xl' : 'hover:shadow-md', 'm-2', 'pb-2', 'lg:w-60', 'xs:w-48', 'lg:h-60', 'xs:h-48']"
   >
-    <div class="flex flex-col">
-      <div class="lg:w-56 lg:h-32 xs:w-42 xs:h-24 overflow-hidden rounded-md m-2">
-        <div class="relative">
-          <img :src="image" alt="Food" class="w-full h-full object-cover">
-          <div class="absolute top-2 left-0 bg-white text-sm font-bold shadow-lg rounded-tr-lg rounded-br-lg backdrop-blur-md bg-opacity-80 text-green px-2 py-1">{{ type }}</div>
-        </div>
-      </div>
-
-      <div class="flex flex-col justify-start mx-4">
-        <div class="flex flex-row justify-between">
-          <h3 class="text-xl font-semibold lg:text-lg xs:text-base">{{ title }}</h3>
-          <p class="text-gray-500 lg:text-lg xs:text-base">{{ price }}</p>
-        </div>
-        <!-- <h3 class="lg:text-sm xs:text-xs border font-light border-green rounded-md px-2 align-center w-20 flex justify-center">{{ type }}</h3> -->
-      </div>
-    </div>
+    <!-- ... rest of the template code ... -->
     <div class="flex justify-between mt-4 px-4">
       <h5 class="text-green text-sm">{{ count }} on my plate</h5>
       <div class="flex flex-row justify-center">
@@ -34,14 +19,13 @@
         </div>
       </div>
     </div>
-    <div class="mt-4">
-      <slot></slot>
-    </div>
+    <!-- ... rest of the template code ... -->
   </div>
 </template>
 
 <script lang="ts">
 import BaseActionBtn from './baseActionBtn.vue'
+import axios from 'axios';
 
 export default {
   props: {
@@ -65,18 +49,62 @@ export default {
       type: Boolean,
       default: false,
     },
+    userId: {
+      type: String,
+      required: true,
+    },
+    foodId: {
+      type: String,
+      required: true,
+    },
   },
   methods: {
     incrementCount() {
       this.count++;
+      const orderDetails = {
+        userId: this.userId,
+        foodId: this.foodId,
+        count: this.count,
+      };
+
+      axios.post('http://localhost:3000/itemCount', orderDetails)
+        .then((response) => {
+          // Handle the response if needed
+          //window.alert('One item added to the table.');
+        })
+        .catch((error) => {
+          // Handle the error if needed
+          window.alert(error);
+        });
+
+      this.$emit('update-count', this.count);
     },
+
     decrementCount() {
       if (this.count > 0) {
         this.count--;
+        const orderDetails = {
+          userId: this.userId,
+          foodId: this.foodId,
+          count: this.count,
+        };
+
+        axios.put('http://localhost:3000/itemCount', orderDetails)
+          .then((response) => {
+            // Handle the response if needed
+            window.alert('One item removed from the table.');
+          })
+          .catch((error) => {
+            // Handle the error if needed
+           // window.alert(error);
+          });
+
+        this.$emit('update-count', this.count);
       }
     },
+    // ...
   },
-  components:{
+  components: {
     BaseActionBtn
   },
   data() {

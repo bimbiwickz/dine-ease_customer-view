@@ -83,14 +83,26 @@ export default {
     },
   },
   methods: {
-    incrementCount() {
-      this.count++;
-    },
-    decrementCount() {
-      if (this.count > 0) {
-        this.count--;
-      }
-    },
+  incrementCount() {
+    this.count++;
+
+    // Only store order details in local storage if the count is more than 0
+    if (this.count > 0) {
+      this.$store.dispatch('addToCart', {
+        id: this.id,
+        title: this.title,
+        count: this.count
+      });
+
+      const orderDetails = { foodId: this.id, count: this.count };
+      localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+
+      this.$emit('update-count', this.count);
+
+      alert(`One ${this.title} added to the table.`);
+    }
+  },
+
     removeFromCart() {
       // Implement the logic to remove the item from the cart
     },

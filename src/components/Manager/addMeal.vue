@@ -76,10 +76,7 @@
               >
             </BaseActionBtn>
           </div>
-          
         </div>
-          
-          
           <!-- <BaseActionBtn type="submit" style="width: 100%" :loading="loading" @click="cancel()">
           {{ loading ? "Cancel" : "Cancel" }}
           </BaseActionBtn> -->
@@ -160,7 +157,7 @@ const onSubmit = async () => {
 
 
 const cancel = () => {
-  router.push('/menu-staff');
+  router.push('/customer/menu');
 };
 </script>
 

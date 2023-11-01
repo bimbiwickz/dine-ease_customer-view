@@ -201,6 +201,9 @@ const router = createRouter({
 
 // Create the app instance
 const app = createApp(App)
+const pinia = createPinia();
+
+app.use(pinia);
 
 // Use the router and Pinia
 app.use(router)

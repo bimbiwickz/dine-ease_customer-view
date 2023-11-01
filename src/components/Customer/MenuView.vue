@@ -13,6 +13,7 @@
     
       <container class="container flex flex-row flex-wrap p-2 xs:p-0 justify-center">
         <div class="grid lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2">
+
           <FoodCard
             v-for="food in computedFilteredFoods"
             :key="food.id"
@@ -20,8 +21,9 @@
             :type="food.name"
             :price="food.price"
             :image="food.image"
-            @addToCart="addToCart(food)"
+            :count="count" @update-count="handleUpdatedCount"
           />
+
         </div>
       </container>
     </div>
@@ -52,7 +54,9 @@ export default {
       searchQuery: '',
       pageItems: ['All Categories', 'Main Dishes', 'Desserts', 'Beverages', 'Alchohol'],
       mainDishes: ['Pizza', 'Burger', 'Pasta', 'Sushi'],
-      desserts: ['Curry', 'Steak', 'Salad', 'Sandwich']
+      desserts: ['Curry', 'Steak', 'Salad', 'Sandwich'],
+      userId: '123', 
+      foodId: '456',
     };
   },
   computed: {
@@ -93,12 +97,11 @@ export default {
           console.error(error);
         });
       },
-    addToCart(food) {
-      if (confirm("Do you want to add this item to your cart?")) {
-          this.cartItems.push(food);
-        alert("Item added to cart successfully!");
-      }
-      }
+      
+      handleUpdatedCount(newCount: number) {
+      this.count = newCount;
+   
+  },
     },
   created() {
     const urlParams = new URLSearchParams(window.location.search);
