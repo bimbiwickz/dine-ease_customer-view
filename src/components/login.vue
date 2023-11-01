@@ -14,57 +14,57 @@
         </div>
         <div class="sign-up-form w-full md:w-2/3">
           <h1 class="font-sans text-3xl text-center font-semibold pb-4">Log In</h1>
-          <BaseInput
-            id="email"
-            v-model="email"
-            type="text"
-            label="Email Address"
-            label-for="email"
-            required
-        ></BaseInput>
-          <p v-if="showError && !email" class="text-red font-medium text-md pb-2">
-          Email is required
-        </p>
-<!-- ... Same for the password input -->
-        <BaseInput
-            id="password"
-            v-model="password"
-            label="Password"
-            label-for="password"
-            type="password"
-            required
-          ></BaseInput>
-          
-          <p v-if="showError && !password" class="text-red font-medium text-md pb-2">
-          Password is required
-          </p>
-          <!-- Display error message if showError is true -->
-          <p v-if="showError" class="text-red font-medium text-md">
-            {{ errorMessage }}
-          </p>
-          
-          <!-- <input 
-            type="password"
-            v-model="password" 
-            class="w-full border-lgray border-2 rounded-md p-1 hover:border-green"
-          /><br /> -->
-          <br>
-          <BaseActionBtn initialText="Login" clickedText="Log in">
-          </BaseActionBtn>
+          <form @submit.prevent="loginUser">
+            <BaseInput
+              id="email"
+              v-model="email"
+              type="text"
+              label="Email Address"
+              label-for="email"
+              required
+            ></BaseInput>
+            <p v-if="showError && !email" class="text-red font-medium text-md pb-2">
+              Email is required
+            </p>
+
+            <!-- ... Same for the password input -->
+
+            <BaseInput
+              id="password"
+              v-model="password"
+              label="Password"
+              label-for="password"
+              type="password"
+              required
+            ></BaseInput>
+
+            <p v-if="showError && !password" class="text-red font-medium text-md pb-2">
+              Password is required
+            </p>
+
+            <p v-if="showError" class="text-red font-medium text-md">
+              {{ errorMessage }}
+            </p>
+
+            <BaseActionBtn initialText="Login" clickedText="Log in"></BaseActionBtn>
+          </form>
 
           <p class="text-black font-light flex justify-center text-sm">
-            Have not registered yet? <a href="/SignUp" class="text-green"> &nbsp;Signup</a>
+            Have not registered yet? <button @click="navigateToSignUp" class="text-green"> &nbsp;Signup</button>
           </p>
+
           <div class="or flex items-center my-4">
             <hr class="flex-grow border-gray-400" />
             <p class="mx-4 text-gray-700 text-sm">OR</p>
             <hr class="flex-grow border-gray-400" />
           </div>
+
           <button class="flex justify-center border-2 border-green p-2 rounded">
             <img class="w-1/12" src="../assets/google.png" alt="" />
             <p class="ml-2 text-sm">Continue with Google</p>
           </button>
         </div>
+
         <!-- Loding screen start -->
         <div
           v-if="loading"
@@ -162,6 +162,7 @@
 import { defineComponent , ref} from 'vue'
 import BaseInput from './utils/baseInput.vue'
 import BaseActionBtn from './utils/baseActionBtn.vue'
+import axios from 'axios';
 
 // import { useRouter } from 'vue-router'
 const isPasswordVisible = ref(false);
@@ -211,20 +212,11 @@ export default defineComponent({
         // Set loading to true
         this.loading = true;
 
-        const response = await fetch(
-          '`https://localhost:7251/api/auth`',
-          {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              email: this.email,
-              password: this.password
-            })
-          }
-        );
+        const response = await axios.post('https://localhost:7251/api/auth', {
+          email: this.email,
+          password: this.password
+        });
+
         // Reset loading state
         this.loading = false;
 
@@ -233,9 +225,11 @@ export default defineComponent({
           // Reset error state and clear error message
           this.showError = false;
           this.errorMessage = '';
-          const responseData = await response.json();
-          this.userID = responseData.userID; // Modify this line
-          this.$router.push('/managerhome'); 
+          const responseData = response.data;
+          const token = responseData.token;
+
+          // Pass the token to the handleLogin method
+          this.handleLogin(token);
         } else if (response.status === 401) {
           // Display error message and turn input boxes red
           this.showError = true;
@@ -246,7 +240,16 @@ export default defineComponent({
       } catch (error) {
         console.log('Handle error (e.g., display error message)', error);
       }
-},
+    },
+
+    handleLogin(token) {
+      // Save the token to the local storage
+      localStorage.setItem('token', token);
+
+      // Redirect to the desired page or perform any other actions
+      // For example, redirect to the user's dashboard
+      this.$router.push('/dashboard');
+    },
 
     navigateToHome() {
       window.location.href = '/Home'; // Change the URL to match your home.vue route

@@ -32,7 +32,7 @@ import UserProfile from './components/Customer/UserProfileDashboard.vue'
 import addFood from './components/Manager/addFood.vue'
 import addMeal from './components/Manager/addMeal.vue'
 import { container } from 'jenesius-vue-modal';
-
+import axios from 'axios';
 
 export default defineComponent({
   components: {
@@ -81,6 +81,12 @@ export default defineComponent({
           return ''; // Default to user navbar if role is unknown
       }
     },
+  },
+  created() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    }
   },
 });
 </script>
