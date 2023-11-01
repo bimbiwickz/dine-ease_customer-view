@@ -264,7 +264,11 @@ export default defineComponent({
       // You can use Vue Router to navigate to the sign-up route
       this.$router.push('/signup');
     },
-  }
+  },
+  created() {
+    const token = localStorage.getItem('token');
+    console.log('Token:', token);
+  },
 })
 import { Carousel, initTE } from 'tw-elements'
 
