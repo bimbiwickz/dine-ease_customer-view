@@ -2,7 +2,7 @@
 
 import { defineComponent} from 'vue';
 import navbar from '../components/utils/navBar-user.vue';
-
+import axios from 'axios';
 import box from './utils/landing_page_components/landing_page_box.vue';
 import title_image from "./utils/landing_page_components/page_title_image.vue";
 import page_footer from "./utils/landing_page_components/footer.vue";
