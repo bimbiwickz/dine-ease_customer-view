@@ -27,38 +27,45 @@ import axios from 'axios';
 import router from '@/main';
 
 export default defineComponent({
-    props: {
-      tableNumber: Number,
-      onClose: Function,
-    },
-    setup(props) {
-      const reservation = ref({
+  props: {
+    tableNumber: Number,
+    onClose: Function,
+  },
+  setup(props) {
+    const reservation = ref({
+      date: '',
+      selectedTime: '',
+      people: '',
+      id: ''
+    });
+    const showForm = ref(true);
 
-        date: '',
-        selectedTime: '',
-        people: '',
-        id: ''
+    axios.get('http://localhost:3000/reservation')
+      .then((response) => {
+        // Sort the reservations data by ID in descending order
+        const sortedReservations = response.data.sort((a, b) => b.id - a.id);
+
+        // Get the last reservation from the sorted list
+        const lastReservation = sortedReservations[0];
+
+        reservation.value.date = lastReservation.date;
+        reservation.value.selectedTime = lastReservation.selectedTime;
+        reservation.value.people = lastReservation.people;
+        reservation.value.id = lastReservation.id;
+
+        showForm.value = true;
+      })
+      .catch((error) => {
+        window.alert(error);
       });
-      const showForm = ref(true);
 
-      axios.get('http://localhost:3000/reservation')
-        .then((response) => {
-          reservation.value.date = response.data.date;
-          reservation.value.selectedTime = response.data.selectedTime;
-          reservation.value.people = response.data.people;
-          showForm.value = true;
-        })
-        .catch((error) => {
-          window.alert(error);
-        });
+    const closeForm = () => {
+      showForm.value = false;
+      window.location.reload();
+    };
 
-      const closeForm = () => {
-        showForm.value = false;
-        window.location.reload();
-      };
-
-      const submitForm = () => {
-        axios.post('http://localhost:3000/confirmed_reservation', reservation.value)
+    const submitForm = () => {
+      axios.post('http://localhost:3000/confirmed_reservation', reservation.value)
         .then((response) => {
           window.alert('Reservation confirmed.');
           const checkoutUrl = 'https://checkout.stripe.com/c/pay/cs_test_a16HP4ozjqNanQS56SH7u7QYrlt7TFrieURp53NrTtDSqetteJz9BeDy4F#fidkdWxOYHwnPyd1blpxYHZxWjA0S3RnTVZWQV9JNDI8VVM1fXVDTlBjNmN2UnwyRkRmQzEzQGhvM2xEbFBvPVAwYWZ0fHVfR2NLcE52MmJXTVNXTDNnczFkd3JsYUJVSnx%2FfVNRS1RLPF9XNTVkd2BMdlZkcicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcXF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl';
@@ -66,15 +73,15 @@ export default defineComponent({
         })
         .catch((error) => {
           window.alert(error);
-        });      
-      };
+        });
+    };
 
-      return {
-        showForm,
-        reservation,
-        closeForm,
-        submitForm
-      };
-    },
+    return {
+      showForm,
+      reservation,
+      closeForm,
+      submitForm
+    };
+  },
 });
 </script>

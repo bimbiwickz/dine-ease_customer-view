@@ -75,17 +75,57 @@ export default defineComponent({
         submitForm: async function() {
             if (this.date && this.selectedTime && this.people) {
                 const data = { date: this.date, selectedTime: this.selectedTime, people: this.people };
+                const token = localStorage.getItem('token');
+
+                if (!token) {
+                    this.$router.push('/login');
+                    return;
+                }
+                // Create an instance of axios with custom configuration
+                const api = axios.create({
+                baseURL: 'https://dineaase.azurewebsites.net/api',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': 'http://localhost:5173'
+                }
+                });
+
+                // Add an interceptor to handle CORS headers
+                api.interceptors.request.use((config) => {
+                config.headers['Access-Control-Allow-Origin'] = 'http://localhost:5173';
+                return config;
+                });
+
                 try {
-                    const res = await axios.post('http://localhost:3000/reservation', data);
-                    window.alert('Reservation added successfully: ');
-                    this.$router.push({ name: 'reservations', params: { id: 1 }});
-                } catch (error) {
+                    // Fetch user details using the token as the userId
+                    const userRes = await api.get(`/user/get?id=${token}`);
+                    const user = userRes.data;
+
+                    // Include user details in the reservation data
+                    const reservationData = { ...data, userId: user.id, userName: user.name };
+
+                    // Make the reservation request
+                    const response = await axios.post('http://localhost:3000/reservation', reservationData);
+                    const response1 = await axios.get('http://localhost:3000/reservation');
+
+                    // Sort the reservations data by ID in descending order
+                    const sortedReservations = response1.data.sort((a, b) => b.id - a.id);
+
+                    // Retrieve the ID of the last reservation
+                    const lastReservationId = sortedReservations[0].id;
+                    console.log('Last reservation ID:', lastReservationId);
+                    this.$router.push({ name: 'reservations', params: { id: lastReservationId }});
+                    console.log('Reservation is successfully:', response.data);
+                    } catch (error) {
                     window.alert(error);
                 }
+
             } else {
                 alert('Please fill in all fields.');
             }
+            }
+
         }
-    }
+
 });
 </script>
