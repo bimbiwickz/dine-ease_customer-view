@@ -220,7 +220,7 @@ export default defineComponent({
         // Reset loading state
         this.loading = false;
 
-        if (response.status === 202) {
+        if (response.status === 200) {
           console.log('Login successful, handle accordingly');
           // Reset error state and clear error message
           this.showError = false;
