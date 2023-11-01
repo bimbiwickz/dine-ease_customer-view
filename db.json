@@ -77,40 +77,40 @@
       "selectedTime": "08:00 PM",
       "people": 2,
       "id": 1,
-      "userid":1,
-      "tableNo":2
+      "userid": 1,
+      "tableNo": 2
     },
     {
       "date": "2023-11-04",
       "selectedTime": "10:00 PM",
       "people": 4,
       "id": 2,
-      "userid":3,
-      "tableNo":4
+      "userid": 3,
+      "tableNo": 4
     },
     {
       "date": "2023-11-10",
       "selectedTime": "06:00 PM",
       "people": 1,
       "id": 3,
-      "userid":4,
-      "tableNo":6
+      "userid": 4,
+      "tableNo": 6
     },
     {
       "date": "2023-11-02",
       "selectedTime": "09:00 PM",
       "people": 4,
       "id": 4,
-      "userid":2,
-      "tableNo":10
+      "userid": 2,
+      "tableNo": 10
     },
     {
       "date": "2023-10-26",
       "selectedTime": "05:00 PM",
       "people": 1,
       "id": 5,
-      "userid":1,
-      "tableNo":3
+      "userid": 1,
+      "tableNo": 3
     }
   ],
   "users": [
@@ -157,6 +157,28 @@
         "password": "$2a$10$rcVlrHKS2.dkd1b8owkqnOoiOSJhYvAsgRhxIrPbFkF2COlO0JN1C"
       },
       "id": 4
+    },
+    {
+      "username": "username",
+      "name": "Induwara Pathirana",
+      "address": "address",
+      "phone": "0703417747",
+      "email": "induwara1203@gmail.com",
+      "authentication": {
+        "password": "$2a$10$m7LZCz23fpbf3Gg/uF2jEO2mYbxzTiUIhuyR4mOwD6cwTVT6sC18m"
+      },
+      "id": 5
+    },
+    {
+      "username": "username",
+      "name": "Pulathisi Bandara",
+      "address": "address",
+      "phone": "0713417747",
+      "email": "pulathis1993@gmail.com",
+      "authentication": {
+        "password": "$2a$10$ZwAj2XCUCjKMH7u5MelwV.ixVOUKM38x4XuoVWaRkJ.9aKZ.P8km6"
+      },
+      "id": 6
     }
   ]
 }

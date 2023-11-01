@@ -72,7 +72,7 @@
             />
 
 
-            <p class="text-black font-light flex justify-center text-sm">Already have an account? <a href="/login" class="text-green">Login</a></p>
+            <p class="text-black font-light flex justify-center text-sm">Already have an account? <button @click="navigateToLogin" class="text-green"> &nbsp;Login</button></p>
             
             <div class="or flex items-center my-4">
                 <hr class="flex-grow border-gray-400">
@@ -233,7 +233,7 @@ export default defineComponent({
 
         if (response.status === 201) {
           console.log('Signup successful, handle accordingly');
-          this.navigateToHome();
+          this.navigateToLogin();
         } else if (response.status === 400) {
           // Handle 400 status code
           this.errors.email = 'Email already exists';
@@ -326,7 +326,12 @@ export default defineComponent({
     // ... existing methods ...
     navigateToHome() {
       window.location.href = '/Home'; // Change the URL to match your home.vue route
-    }
+    },
+    navigateToLogin() {
+      // Navigate to the sign-up page
+      // You can use Vue Router to navigate to the sign-up route
+      this.$router.push('/login');
+    },
     },
 });
 import { Carousel, initTE } from "tw-elements";

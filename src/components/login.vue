@@ -253,7 +253,12 @@ export default defineComponent({
 
     navigateToHome() {
       window.location.href = '/Home'; // Change the URL to match your home.vue route
-    }
+    },
+    navigateToSignUp() {
+      // Navigate to the sign-up page
+      // You can use Vue Router to navigate to the sign-up route
+      this.$router.push('/signup');
+    },
   }
 })
 import { Carousel, initTE } from 'tw-elements'
