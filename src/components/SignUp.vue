@@ -63,13 +63,16 @@
                 {{ errors.confirmPassword }}
             </p>
 
-            <BaseActionBtn
-            :initialText="'Register'"
-            :clickedText="'Processing...'"
-            :initialClass="'bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded'"
-            :clickedClass="'bg-white hover:bg-white-600 text-green font-semibold py-2 px-4 rounded border-2 border-green'"
-            :onSubmit="signupUser"
-            />
+            <div class="flex justify-center py-2">
+              <BaseActionBtn
+              class="px-18"
+              :initialText="'Register'"
+              :clickedText="'Processing...'"
+              :initialClass="'bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded'"
+              :clickedClass="'bg-white hover:bg-white-600 text-green font-semibold py-2 px-4 rounded border-2 border-green'"
+              :onSubmit="signupUser"
+              />
+            </div>
 
 
             <p class="text-black font-light flex justify-center text-sm">Already have an account? <button @click="navigateToLogin" class="text-green"> &nbsp;Login</button></p>
@@ -80,10 +83,10 @@
                 <hr class="flex-grow border-gray-400">
             </div>
 
-            <SecActionBtn>
-                <img class="w-1/12" src="../assets/google.png" alt="" />
-                <p class="ml-2 text-sm">Continue with Google</p>
-            </SecActionBtn>
+            <button class="flex justify-center border-2 border-green p-2 rounded">
+              <img class="w-1/12" src="../assets/google.png" alt="" />
+              <p class="py-1 ml-2 text-sm">Continue with Google</p>
+            </button>
         </div>
 
         </div>

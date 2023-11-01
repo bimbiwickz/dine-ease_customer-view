@@ -14,7 +14,7 @@
             @click="toggleDropdown"
           >
             <span class="sr-only">Open user menu</span>
-            <img class="w-8 h-8 rounded-full" src="../../assets/logoonly--inv.png" alt="user photo">
+            <img class="w-10 h-10 rounded-full" src="../../assets/profile-photo.jpg" alt="user photo">
           </button>
           <!-- Dropdown menu -->
           <div
@@ -58,7 +58,7 @@
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
           <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
             <li>
-              <router-link to="/" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Home</router-link>
+              <router-link to="/home" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Home</router-link>
             </li>
             <li>
               <router-link to="/customer/dealsview" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Deals</router-link>
@@ -70,7 +70,7 @@
               <router-link to="/customer/cartview" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Cart</router-link>
             </li>
             <li>
-              <router-link to="/contact" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Contact</router-link>
+              <router-link to="/contactus" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Contact</router-link>
             </li>
           </ul>
         </div>
