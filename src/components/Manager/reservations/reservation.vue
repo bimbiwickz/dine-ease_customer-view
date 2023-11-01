@@ -35,7 +35,7 @@
                     <div class="basis-2/3">
                         <div class="flex flex-row text-4xl p-2"><div class="">Reservation No:</div><div class="pl-4 font-bold">{{selectedReservation ? selectedReservation.id : ''}}</div></div>
                         <div class="flex flex-row text-l pl-2"><div class="">Reserved at</div><div class="pl-4 font-bold">{{selectedReservation ? selectedReservation.date : ''}} {{selectedReservation ? selectedReservation.selectedTime : ''}}</div></div>
-                        <div class="flex flex-row text-l pl-2"><div class="">Reserved by:</div><div class="pl-4 font-bold">{{selectedReservation ? getUserDetails(selectedReservation.userid) : ''}}</div></div>
+                        <div class="flex flex-row text-l pl-2"><div class="">Reserved by:</div><div class="pl-4 font-bold">{{selectedReservation ? getUserDetails(selectedReservation.userId) : ''}}</div></div>
                     </div>
                     <div class="basis-1/3">
                         <div class="bg-green m-2 h-20 w-20 rounded-lg p-5 text-3xl font-bold text-white">{{selectedReservation ? selectedReservation.tableNo : ''}}</div>

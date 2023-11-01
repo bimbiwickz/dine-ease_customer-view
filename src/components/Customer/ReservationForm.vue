@@ -36,7 +36,9 @@ export default defineComponent({
       date: '',
       selectedTime: '',
       people: '',
-      id: ''
+      id: '',
+      userId:'',
+      tableNo: props.tableNumber
     });
     const showForm = ref(true);
 
@@ -52,6 +54,7 @@ export default defineComponent({
         reservation.value.selectedTime = lastReservation.selectedTime;
         reservation.value.people = lastReservation.people;
         reservation.value.id = lastReservation.id;
+        reservation.value.userId = lastReservation.userId;
 
         showForm.value = true;
       })
