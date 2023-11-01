@@ -225,8 +225,8 @@ export default defineComponent({
           // Reset error state and clear error message
           this.showError = false;
           this.errorMessage = '';
-          const responseData = response.data;
-          const token = responseData.token;
+          const responseData = response;
+          const token = responseData;
 
           // Pass the token to the handleLogin method
           this.handleLogin(token);
