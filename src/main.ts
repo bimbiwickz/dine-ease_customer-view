@@ -21,12 +21,102 @@ import UserProfile from './components/Customer/UserProfileDashboard.vue'
 import Reservations from './components/Customer/Reservations.vue'
 import addFood from './components/Manager/addFood.vue'
 import addMeal from './components/Manager/addMeal.vue'
+import Deals from './components/Customer/DealsView.vue'
 
 // Import your global components here
 import baseInput from './components/utils/baseInput.vue'
 import baseActionBtn from './components/utils/baseActionBtn.vue'
 
 const routes = [
+    {
+        path: '/',
+        component: Home,
+        //meta: { requiresAuth: true },
+    },
+    {
+        path: '/Home',
+        component: UserHome,
+        //meta: { requiresAuth: true },
+    },
+    {
+        path: '/signup',
+        component: SignUp, 
+    },
+    {
+        path: '/login',
+        component: Login, 
+    },
+    {
+        path:'/managerhome',
+        components: {
+          default: ManagerHome
+        }
+    },
+    {
+        path:'/Home',
+        components: {
+          default: ManagerHome
+        }
+    },
+    {
+        path: '/accept/order-1', // Dynamic parameter ':orderNo'
+        //name: 'order1',
+        component: AcceptOrder1,
+    },
+    {
+        path: '/accept/order-2', // Dynamic parameter ':orderNo'
+        //name: 'order2',
+        component: AcceptOrder2,
+    },
+    {
+        path: '/reservation/res-1', // Dynamic parameter ':orderNo'
+        name: 'order1',
+        component: Reservation1,
+    },
+    ,
+    {
+        path: '/customer/MenuView',
+        name: 'menu',
+        component: Menu,
+        props: true,
+    },
+    {
+        path: '/Customer/CartView',
+        name: 'cart',
+        component: Cart,
+        props: true,
+    },
+    {
+        path: '/customer/CheckoutView',
+        name: 'checkout',
+        component: Checkout,
+        props: true,
+    },
+    {
+        path: '/customer/DealsView',
+        name: 'deals',
+        component: Deals,
+        props:true,
+    },
+    {
+        path: '/user-profile',
+        component: UserProfile, 
+    },
+    {
+        path: '/reservations',
+        name: 'reservations',
+        component: Reservations, 
+        props: true,
+    },
+    {
+        path: '/add-food',
+        component: addFood, 
+    },
+    {
+      path: '/add-meal',
+      component: addMeal, 
+  },
+
   {
     path: '/',
     component: Home,

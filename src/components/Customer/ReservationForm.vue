@@ -62,7 +62,7 @@ export default defineComponent({
         .then((response) => {
           window.alert('Reservation confirmed.');
           const checkoutUrl = 'https://checkout.stripe.com/c/pay/cs_test_a16HP4ozjqNanQS56SH7u7QYrlt7TFrieURp53NrTtDSqetteJz9BeDy4F#fidkdWxOYHwnPyd1blpxYHZxWjA0S3RnTVZWQV9JNDI8VVM1fXVDTlBjNmN2UnwyRkRmQzEzQGhvM2xEbFBvPVAwYWZ0fHVfR2NLcE52MmJXTVNXTDNnczFkd3JsYUJVSnx%2FfVNRS1RLPF9XNTVkd2BMdlZkcicpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcXF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl';
-          window.open(checkoutUrl, '_blank'); // Opens the checkout URL in a new tab
+          window.open(checkoutUrl, '_blank');
         })
         .catch((error) => {
           window.alert(error);

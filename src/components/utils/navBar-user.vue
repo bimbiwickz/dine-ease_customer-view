@@ -2,7 +2,7 @@
     <nav class="fixed top-0 bg-white border-gray-200 z-50 w-full">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/home" class="flex items-center">
-          <img src="../../assets/Group 39556.png" class="h-8 mr-3" alt="Flowbite Logo"/>
+          <img src="../../assets/Group 39556.png" class="h-8 mr-3" alt="Flowbite Logo" />
           <!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">DineEase</span> -->
         </a>
         <div class="flex items-center md:order-2">
@@ -14,7 +14,7 @@
             @click="toggleDropdown"
           >
             <span class="sr-only">Open user menu</span>
-              <img class="w-8 h-8 rounded-full" src="../../assets/logoonly--inv.png" alt="user photo">
+            <img class="w-8 h-8 rounded-full" src="../../assets/logoonly--inv.png" alt="user photo">
           </button>
           <!-- Dropdown menu -->
           <div
@@ -58,19 +58,19 @@
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
           <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
             <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-white bg-green rounded md:bg-transparent md:text-green md:p-0 md:dark:text-green" aria-current="page">Home</a>
+              <router-link to="/" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Home</router-link>
             </li>
             <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0">Deals</a>
+              <router-link to="/customer/dealsview" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Deals</router-link>
             </li>
             <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0">Menu</a>
+              <router-link to="/customer/menuview" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Menu</router-link>
             </li>
             <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0 ">Ordered</a>
+              <router-link to="/customer/cartview" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Cart</router-link>
             </li>
             <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0 ">Contact</a>
+              <router-link to="/contact" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green md:p-0" active-class="text-green">Contact</router-link>
             </li>
           </ul>
         </div>
@@ -85,7 +85,6 @@
         isDropdownOpen: false
       };
     },
-    
     methods: {
       toggleDropdown() {
         this.isDropdownOpen = !this.isDropdownOpen;
