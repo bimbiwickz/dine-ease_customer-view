@@ -11,9 +11,7 @@
         <img src="../../assets/ad-2.png" alt="Offer 2" class="w-1/2 h-72 object-cover rounded-lg">
       </div>
       <container class="container flex flex-row flex-wrap p-2 xs:p-0 justify-center">
-        <div class="grid lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2">
-          <!-- Other content goes here -->
-        </div>
+        <span class="py-10"></span>
       </container>
     </div>
 </template>

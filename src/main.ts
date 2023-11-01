@@ -21,6 +21,7 @@ import Reservations from './components/Customer/Reservations.vue'
 import addFood from './components/Manager/addFood.vue'
 import addMeal from './components/Manager/addMeal.vue'
 import Deals from './components/Customer/DealsView.vue'
+import ContactUs from './components/ContactUs.vue'
 
 // Import your global components here
 import baseInput from './components/utils/baseInput.vue'
@@ -44,6 +45,10 @@ const routes = [
     {
         path: '/login',
         component: Login, 
+    },
+    {
+        path: '/ContactUs',
+        component: ContactUs,
     },
     {
         path:'/managerhome',
