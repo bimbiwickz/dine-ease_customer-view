@@ -212,7 +212,7 @@ export default defineComponent({
         // Set loading to true
         this.loading = true;
 
-        const response = await axios.post('https://localhost:7251/api/auth', {
+        const response = await axios.post('https://dineaase.azurewebsites.net/api/auth', {
           email: this.email,
           password: this.password
         });
@@ -225,7 +225,7 @@ export default defineComponent({
           // Reset error state and clear error message
           this.showError = false;
           this.errorMessage = '';
-          const responseData = response;
+          const responseData = response.data;
           const token = responseData;
 
           // Pass the token to the handleLogin method
