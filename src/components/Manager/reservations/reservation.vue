@@ -16,14 +16,14 @@
                 <div class="bg-white rounded-md p-2 my-2 font-bold shadow-md">
                     Orders Queue
                     <ul class="overflow-y-scroll h-3/5 pr-4">
-                        <li v-for="(reserve, index) in reserves" :key="reserve.id">
+                        <li v-for="(reservation, index) in reservations" :key="reservation.id">
                             <div class="flex flex-row shadow px-4 py-4 mb-2 rounded-md bg-white ease-in-out hover:bg-lyellow cursor-pointer" 
-                            @click="selectReservation(reserve)"
+                            @click="selectReservation(reservation)"
                             >
-                            <div class="w-20 h-15 py-5 bg-primary items-center align-middle text-white font-bold rounded-md text-center text-2xl">{{reserve.tableNo}}</div>
+                            <div class="w-20 h-15 py-5 bg-primary items-center align-middle text-white font-bold rounded-md text-center text-2xl">{{reservation.tableNo}}</div>
                             <div class="flex flex-col pl-3 text-sm gap-0.5">
-                                <div class="p-0 font-bold">Reservation No: {{reserve.id}}</div>
-                                <div class="p-0">{{getUserDetails(reserve.userid)}}, Booked at {{reserve.selectedTime}}... see more</div>
+                                <div class="p-0 font-bold">Reservation No: {{reservation.id}}</div>
+                                <div class="p-0">{{getUserDetails(reservation.userid)}}, Booked at {{reservation.selectedTime}}... see more</div>
                             </div>
                             </div>
                         </li>
@@ -123,7 +123,7 @@ import { defineComponent } from 'vue';
             return this.reservations.map(reservation => {
                 const user = this.users.find(user => user.id === reservation.userId);
                 return {
-                text: `Reservation No: ${reservation.id} - User: ${user ? user.name : 'Unknown'}`,
+                text: `Reservation No: ${reservation.id} - User: ${user ? user.id : token}`,
                 url: `http://localhost:3000/confirmed_reservation/${reservation.id}`,
                 };
             });
@@ -179,7 +179,7 @@ import { defineComponent } from 'vue';
                 });
             },
             fetchUsers() {
-            axios.get('http://localhost:3000/user')
+            axios.get('https://dineaase.azurewebsites.net/api/user')
                 .then(response => {
                 this.users = response.data;
                 })
@@ -192,7 +192,10 @@ import { defineComponent } from 'vue';
             return user ? user.name : 'Unknown';
             },
             selectReservation(reservation) {
-              this.selectedReservation = reservation;
+                if (!this.selectedReservation) {
+                    this.selectedReservation = reservation;
+                }
+              //this.selectedReservation = reservation;
             },
         }
     });

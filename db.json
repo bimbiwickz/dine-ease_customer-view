@@ -167,12 +167,6 @@
   ],
   "confirmed_reservation": [
     {
-      "id": 1
-    },
-    {
-      "id": 2
-    },
-    {
       "date": "2023-11-03",
       "selectedTime": "17:00",
       "people": 3,
