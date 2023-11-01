@@ -1,6 +1,7 @@
 <template>
     <div class="">
-        <StaticNavBar />
+        <NavBar></NavBar>
+        <!-- <StaticNavBar /> -->
         <ProfileSideNav />
         <div class="container mx-auto py-20 pl-80 pr-80">
             <div class="bg-white shadow-md rounded-lg p-6 flex items-center gap-y-40">
@@ -69,12 +70,13 @@
 <script lang="ts">
     import { defineComponent } from 'vue';
     import ProfileSideNav from './ProfileSideNav.vue';
-    import StaticNavBar from '../NavBar/StaticNavBar.vue';
+    import NavBar from '../utils/navBar-user.vue';
+
     
     export default defineComponent({
         components: {
     ProfileSideNav,
-    StaticNavBar
+    NavBar
 },
 data(){
     return {

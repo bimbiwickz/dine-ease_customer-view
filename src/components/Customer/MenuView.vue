@@ -85,7 +85,7 @@ export default {
     },
     fetchData() {
       axios
-        .get('http://localhost:3000/menu')
+        .get('https://dineaase.azurewebsites.net/api/Food')
         .then(response => {
           this.foods = response.data;
         })
