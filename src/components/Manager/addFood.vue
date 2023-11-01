@@ -15,14 +15,14 @@
           <h1 class="font-sans text-2xl text-gray-600 text-center font-semibold pb-4">Add a food item</h1>
     <form @submit.prevent="onSubmit">
       <BaseInput 
-        v-model="food.title" 
+        v-model="food.foodName" 
         label="Food Name" 
         labelFor="name" 
         type="text" 
         required 
         />
       <BaseSelect 
-        v-model="food.name" 
+        v-model="food.category" 
         label="Category" 
         labelFor="category" 
         :options="categories" 
@@ -36,7 +36,7 @@
         required 
         /> -->
       <BaseImageInput 
-        v-model="food.image" 
+        v-model="food.foodImg" 
         label="Image" 
         labelFor="image" 
         required 
@@ -49,6 +49,16 @@
         required 
         />
         <div class="flex justify-evenly mt-4">
+          <div class="flex justify-center items-center">
+            <BaseActionBtn 
+                @click="redirectToManagerHome"
+                initialText="Back to menu"
+                clickedText="Food item adding"
+                initialClass="bg-green hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
+                clickedClass="bg-white hover:bg-white-600 text-green font-semibold py-2 px-4 rounded border-2 border-green"
+              >
+            </BaseActionBtn>
+          </div>
           <div class="flex justify-center items-center">
             <BaseActionBtn 
                 initialText="Add to menu"
@@ -68,7 +78,7 @@
               >
             </BaseActionBtn>
           </div>
-          
+                  
         </div>
           
           
@@ -103,10 +113,10 @@ const addFood = (newFoodItem) => {
 }
 
 const food = ref({
-  title: '',
-  name: '',
+  foodName: '',
+  category: '',
   description: '',
-  image: '',
+  imageFile	: '',
   price: 0,
 });
 
@@ -115,14 +125,16 @@ const categories: string[] = ['Mains', 'Starters', 'Desserts', 'Side dishes', 'B
 const loading = ref(false);
 
 const router = useRouter();
-
+const redirectToMenu = () => {
+  router.push('/customer/MenuView');
+};
 const onSubmit = async () => {
   try {
     loading.value = true;
 
     // Prepare FormData for image
     let imageFormData = new FormData();
-    imageFormData.append('image', food.value.image);
+    imageFormData.append('image', food.value.foodImg);
 
     // POST request to upload image
     const imageResponse = await axios.post('http://localhost:3000/upload-image', imageFormData, {
@@ -147,7 +159,9 @@ const onSubmit = async () => {
   }
 };
 
-
+const redirectToManagerHome = () => {
+  router.push('/managerhome');
+};
 
 const cancel = () => {
   router.push('/menu-staff');

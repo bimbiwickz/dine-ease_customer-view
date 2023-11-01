@@ -19,7 +19,7 @@
     <div class="flex flex-col justify-between px-8">
       <h5 class="text-green text-sm py-1">Subtotal: {{ totalPrice }}</h5>
       <h5 class="text-green text-sm">Tax & service charge: {{ taxAndServiceCharge }}</h5>
-	  <h5 class="text-black text-sm">Net total: {{ netTotal }}</h5>
+	  <h5 class="text-black text-sm py-1">Net total: {{ netTotal }}</h5>
       <div class="mt-4 justify-evenly p-8 px-16">
         <BaseActionBtn 
           initialText="Proceed to Checkout"

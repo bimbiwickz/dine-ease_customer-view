@@ -1,8 +1,8 @@
 <template>
     <nav class="fixed top-0 bg-white border-gray-200 z-50 w-full">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" class="flex items-center">
-          <img src="../../assets/Group 39556.png" class="h-8 mr-3" alt="Flowbite Logo" />
+        <a href="/home" class="flex items-center">
+          <img src="../../assets/Group 39556.png" class="h-8 mr-3" alt="Flowbite Logo"/>
           <!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">DineEase</span> -->
         </a>
         <div class="flex items-center md:order-2">
@@ -14,7 +14,7 @@
             @click="toggleDropdown"
           >
             <span class="sr-only">Open user menu</span>
-            <img class="w-8 h-8 rounded-full" src="../../assets/logoonly--inv.png" alt="user photo">
+              <img class="w-8 h-8 rounded-full" src="../../assets/logoonly--inv.png" alt="user photo">
           </button>
           <!-- Dropdown menu -->
           <div
@@ -85,6 +85,7 @@
         isDropdownOpen: false
       };
     },
+    
     methods: {
       toggleDropdown() {
         this.isDropdownOpen = !this.isDropdownOpen;
