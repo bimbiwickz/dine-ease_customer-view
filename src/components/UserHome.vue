@@ -1,14 +1,13 @@
 <script setup lang="ts">
 
 import { defineComponent} from 'vue';
-import navbar from '../components/NavBar/logNavBar.vue';
+import navbar from '../components/utils/navBar-user.vue';
 
 import box from './utils/landing_page_components/landing_page_box.vue';
 import title_image from "./utils/landing_page_components/page_title_image.vue";
 import page_footer from "./utils/landing_page_components/footer.vue";
 import dish_card from "./utils/landing_page_components/foodcards.vue";
 import title_2 from "./utils/landing_page_components/second_main_title.vue";
-import nav_bar from "../components/NavBar/StaticNavBar.vue";
 import reservation_button from "./Customer/ReservationInput.vue";
 
 // Initialization for ES Users
@@ -20,11 +19,11 @@ import {
 initTE({ Carousel });
 // Register all components
 const components = {
-
   box,
   title_image,
   page_footer,
-  reservation_button
+  reservation_button,
+  navbar
 };
     const token = localStorage.getItem('token');
     console.log('Token:', token);
@@ -37,7 +36,7 @@ initTE({ Carousel });
 
 <template>
 
-<nav_bar/>
+<navbar v-if=token></navbar>
 
 
   <div class="relative h-screen"> 

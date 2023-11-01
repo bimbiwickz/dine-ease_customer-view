@@ -1,12 +1,7 @@
 import './assets/main.css'
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
-import { createRouter, createWebHistory, type NavigationGuardNext} from 'vue-router';
-import { getProfile } from './components/ProfileService'
-
-//Vue.use(Router);
+import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
 import Home from './components/Home.vue'
@@ -28,13 +23,10 @@ import addFood from './components/Manager/addFood.vue'
 import addMeal from './components/Manager/addMeal.vue'
 import Deals from './components/Customer/DealsView.vue'
 
-// import Vue3ConfirmDialog from '@zapadale/vue3-confirm-dialog'
+// Import your global components here
+import baseInput from './components/utils/baseInput.vue'
+import baseActionBtn from './components/utils/baseActionBtn.vue'
 
-
-export interface globalcomponents {
-  BaseInput: typeof import('./components/utils/baseInput.vue')
-  BaseActionBtn: typeof import('./components/utils/baseActionBtn.vue')
-}
 const routes = [
     {
         path: '/',
@@ -127,30 +119,24 @@ const routes = [
 
   {
     path: '/',
-    component: Home
+    component: Home,
     //meta: { requiresAuth: true },
   },
   {
     path: '/Home',
-    component: UserHome
-    //meta: { requiresAuth: true },
+    component: UserHome,
+    meta: { requiresAuth: true },
   },
   {
     path: '/signup',
-    component: SignUp
+    component: SignUp, 
   },
   {
     path: '/login',
-    component: Login
+    component: Login, 
   },
   {
-    path: '/managerhome',
-    components: {
-      default: ManagerHome
-    }
-  },
-  {
-    path: '/Home',
+    path:'/managerhome',
     components: {
       default: ManagerHome
     }
@@ -158,77 +144,72 @@ const routes = [
   {
     path: '/accept/order-1', // Dynamic parameter ':orderNo'
     //name: 'order1',
-    component: AcceptOrder1
+    component: AcceptOrder1,
   },
   {
     path: '/accept/order-2', // Dynamic parameter ':orderNo'
     //name: 'order2',
-    component: AcceptOrder2
+    component: AcceptOrder2,
   },
   {
     path: '/reservation/res-1', // Dynamic parameter ':orderNo'
     name: 'order1',
-    component: Reservation1
+    component: Reservation1,
   },
-  ,
   {
     path: '/customer/MenuView',
     name: 'menu',
     component: Menu,
-    props: true
+    props: true,
   },
   {
     path: '/Customer/CartView',
     name: 'cart',
     component: Cart,
-    props: true
+    props: true,
   },
   {
-    path: '/Customer/CheckoutView',
+    path: '/customer/CheckoutView',
     name: 'checkout',
     component: Checkout,
-    props: true
+    props: true,
   },
   {
     path: '/user-profile',
-    component: UserProfile
+    component: UserProfile, 
   },
   {
     path: '/reservations',
-    component: Reservations
-  }
+    name: 'reservations',
+    component: Reservations, 
+    props: true,
+  },
+  {
+    path: '/add-food',
+    component: addFood, 
+  },
+  {
+    path: '/add-meal',
+    component: addMeal, 
+  },
 ]
 
-
+// Create the router instance
 const router = createRouter({
   history: createWebHistory(),
-  routes: routes
+  routes
 })
-// // Navigation guard to check authentication status
-// router.beforeEach(async (to: Routs, from: Route, next: NavigationGuardNext) => {
-//     if (to.matched.some((route: { meta: { requiresAuth: any; }; }) => route.meta.requiresAuth)) {
-//       const profile = await getProfile();
-//       if (profile) {
-//         // User is authenticated, allow access
-//         next();
-//       } else {
-//         // User is not authenticated, redirect to login
-//         next('/login');
-//       }
-//     } else {
-//       // Public route, allow access
-//       next();
-//     }
-//   });
-  
-// export default router;
-  
 
-
-export default router
-
+// Create the app instance
 const app = createApp(App)
+
+// Use the router and Pinia
 app.use(router)
 app.use(createPinia())
 
+// Register your global components
+app.component('BaseInput', baseInput)
+app.component('BaseActionBtn', baseActionBtn)
+
+// Mount the app
 app.mount('#app')

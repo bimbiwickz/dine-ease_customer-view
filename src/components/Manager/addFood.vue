@@ -132,19 +132,19 @@ const onSubmit = async () => {
   try {
     loading.value = true;
 
-    // Prepare FormData for image
-    let imageFormData = new FormData();
-    imageFormData.append('image', food.value.foodImg);
+    // // Prepare FormData for image
+    // let imageFormData = new FormData();
+    // imageFormData.append('image', food.value.image);
 
-    // POST request to upload image
-    const imageResponse = await axios.post('http://localhost:3000/upload-image', imageFormData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    // // POST request to upload image
+    // const imageResponse = await axios.post('http://localhost:3000/upload-image', imageFormData, {
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data',
+    //   },
+    // });
 
-    // Update image path with the path returned from server
-    food.value.image = imageResponse.data.path;
+    // // Update image path with the path returned from server
+    // food.value.image = imageResponse.data.path;
 
     // POST request to add food item
     const response = await axios.post('http://localhost:3000/menu', food.value);

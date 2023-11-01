@@ -170,7 +170,7 @@ import { defineComponent } from 'vue';
                 }
             },
             fetchReservations() {
-            axios.get('http://localhost:3000/reservation')
+            axios.get('https://dineaase.azurewebsites.net/api/Reservation')
                 .then(response => {
                 this.reserves = response.data;
                 })
