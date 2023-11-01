@@ -22,8 +22,7 @@ import Login from './components/login.vue'
 import Menu from './components/Customer/MenuView.vue'
 import Cart from './components/Customer/CartView.vue'
 import Checkout from  './components/Customer/CheckoutView.vue'
-import Reservation1 from './components/Manager/reservations/reservation1.vue'
-import Reservation2 from './components/Manager/reservations/reservation2.vue'
+import Reservation from './components/Manager/reservations/reservation.vue'
 //import AcceptOrder from './components/Manager/acceptOrder.vue'
 import Reservations from './components/Customer/Reservations.vue'
 import ProfileSideNav from './components/Customer/ProfileSideNav.vue'
@@ -44,7 +43,7 @@ export default defineComponent({
     Menu,
     Cart,
     Checkout,
-    Reservation1,
+    Reservation,
     Login,
     ManagerHome,
     ProfileSideNav,
@@ -57,8 +56,6 @@ export default defineComponent({
     Menu,
     Cart,
     Checkout,
-    Reservation1,
-    Reservation2,
     addFood,
     addMeal
     //baseInput

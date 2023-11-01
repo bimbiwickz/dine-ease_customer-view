@@ -15,8 +15,7 @@ import MgNavBar from './components/NavBar/MgNavBar.vue'
 import Menu from './components/Customer/MenuView.vue'
 import Cart from './components/Customer/CartView.vue'
 import Checkout from './components/Customer/CheckoutView.vue'
-import Reservation1 from './components/Manager/reservations/reservation1.vue'
-import Reservation2 from './components/Manager/reservations/reservation2.vue'
+import Reservation from './components/Manager/reservations/reservation.vue'
 import UserProfile from './components/Customer/UserProfileDashboard.vue'
 import Reservations from './components/Customer/Reservations.vue'
 import addFood from './components/Manager/addFood.vue'
@@ -69,9 +68,9 @@ const routes = [
         component: AcceptOrder2,
     },
     {
-        path: '/reservation/res-1', // Dynamic parameter ':orderNo'
+        path: '/reservation', // Dynamic parameter ':orderNo'
         name: 'order1',
-        component: Reservation1,
+        component: Reservation,
     },
     ,
     {
@@ -150,11 +149,6 @@ const routes = [
     path: '/accept/order-2', // Dynamic parameter ':orderNo'
     //name: 'order2',
     component: AcceptOrder2,
-  },
-  {
-    path: '/reservation/res-1', // Dynamic parameter ':orderNo'
-    name: 'order1',
-    component: Reservation1,
   },
   {
     path: '/customer/MenuView',
