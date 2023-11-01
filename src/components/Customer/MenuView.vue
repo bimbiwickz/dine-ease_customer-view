@@ -20,6 +20,7 @@
             :type="food.name"
             :price="food.price"
             :image="food.image"
+            @addToCart="addToCart(food)"
           />
         </div>
       </container>
@@ -91,8 +92,14 @@ export default {
         .catch(error => {
           console.error(error);
         });
-    }
-  },
+      },
+    addToCart(food) {
+      if (confirm("Do you want to add this item to your cart?")) {
+          this.cartItems.push(food);
+        alert("Item added to cart successfully!");
+      }
+      }
+    },
   created() {
     const urlParams = new URLSearchParams(window.location.search);
     this.filter = urlParams.get('filter') || '';

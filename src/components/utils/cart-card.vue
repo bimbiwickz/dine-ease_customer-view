@@ -1,6 +1,9 @@
 <template>
+  <div>
+    <h3></h3>
+  </div>
   <div
-    :class="['bg-white', 'rounded-lg', 'shadow-sm', isClicked ? 'shadow-2xl' : 'hover:shadow-md', 'm-2', 'pb-2', 'lg:w-200', 'xs:w-100', 'lg:h-30', 'xs:h-20']"
+    :class="['bg-white', 'rounded-lg', 'shadow-sm', isClicked ? 'shadow-2xl' : 'hover:shadow-md', 'm-2', 'pb-2', 'lg:w-200', 'xs:w-100', 'lg:h-30', 'xs:h-20', 'pr-4']"
   >
     <div class="flex flex-row items-center justify-between">
       <div class="flex flex-row">
@@ -36,9 +39,9 @@
           
         </div>
       </div>
-      <div class="flex items-center ml-4">
+      <div class="flex items-center ml-4 rounded-full border-2 border-black hover:border-green ">
         <button class="text-red-500 hover:text-red-700" @click="removeFromCart">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
