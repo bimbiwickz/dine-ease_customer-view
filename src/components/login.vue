@@ -46,7 +46,9 @@
               {{ errorMessage }}
             </p>
 
-            <BaseActionBtn initialText="Login" clickedText="Log in"></BaseActionBtn>
+            <div class="flex justify-center py-2">
+              <BaseActionBtn class="px-14" initialText="Login" clickedText="Log in"></BaseActionBtn>
+            </div>
           </form>
 
           <p class="text-black font-light flex justify-center text-sm">
@@ -61,7 +63,7 @@
 
           <button class="flex justify-center border-2 border-green p-2 rounded">
             <img class="w-1/12" src="../assets/google.png" alt="" />
-            <p class="ml-2 text-sm">Continue with Google</p>
+            <p class="py-1 ml-2 text-sm">Continue with Google</p>
           </button>
         </div>
 
