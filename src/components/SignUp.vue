@@ -163,7 +163,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import axios from 'axios';
-//import bcrypt from 'bcryptjs';
 import BaseInput from './utils/baseInput.vue'
 import BaseActionBtn from './utils/baseActionBtn.vue'
 import SecActionBtn from './utils/secActionBtn.vue'
@@ -209,10 +208,7 @@ export default defineComponent({
         // Set loading to true
         this.loading = true;
 
-        // Hash the password
-        // const salt = await bcrypt.genSalt(10);
-        // const hashedPassword = await bcrypt.hash(this.formData.password, salt);
-
+        
         // Create the user object
         const user = {
           username: 'username',
