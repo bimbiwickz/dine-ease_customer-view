@@ -26,7 +26,8 @@ const components = {
   page_footer,
   reservation_button
 };
-
+    const token = localStorage.getItem('token');
+    console.log('Token:', token);
 
 initTE({ Carousel });
 
