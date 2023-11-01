@@ -238,7 +238,12 @@ export default defineComponent({
           console.log('Login failed, handle error', response.status);
         }
       } catch (error) {
-        console.log('Handle error (e.g., display error message)', error);
+        console.log(error);
+        if (error.response && error.response.status === 401) {
+          // Display error message and turn input boxes red
+          this.showError = true;
+          this.errorMessage = 'Email or password is incorrect';
+        }
       }
     },
 
