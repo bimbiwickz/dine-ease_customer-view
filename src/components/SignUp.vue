@@ -163,7 +163,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import axios from 'axios';
-import bcrypt from 'bcryptjs';
+//import bcrypt from 'bcryptjs';
 import BaseInput from './utils/baseInput.vue'
 import BaseActionBtn from './utils/baseActionBtn.vue'
 import SecActionBtn from './utils/secActionBtn.vue'
@@ -210,8 +210,8 @@ export default defineComponent({
         this.loading = true;
 
         // Hash the password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(this.formData.password, salt);
+        // const salt = await bcrypt.genSalt(10);
+        // const hashedPassword = await bcrypt.hash(this.formData.password, salt);
 
         // Create the user object
         const user = {
@@ -221,12 +221,13 @@ export default defineComponent({
           phone: this.formData.mobile,
           email: this.formData.email,
           authentication: {
-            password: hashedPassword,
+            password: this.formData.password
           },
+          
         };
 
         // Send the user object to the server
-        const response = await axios.post('http://localhost:3000/users', user);
+        const response = await axios.post('https://dineaase.azurewebsites.net/api/user', user);
 
         // Reset loading state
         this.loading = false;
