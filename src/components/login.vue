@@ -248,7 +248,7 @@ export default defineComponent({
 
       // Redirect to the desired page or perform any other actions
       // For example, redirect to the user's dashboard
-      this.$router.push('/dashboard');
+      this.$router.push('/home');
     },
 
     navigateToHome() {
