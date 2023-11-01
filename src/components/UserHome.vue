@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import { defineComponent} from 'vue';
 import navbar from '../components/NavBar/logNavBar.vue';
 

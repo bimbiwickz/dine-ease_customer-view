@@ -17,15 +17,14 @@
                     Orders Queue
                     <ul class="overflow-y-scroll h-3/5 pr-4">
                         <li v-for="(reserve, index) in reserves" :key="reserve.id">
-                            
                             <div class="flex flex-row shadow px-4 py-4 mb-2 rounded-md bg-white ease-in-out hover:bg-lyellow cursor-pointer" 
-                            @click="toggleActive()"
+                            @click="selectReservation(reserve)"
                             >
-                                <div class="w-20 h-15 py-5 bg-primary items-center align-middle text-white font-bold rounded-md text-center text-2xl">{{reserve.tableNo}}</div>
-                                <div class="flex flex-col pl-3 text-sm gap-0.5">
-                                    <div class="p-0 font-bold">Reservation No: 0010</div>
-                                    <div class="p-0">Akila Dharmadasa, Booked at 9.00PM... see more</div>
-                                </div>
+                            <div class="w-20 h-15 py-5 bg-primary items-center align-middle text-white font-bold rounded-md text-center text-2xl">{{reserve.tableNo}}</div>
+                            <div class="flex flex-col pl-3 text-sm gap-0.5">
+                                <div class="p-0 font-bold">Reservation No: {{reserve.id}}</div>
+                                <div class="p-0">{{getUserDetails(reserve.userid)}}, Booked at {{reserve.selectedTime}}... see more</div>
+                            </div>
                             </div>
                         </li>
                     </ul>
@@ -34,12 +33,12 @@
             <div class="basis-3/5 ml-4 pr-80">
                 <div class="flex flex-row">
                     <div class="basis-2/3">
-                        <div class="flex flex-row text-4xl p-2"><div class="">Reservation No:</div><div class="pl-4 font-bold">1907</div></div>
-                        <div class="flex flex-row text-l pl-2"><div class="">Reserved at</div><div class="pl-4 font-bold">09:07PM</div></div>
-                        <div class="flex flex-row text-l pl-2"><div class="">Reserved by:</div><div class="pl-4 font-bold">{{reserves[1].custName}}</div></div>
+                        <div class="flex flex-row text-4xl p-2"><div class="">Reservation No:</div><div class="pl-4 font-bold">{{selectedReservation ? selectedReservation.id : ''}}</div></div>
+                        <div class="flex flex-row text-l pl-2"><div class="">Reserved at</div><div class="pl-4 font-bold">{{selectedReservation ? selectedReservation.date : ''}} {{selectedReservation ? selectedReservation.selectedTime : ''}}</div></div>
+                        <div class="flex flex-row text-l pl-2"><div class="">Reserved by:</div><div class="pl-4 font-bold">{{selectedReservation ? getUserDetails(selectedReservation.userid) : ''}}</div></div>
                     </div>
                     <div class="basis-1/3">
-                        <div class="bg-green m-2 h-20 w-20 rounded-lg p-5 text-3xl font-bold text-white">02</div>
+                        <div class="bg-green m-2 h-20 w-20 rounded-lg p-5 text-3xl font-bold text-white">{{selectedReservation ? selectedReservation.tableNo : ''}}</div>
                     </div>
                 </div>
                 <!-- <div class="pl-2 pt-10 pb-5 font-bold ">Items Ordered:</div>
@@ -82,6 +81,7 @@
 
 <script lang="ts">
 import navbar from '../../NavBar/MgNavBar.vue';
+import axios from 'axios';
 
 import { defineComponent } from 'vue';
 
@@ -95,6 +95,9 @@ import { defineComponent } from 'vue';
         },
         data() {
             return {
+                reserves: [],
+                users: [],
+                selectedReservation: null,
                 //title: 'Dashboard | Manager',
                 currentTime: "",
                 currentDate: "",
@@ -102,24 +105,39 @@ import { defineComponent } from 'vue';
                 currentMonth: "",
                 isClicked: false,
                 buttonText: "Accept",
-                reserves: [
-                    { id: 1, orderNo:1907, tableNo: '04', custName: 'Bimsara Wickramarathne', startEnd: '08.00PM - 10.00PM'},
-                    { id: 2, orderNo:1908, tableNo: '10', custName: 'Vinoli Rubasinghe', startEnd: '09.00PM - 11.00PM'},
-                    { id: 3, orderNo:1909, tableNo: '09', custName: 'John Doe', startEnd: '10.00PM - 12.00AM'},
-                    { id: 4, orderNo:1910, tableNo: '06', custName: 'John Smith', startEnd: '10.00PM - 12.00AM'},
-                    { id: 5, orderNo:1911, tableNo: '03', custName: 'Uthpalani Jayasinghe', startEnd: '10.00PM - 12.00AM'},
-                    // Add more items here...
-                ],
+                // reserves: [
+                //     { id: 1, orderNo:1907, tableNo: '04', custName: 'Bimsara Wickramarathne', startEnd: '08.00PM - 10.00PM'},
+                //     { id: 2, orderNo:1908, tableNo: '10', custName: 'Vinoli Rubasinghe', startEnd: '09.00PM - 11.00PM'},
+                //     { id: 3, orderNo:1909, tableNo: '09', custName: 'John Doe', startEnd: '10.00PM - 12.00AM'},
+                //     { id: 4, orderNo:1910, tableNo: '06', custName: 'John Smith', startEnd: '10.00PM - 12.00AM'},
+                //     { id: 5, orderNo:1911, tableNo: '03', custName: 'Uthpalani Jayasinghe', startEnd: '10.00PM - 12.00AM'},
+                //     // Add more items here...
+                // ],
                 //selectedOrderIndex: null,
                 
                 
             };
         },
+        computed: {
+            sidebarLinks() {
+            return this.reserves.map(reserve => {
+                const user = this.users.find(user => user.id === reserve.userid);
+                return {
+                text: `Reservation No: ${reserve.id} - User: ${user ? user.name : 'Unknown'}`,
+                url: `http://localhost:3000/Reservation/${reserve.id}`,
+                };
+            });
+            },
+        },
         created() {
             this.getCurrentDateTime();
             setInterval(this.getCurrentDateTime, 1000); // Update every 1 second (1000 ms)
+            this.fetchReservations();
+            this.fetchUsers();
         },
         methods: {
+
+            
             getCurrentDateTime() {
             const date = new Date();
             
@@ -151,7 +169,32 @@ import { defineComponent } from 'vue';
                     this.$router.push({ name: 'order1' });
                 }
             },
-            
+            fetchReservations() {
+            axios.get('http://localhost:3000/reservation')
+                .then(response => {
+                this.reserves = response.data;
+                })
+                .catch(error => {
+                console.error('Error fetching reservations:', error);
+                });
+            },
+
+            fetchUsers() {
+            axios.get('http://localhost:3000/users')
+                .then(response => {
+                this.users = response.data;
+                })
+                .catch(error => {
+                console.error('Error fetching users:', error);
+                });
+            },
+            getUserDetails(userId) {
+            const user = this.users.find(user => user.id === userId);
+            return user ? user.name : 'Unknown';
+            },
+            selectReservation(reservation) {
+              this.selectedReservation = reservation;
+            },
         }
     });
 import { Carousel, initTE } from "tw-elements";

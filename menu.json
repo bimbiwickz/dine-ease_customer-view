@@ -75,12 +75,45 @@
       "name": "Starters",
       "description": "",
       "price": "1500",
-      "image":"../src/assets/images/jason-leung-poI7DelFiVA-unsplash (1).jpg",
+      "image": "../src/assets/images/jason-leung-poI7DelFiVA-unsplash (1).jpg",
       "id": 11
+    },
+    {
+      "title": "ff",
+      "name": "Starters",
+      "description": "",
+      "price": "1600",
+      "id": 12
+    },
+    {
+      "title": "Meatloaf",
+      "name": "Side dishes",
+      "description": "",
+      "price": "1110",
+      "id": 13
     }
   ],
   "upload-image": [
     {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "username": "username",
+      "name": "Induwara Pathirana",
+      "address": "address",
+      "phone": "0703417747",
+      "email": "induwara1203@gmail.com",
+      "authentication": {
+        "password": "$2a$10$rcVlrHKS2.dkd1b8owkqnOoiOSJhYvAsgRhxIrPbFkF2COlO0JN1C"
+      },
       "id": 1
     }
   ]

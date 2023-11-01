@@ -1,6 +1,7 @@
 <style>
 @import '../../assets/main.css';
 </style>
+
 <template>
     <div class="container items-center mx-auto bg-green-500 pt-12 pb-12 flex justify-center">
     <div
@@ -138,7 +139,7 @@ const onSubmit = async () => {
 
     console.log('Food item added successfully:', response.data);
 
-    router.push('/menu');
+    router.push('/customer/menuview');
   } catch (error) {
     console.error('Error adding food item:', error);
   } finally {

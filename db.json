@@ -76,144 +76,87 @@
       "date": "2023-11-02",
       "selectedTime": "08:00 PM",
       "people": 2,
-      "id": 1
+      "id": 1,
+      "userid":1,
+      "tableNo":2
     },
     {
       "date": "2023-11-04",
       "selectedTime": "10:00 PM",
       "people": 4,
-      "id": 2
+      "id": 2,
+      "userid":3,
+      "tableNo":4
     },
     {
       "date": "2023-11-10",
       "selectedTime": "06:00 PM",
       "people": 1,
-      "id": 3
+      "id": 3,
+      "userid":4,
+      "tableNo":6
     },
     {
       "date": "2023-11-02",
       "selectedTime": "09:00 PM",
       "people": 4,
-      "id": 4
+      "id": 4,
+      "userid":2,
+      "tableNo":10
     },
     {
       "date": "2023-10-26",
       "selectedTime": "05:00 PM",
       "people": 1,
-      "id": 5
-    },
-    {
-      "date": "2023-10-26",
-      "selectedTime": "05:00 PM",
-      "people": 1,
-      "id": 6
-    },
-    {
-      "date": "2023-10-26",
-      "selectedTime": "05:00 PM",
-      "people": 1,
-      "id": 7
-    },
-    {
-      "date": "2023-10-26",
-      "selectedTime": "05:00 PM",
-      "people": 1,
-      "id": 8
-    },
-    {
-      "date": "2023-10-26",
-      "selectedTime": "05:00 PM",
-      "people": 1,
-      "id": 9
-    },
-    {
-      "date": "2023-10-26",
-      "selectedTime": "05:00 PM",
-      "people": 1,
-      "id": 10
-    },
-    {
-      "date": "2023-10-26",
-      "selectedTime": "05:00 PM",
-      "people": 1,
-      "id": 11
-    },
-    {
-      "date": "2023-10-26",
-      "selectedTime": "05:00 PM",
-      "people": 1,
-      "id": 12
-    },
-    {
-      "date": "2023-10-26",
-      "selectedTime": "05:00 PM",
-      "people": 1,
-      "id": 13
-    },
-    {
-      "date": "2023-10-18",
-      "selectedTime": "08:00 PM",
-      "people": 1,
-      "id": 14
-    },
-    {
-      "date": "2023-10-18",
-      "selectedTime": "08:00 PM",
-      "people": 1,
-      "id": 15
-    },
-    {
-      "date": "2023-11-11",
-      "selectedTime": "09:00 PM",
-      "people": 2,
-      "id": 16
-    },
-    {
-      "date": "2023-11-08",
-      "selectedTime": "08:00 PM",
-      "people": 2,
-      "id": 17
-    },
-    {
-      "date": "2023-11-10",
-      "selectedTime": "07:00 PM",
-      "people": 2,
-      "id": 18
-    },
-    {
-      "date": "2023-11-02",
-      "selectedTime": "09:00 PM",
-      "people": 2,
-      "id": 19
-    },
-    {
-      "date": "2023-11-02",
-      "selectedTime": "11:00 PM",
-      "people": 3,
-      "id": 20
-    },
-    {
-      "date": "2023-11-02",
-      "selectedTime": "04:00 PM",
-      "people": 1,
-      "id": 21
-    },
-    {
-      "date": "2023-11-03",
-      "selectedTime": "10:00 PM",
-      "people": 1,
-      "id": 22
-    },
-    {
-      "date": "2023-11-03",
-      "selectedTime": "09:00 PM",
-      "people": 5,
-      "id": 23
+      "id": 5,
+      "userid":1,
+      "tableNo":3
     }
   ],
-  "confirmed_reservation": [
+  "users": [
     {
-      "id": "1"
+      "username": "username",
+      "name": "Induwara Pathirana",
+      "address": "address",
+      "phone": "0703417747",
+      "email": "induwara1203@gmail.com",
+      "authentication": {
+        "password": "$2a$10$rcVlrHKS2.dkd1b8owkqnOoiOSJhYvAsgRhxIrPbFkF2COlO0JN1C"
+      },
+      "id": 1
+    },
+    {
+      "username": "username",
+      "name": "Akila Dharmadasa",
+      "address": "address",
+      "phone": "0703237757",
+      "email": "akila23@gmail.com",
+      "authentication": {
+        "password": "$2a$10$rcVlrHKS2.dkd1b8owkqnOoiOSJhYvAsgRhxIrPbFkF2COlO0JN1C"
+      },
+      "id": 2
+    },
+    {
+      "username": "username",
+      "name": "Damn Fool",
+      "address": "address",
+      "phone": "0723437757",
+      "email": "damn893@gmail.com",
+      "authentication": {
+        "password": "$2a$10$rcVlrHKS2.dkd1b8owkqnOoiOSJhYvAsgRhxIrPbFkF2COlO0JN1C"
+      },
+      "id": 3
+    },
+    {
+      "username": "username",
+      "name": "Kirch looker",
+      "address": "address",
+      "phone": "0913237757",
+      "email": "klooker@gmail.com",
+      "authentication": {
+        "password": "$2a$10$rcVlrHKS2.dkd1b8owkqnOoiOSJhYvAsgRhxIrPbFkF2COlO0JN1C"
+      },
+      "id": 4
     }
   ]
 }
