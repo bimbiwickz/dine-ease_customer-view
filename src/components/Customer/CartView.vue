@@ -57,7 +57,7 @@ export default {
     },
     fetchData() {
       axios
-        .get('http://localhost:3000/menu')
+        .get('http://localhost:3000/itemCount')
         .then(response => {
           this.foods = response.data;
         })

@@ -209,28 +209,22 @@
   ],
   "itemCount": [
     {
-      "count": 2,
-      "id": 1
-    },
-    {
-      "count": 3,
-      "id": 2
-    },
-    {
+      "userId": "785462a5-cb97-4da3-8bcb-eb0625080b2b",
       "count": 1,
-      "id": 3
+      "title": "Pizza",
+      "type": "Margherita",
+      "price": 1000,
+      "image": "../src/assets/images/jason-leung-poI7DelFiVA-unsplash (1).jpg",
+      "id": 7
     },
     {
+      "userId": "785462a5-cb97-4da3-8bcb-eb0625080b2b",
       "count": 1,
-      "id": 4
-    },
-    {
-      "count": 1,
-      "id": 5
-    },
-    {
-      "count": 1,
-      "id": 6
+      "title": "Pizza",
+      "type": "Margherita",
+      "price": 1000,
+      "image": "../src/assets/images/jason-leung-poI7DelFiVA-unsplash (1).jpg",
+      "id": 8
     }
   ],
   "users": [
