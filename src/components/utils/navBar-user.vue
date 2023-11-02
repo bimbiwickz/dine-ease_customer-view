@@ -2,7 +2,7 @@
     <nav class="fixed top-0 bg-white border-gray-200 z-50 w-full">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/home" class="flex items-center">
-          <img src="../../assets/Group 39556.png" class="h-8 mr-3" alt="Flowbite Logo" />
+          <img src="../../assets/Group 39556.png" class="h-8 mr-3" alt="DineEase Logo" />
           <!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">DineEase</span> -->
         </a>
         <div class="flex items-center md:order-2">
@@ -19,25 +19,19 @@
           <!-- Dropdown menu -->
           <div
             v-show="isDropdownOpen"
-            class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
+            class="absolute top-full right-10 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg"
             id="user-dropdown"
           >
             <div class="px-4 py-3">
-              <span class="block text-sm text-gray-900">Bonnie Green</span>
-              <span class="block text-sm text-gray-500 truncate">name@flowbite.com</span>
+              <span class="block text-sm text-gray-900">{{ user.name }}</span>
+              <span class="block text-sm text-gray-500 truncate">{{ user.email }}</span>
             </div>
             <ul class="py-2" aria-labelledby="user-menu-button">
               <li>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
+                <a href="/user-profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
               </li>
               <li>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Earnings</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                <button @click="signOut" class="bg-red hover:bg-warning text-white py-2 px-4 mx-4 rounded transition duration-300 ease-in-out">Sign Out</button>              
               </li>
             </ul>
           </div>
@@ -79,19 +73,76 @@
   </template>
   
   <script lang="ts">
-  export default {
-    data() {
-      return {
-        isDropdownOpen: false
+  import { defineComponent, ref, onMounted } from 'vue';
+  import axios from 'axios';
+  import { useRouter } from 'vue-router';
+
+  export default defineComponent({
+    setup() {
+      const user = ref({
+        name: '',
+        email: ''
+      });
+      const signOut = () => {
+        localStorage.removeItem('token'); // Adjust this based on your authentication setup
+
+        const router = useRouter();
+        window.location.reload();
+        this.$router.push('/');
       };
-    },
-    methods: {
-      toggleDropdown() {
-        this.isDropdownOpen = !this.isDropdownOpen;
-      },
-      toggleMobileMenu() {
+      const isDropdownOpen = ref(false);
+
+      const toggleDropdown = () => {
+        isDropdownOpen.value = !isDropdownOpen.value;
+      };
+
+      const toggleMobileMenu = () => {
         // Implement your logic to toggle the mobile menu
-      }
+      };
+      
+      onMounted(() => {
+        fetchUsers();
+      });
+
+      const fetchUsers = () => {
+        const accessToken = localStorage.getItem('token'); // Retrieve the access token from localStorage or any other storage mechanism you are using
+
+        if (!accessToken) {
+          console.error('Access token is missing.');
+          return;
+        }
+
+        axios.get('https://dineaase.azurewebsites.net/api/user', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        })
+        .then(response => {
+          const userIdToFind = accessToken; // Replace 'YOUR_DESIRED_USER_ID' with the specific user ID you want to select
+          const usersData = response.data; // Assuming response.data is an array of user objects
+
+          const selectedUser = usersData.find(user => user.id === userIdToFind);
+
+          if (selectedUser && selectedUser.name && selectedUser.email) {
+            user.value.name = selectedUser.name;
+            user.value.email = selectedUser.email;
+          } else {
+            console.error('Invalid user data:', selectedUser);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching user:', error);
+        });
+      };
+
+      return {
+        user,
+        isDropdownOpen,
+        toggleDropdown,
+        toggleMobileMenu,
+        signOut
+      };
     }
-  };
-  </script>
+  });
+</script>
+  

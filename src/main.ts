@@ -30,7 +30,7 @@ import baseActionBtn from './components/utils/baseActionBtn.vue'
 const routes = [
     {
         path: '/',
-        component: Home,
+        component: UserHome,
         //meta: { requiresAuth: true },
     },
     {
