@@ -92,6 +92,7 @@ export default {
             :type="food.name"
             :price="food.price"
             :image="food.image"
+            :count="food.count"
           ></CartCard>
         </div>
         <div class="m-4 py-16 px-8 w-1/3">
