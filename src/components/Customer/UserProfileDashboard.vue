@@ -7,7 +7,7 @@
             <div class="bg-white shadow-md rounded-lg p-6 flex items-center gap-y-40">
                 <div class="mr-4">
                     <div class="flex flex-row gap-x-80 justify-between">
-                        <div><img class="w-16 h-16 rounded-full object-cover" src="userProfile.profilePicture" alt="userProfile.name"></div>
+                        <div><img class="w-16 h-16 rounded-full object-cover" src="../../assets/profile-photo.jpg" alt="userProfile.name"></div>
                         <div><button class="bg-green text-white px-4 py-2 rounded-md mt-4 shadow-md hover:bg-green-600 transition duration-300 ease-in-out">Recommendations for you</button></div>
                     </div>
                 <div>
@@ -81,9 +81,9 @@
 data(){
     return {
         userProfile:{
-            name: "John Doe",
-            mobile: '0123456789',
-            email: 'john@ex.com',
+            name: "Bimsara Saveen",
+            mobile: '012 3456 789',
+            email: 'bb@gmail.com',
             address: 'No.201, Park Road, Colombo 5.',
 
             profilePicture: 'https://tecdn.b-cdn.net/img/new/avatars/2.jpg',

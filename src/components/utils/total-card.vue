@@ -15,11 +15,7 @@
         <BaseActionBtn 
           initialText="Proceed to Checkout"
           initialClass="bg-green hover:bg-green-600 text-white text-xs font-semibold py-2 px-4 rounded"
-<<<<<<< Updated upstream
-          @click="redirectToCheckout">
-=======
           @click="navigateToCheckout">
->>>>>>> Stashed changes
         </BaseActionBtn>
       </div>
     </div>
@@ -27,17 +23,10 @@
 </template>
 
   
-<<<<<<< Updated upstream
-  <script lang="ts">
-  import BaseActionBtn from './baseActionBtn.vue';
-  import { useRouter } from 'vue-router';
-
-=======
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import BaseActionBtn from './baseActionBtn.vue';
->>>>>>> Stashed changes
 
 export default defineComponent({
   props: {
@@ -70,20 +59,8 @@ export default defineComponent({
       navigateToCheckout
     };
   }
-<<<<<<< Updated upstream
-  };
-  const redirectToCheckout = () => {
-  router.push('/checkoutview');
-};
-  </script>
-  
-  <style>
-  /* Add any custom styles here */
-  </style>
-=======
 });
 </script>
 
->>>>>>> Stashed changes
   
   
