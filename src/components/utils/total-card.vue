@@ -15,7 +15,11 @@
         <BaseActionBtn 
           initialText="Proceed to Checkout"
           initialClass="bg-green hover:bg-green-600 text-white text-xs font-semibold py-2 px-4 rounded"
+<<<<<<< Updated upstream
           @click="redirectToCheckout">
+=======
+          @click="navigateToCheckout">
+>>>>>>> Stashed changes
         </BaseActionBtn>
       </div>
     </div>
@@ -23,38 +27,50 @@
 </template>
 
   
+<<<<<<< Updated upstream
   <script lang="ts">
   import BaseActionBtn from './baseActionBtn.vue';
   import { useRouter } from 'vue-router';
 
+=======
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import BaseActionBtn from './baseActionBtn.vue';
+>>>>>>> Stashed changes
 
-  export default {
-    props: {
-      totalPrice: {
-        type: Number,
-        required: true,
-      },
-      totalItems: {
-        type: Number,
-        required: true,
-      },
+export default defineComponent({
+  props: {
+    totalPrice: {
+      type: Number,
+      required: true,
     },
-    methods: {
-    onSubmit() {
-      // Add your onSubmit logic here
-    },
-    cancel() {
-      // Add your cancel logic here
+    totalItems: {
+      type: Number,
+      required: true,
     },
   },
-  components:{
+  components: {
     BaseActionBtn
   },
-  data() {
+  setup() {
+    const isClicked = ref(false);
+    const router = useRouter();
+
+    const navigateToCheckout = () => {
+      // Define the route path you want to navigate to
+      const checkoutRoute = '/customer/checkoutview';
+      
+      // Programmatically navigate to the specified route
+      router.push(checkoutRoute);
+    };
+
     return {
-      isClicked: false
-    }
+      isClicked,
+      navigateToCheckout
+    };
   }
+<<<<<<< Updated upstream
   };
   const redirectToCheckout = () => {
   router.push('/checkoutview');
@@ -64,5 +80,10 @@
   <style>
   /* Add any custom styles here */
   </style>
+=======
+});
+</script>
+
+>>>>>>> Stashed changes
   
   

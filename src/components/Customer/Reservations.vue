@@ -1,6 +1,6 @@
 <template>
   <div>
-    <StaticNavBar />
+    <NavBar />
 
     <div class="bg-lgreen">
       <div class="page-content py-10 my-20 flex flex-col items-center">
@@ -94,12 +94,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import StaticNavBar from '../StaticNavBar.vue'; 
+import NavBar from '../utils/navBar-user.vue';
 import ReservationForm from './ReservationForm.vue'; 
 
 export default defineComponent({
   components: {
-    StaticNavBar,
+    NavBar,
     ReservationForm,
   },
   data() {
